@@ -1,6 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "description": ".eldat schema",
+    "$id": "https://raw.githubusercontent.com/kwf-ev/eldat-schema/1.0.2/schema.json",
+    "description": ".eldat data standard for communication between the partners in the wood supply chain.",
     "type": "object",
     "definitions": {
         "document": {
