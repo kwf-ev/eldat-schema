@@ -3664,8 +3664,5 @@
     },
     "required": [
         "document"
-    ],
-    "ok": true,
-    "warnings": [],
-    "href": "http://api.eldatstandard.de/schema/1.0.2.json"
+    ]
 }
