@@ -1,0 +1,2906 @@
+[
+    {
+        "id": "ref_aggregation_level",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Aggregationsstufe"
+                }
+            },
+            "values": {
+                "lkw": {
+                    "de": "LKW-Fuhre"
+                },
+                "bahn": {
+                    "de": "Bahn-Waggon"
+                },
+                "pol": {
+                    "de": "Polter"
+                },
+                "mon": {
+                    "de": "Monat"
+                },
+                "qua": {
+                    "de": "Quartal"
+                },
+                "jah": {
+                    "de": "Jahr"
+                },
+                "gesv": {
+                    "de": "Gesamtvertrag"
+                },
+                "mesp": {
+                    "de": "Messprotokoll"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_aggregation_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Aggregationstyp"
+                }
+            },
+            "values": {
+                "so": {
+                    "de": "Sorte",
+                    "pos": 0
+                },
+                "vw": {
+                    "de": "Verwendungssorte",
+                    "pos": 1
+                },
+                "ha": {
+                    "de": "Holzart",
+                    "pos": 2
+                },
+                "qu": {
+                    "de": "Qualität",
+                    "pos": 3
+                },
+                "sk": {
+                    "de": "Stärkeklasse",
+                    "pos": 4
+                },
+                "du": {
+                    "de": "Durchmesser",
+                    "pos": 5
+                },
+                "la": {
+                    "de": "Länge",
+                    "pos": 6
+                },
+                "soha": {
+                    "de": "Sorte/Holzart",
+                    "pos": 7
+                },
+                "sohaqu": {
+                    "de": "Sorte/Holzart/Qualität",
+                    "pos": 8
+                },
+                "sohaqusk": {
+                    "de": "Sorte/Holzart/Qualität/Stärkeklasse",
+                    "pos": 9
+                },
+                "sohaquskla": {
+                    "de": "Sorte/Holzart/Qualität/Stärkeklasse/Länge",
+                    "pos": 10
+                },
+                "sohaqudu": {
+                    "de": "Sorte/Holzart/Qualität/Durchmesser",
+                    "pos": 11
+                },
+                "sohaqudula": {
+                    "de": "Sorte/Holzart/Qualität/Durchmesser/Länge",
+                    "pos": 12
+                },
+                "soqu": {
+                    "de": "Sorte/Qualität",
+                    "pos": 13
+                },
+                "soqusk": {
+                    "de": "Sorte/Qualität/Stärkeklasse",
+                    "pos": 14
+                },
+                "soquskla": {
+                    "de": "Sorte/Qualität/Stärkeklasse/Länge",
+                    "pos": 15
+                },
+                "soqudu": {
+                    "de": "Sorte/Qualität/Durchmesser",
+                    "pos": 16
+                },
+                "soqudula": {
+                    "de": "Sorte/Qualität/Durchmesser/Länge",
+                    "pos": 17
+                },
+                "sosk": {
+                    "de": "Sorte/Stärkeklasse",
+                    "pos": 18
+                },
+                "soskla": {
+                    "de": "Sorte/Stärkeklasse/Länge",
+                    "pos": 19
+                },
+                "sodu": {
+                    "de": "Sorte/Durchmesser",
+                    "pos": 20
+                },
+                "sodula": {
+                    "de": "Sorte/Durchmesser/Länge",
+                    "pos": 21
+                },
+                "sovwha": {
+                    "de": "Sorte/Verwendungssorte/Holzart",
+                    "pos": 22
+                },
+                "sovwhaqu": {
+                    "de": "Sorte/Verwendungssorte/Holzart/Qualität",
+                    "pos": 23
+                },
+                "sovwhaqusk": {
+                    "de": "Sorte/Verwendungssorte/Holzart/Qualität/Stärkeklasse"
+                },
+                "sovwqu": {
+                    "de": "Sorte/Verwendungssorte/Qualität",
+                    "pos": 25
+                },
+                "sovwqusk": {
+                    "de": "Sorte/Verwendungssorte/Qualität/Stärkeklasse",
+                    "pos": 26
+                },
+                "sovwsk": {
+                    "de": "Sorte/Verwendungssorte/Stärkeklasse",
+                    "pos": 27
+                },
+                "vwha": {
+                    "de": "Verwendungssorte/Holzart",
+                    "pos": 28
+                },
+                "vwhaqu": {
+                    "de": "Verwendungssorte/Holzart/Qualität",
+                    "pos": 29
+                },
+                "vwhaqusk": {
+                    "de": "Verwendungssorte/Holzart/Qualität/Stärkeklasse",
+                    "pos": 30
+                },
+                "vwhaquskla": {
+                    "de": "Verwendungssorte/Holzart/Qualität/Stärkeklasse/Länge",
+                    "pos": 31
+                },
+                "vwhaqudu": {
+                    "de": "Verwendungssorte/Holzart/Qualität/Durchmesser",
+                    "pos": 32
+                },
+                "vwhaqudula": {
+                    "de": "Verwendungssorte/Holzart/Qualität/Durchmesser/Länge",
+                    "pos": 33
+                },
+                "vwsk": {
+                    "de": "Verwendungssorte/Stärkeklasse",
+                    "pos": 39
+                },
+                "haqu": {
+                    "de": "Holzart/Qualität",
+                    "pos": 40
+                },
+                "haqula": {
+                    "de": "Holzart/Qualität/Länge",
+                    "pos": 41
+                },
+                "haqusk": {
+                    "de": "Holzart/Qualität/Stärkeklasse",
+                    "pos": 42
+                },
+                "haquskla": {
+                    "de": "Holzart/Qualität/Stärkeklasse/Länge",
+                    "pos": 43
+                },
+                "haqudu": {
+                    "de": "Holzart/Qualität/Durchmesser",
+                    "pos": 44
+                },
+                "haqudula": {
+                    "de": "Holzart/Qualität/Durchmesser/Länge",
+                    "pos": 45
+                },
+                "hasovwqula": {
+                    "de": "Holzart/Sorte/Verwendungssorte/Qualität/Länge",
+                    "pos": 46
+                },
+                "hasovwqulask": {
+                    "de": "Holzart/Sorte/Verwendungssorte/Qualität/Länge/Stärkeklasse",
+                    "pos": 47
+                },
+                "qusk": {
+                    "de": "Qualität/Stärkeklasse",
+                    "pos": 48
+                },
+                "pol": {
+                    "de": "Polter",
+                    "pos": 49
+                },
+                "los": {
+                    "de": "Los",
+                    "pos": 50
+                },
+                "ein": {
+                    "de": "Einzelstamm",
+                    "pos": 51
+                },
+                "vwqu": {
+                    "de": "Verwendungssorte/Qualität",
+                    "pos": 34
+                },
+                "vwhask": {
+                    "de": "Verwendungssorte/Holzart/Stärkeklasse",
+                    "pos": 35
+                },
+                "vwhaskla": {
+                    "de": "Verwendungssorte/Holzart/Stärkeklasse/Länge",
+                    "pos": 36
+                },
+                "vwhadu": {
+                    "de": "Verwendungssorte/Holzart/Durchmesser",
+                    "pos": 37
+                },
+                "vwhadula": {
+                    "de": "Verwendungssorte/Holzart/Durchmesser/Länge",
+                    "pos": 38
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_article_class",
+        "value": {
+            
+            "language": {
+                "de": {
+                    "name": "Artikelgruppe"
+                }
+            },
+            "values": {
+                "dei": {
+                    "de": "Dienstleistung Einschlag"
+                },
+                "den": {
+                    "de": "Dienstleistung Entrindung"
+                },
+                "dlo": {
+                    "de": "Dienstleistung Logistik"
+                },
+                "dru": {
+                    "de": "Dienstleistung Rücken"
+                },
+                "dso": {
+                    "de": "Dienstleistung sonstige"
+                },
+                "dsp": {
+                    "de": "Dienstleistung Spritzen"
+                },
+                "dve": {
+                    "de": "Dienstleistung Vermessung"
+                },
+                "hol": {
+                    "de": "Holz"
+                },
+                "pro": {
+                    "de": "Provision"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_bark_condition",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Rindenzustand"
+                }
+            },
+            "values": {
+                "edr": {
+                    "de": "entrindet durch Dritte"
+                },
+                "ent": {
+                    "de": "entrindet"
+                },
+                "gst": {
+                    "de": "gestreift"
+                },
+                "hae": {
+                    "de": "handentrindet"
+                },
+                "mae": {
+                    "de": "maschinenentrindet"
+                },
+                "ten": {
+                    "de": "teilentrindet"
+                },
+                "ube": {
+                    "de": "unbekannt"
+                },
+                "uen": {
+                    "de": "unentrindet"
+                },
+                "umi": {
+                    "de": "unentrindet mit Mittenring"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_business_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Betriebsart"
+                }
+            },
+            "values": {
+                "bw": {
+                    "de": "Staatswald (Bund)"
+                },
+                "lw": {
+                    "de": "Staatswald (Land)"
+                },
+                "kw": {
+                    "de": "Körperschaftswald"
+                },
+                "kwgw": {
+                    "de": "Gemeindewald"
+                },
+                "kwki": {
+                    "de": "Körperschaftswald (Kirchenwald)"
+                },
+                "kwge": {
+                    "de": "Körperschaftswald (Gemeinschaften)"
+                },
+                "kwgs": {
+                    "de": "Körperschaftswald (Genossenschaftswald)"
+                },
+                "pw": {
+                    "de": "Privatwald"
+                },
+                "pwki": {
+                    "de": "Privatwald (Kirchenwald)"
+                },
+                "pwge": {
+                    "de": "Privatwald (Gemeinschaften)"
+                },
+                "th": {
+                    "de": "Wald in der Verwaltung der Treuhandanstalt"
+                },
+                "ha": {
+                    "de": "Handel"
+                },
+                "sond": {
+                    "de": "Sondervermögen"
+                },
+                "pwsg": {
+                    "de": "Privatwald (sonstige, groß)"
+                },
+                "pwsm": {
+                    "de": "Privatwald (sonstige, mittel)"
+                },
+                "pwsk": {
+                    "de": "Privatwald (sonstige, klein)"
+                },
+                "swso": {
+                    "de": "Staatswald (sonstige)"
+                },
+                "kwso": {
+                    "de": "Körperschaftswald (sonstige)"
+                },
+                "pwso": {
+                    "de": "Privatwald (sonstige)"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_cert_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Zertifizierung"
+                }
+            },
+            "values": {
+                "xy": {
+                    "de": "Keine",
+                    "pos": 0
+                },
+                "pefc": {
+                    "de": "PEFC FM Zertifikat",
+                    "pos": 1
+                },
+                "fsc1": {
+                    "de": "FSC COC Zertifikat",
+                    "pos": 5
+                },
+                "natl": {
+                    "de": "Naturland",
+                    "pos": 6
+                },
+                "iso0": {
+                    "de": "DIN ISO 9000",
+                    "pos": 7
+                },
+                "iso1": {
+                    "de": "DIN ISO 9001",
+                    "pos": 8
+                },
+                "iso2": {
+                    "de": "DIN ISO 9002",
+                    "pos": 9
+                },
+                "iso3": {
+                    "de": "DIN ISO 9003",
+                    "pos": 10
+                },
+                "iso4": {
+                    "de": "DIN ISO 14000",
+                    "pos": 11
+                },
+                "oeko": {
+                    "de": "Öko Audit",
+                    "pos": 12
+                },
+                "qlab": {
+                    "de": "Q-Label",
+                    "pos": 13
+                },
+                "ralg": {
+                    "de": "RAL Gütegemeinschaft",
+                    "pos": 14
+                },
+                "fscf": {
+                    "de": "FSC FM Zertifikat",
+                    "pos": 4
+                },
+                "peco": {
+                    "de": "PEFC COC Zertifikat",
+                    "pos": 3
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_currency",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Währung"
+                }
+            },
+            "values": {
+                "EUR": {
+                    "de": "Euro"
+                },
+                "USD": {
+                    "de": "US Dollar"
+                },
+                "BGN": {
+                    "de": "Lew"
+                },
+                "BYN": {
+                    "de": "Rubel"
+                },
+                "CAD": {
+                    "de": "Kanadische Dollar"
+                },
+                "CHF": {
+                    "de": "Franken"
+                },
+                "CZK": {
+                    "de": "Tschechische Krone"
+                },
+                "DKK": {
+                    "de": "Dänische Krone"
+                },
+                "GBP": {
+                    "de": "Pfund"
+                },
+                "GEL": {
+                    "de": "Lari"
+                },
+                "HRK": {
+                    "de": "Kuna"
+                },
+                "HUF": {
+                    "de": "Forint"
+                },
+                "NOK": {
+                    "de": "Norwegische Krone"
+                },
+                "PLN": {
+                    "de": "Zloty"
+                },
+                "RON": {
+                    "de": "Leu"
+                },
+                "RSD": {
+                    "de": "Dinar"
+                },
+                "SEK": {
+                    "de": "Schwedische Krone"
+                },
+                "UAH": {
+                    "de": "Hrywnja"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_damage",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Holzschaden"
+                }
+            },
+            "values": {
+                "ab": {
+                    "de": "abiotische Schäden"
+                },
+                "bk": {
+                    "de": "Borkenkäferbefall"
+                },
+                "bl": {
+                    "de": "Bläue"
+                },
+                "bo": {
+                    "de": "Bockkäferbefall"
+                },
+                "fs": {
+                    "de": "Schälschaden durch Wild"
+                },
+                "hw": {
+                    "de": "Holzwespenbefall"
+                },
+                "hz": {
+                    "de": "Harznutzung"
+                },
+                "in": {
+                    "de": "Schaden durch Insekten"
+                },
+                "li": {
+                    "de": "Lineatusbefall"
+                },
+                "nk": {
+                    "de": "Nasskern"
+                },
+                "nw": {
+                    "de": "Neuartige Waldschäden"
+                },
+                "os": {
+                    "de": "ohne Schaden"
+                },
+                "pi": {
+                    "de": "Pilzbefall"
+                },
+                "rf": {
+                    "de": "Rotfäule"
+                },
+                "ri": {
+                    "de": "Ringschäle"
+                },
+                "rk": {
+                    "de": "Rotkern"
+                },
+                "rk1": {
+                    "de": "Rotkern <12cm"
+                },
+                "rk2": {
+                    "de": "Rotkern <1/3"
+                },
+                "rk3": {
+                    "de": "Rotkern <1/2"
+                },
+                "rk4": {
+                    "de": "Rotkern >1/2"
+                },
+                "rs": {
+                    "de": "Rotstreife"
+                },
+                "sb": {
+                    "de": "Schnee-, Eis- und Duftbruch"
+                },
+                "sf": {
+                    "de": "Schleimfluss"
+                },
+                "sk": {
+                    "de": "Spritzkern"
+                },
+                "so": {
+                    "de": "Sonstige Schäden"
+                },
+                "sp": {
+                    "de": "Splitter"
+                },
+                "s1": {
+                    "de": "leichte Besplitterung"
+                },
+                "s2": {
+                    "de": "mäßige Besplitterung"
+                },
+                "s3": {
+                    "de": "starke Besplitterung"
+                },
+                "sv": {
+                    "de": "Splitterverdacht"
+                },
+                "ss": {
+                    "de": "Sturmschäden"
+                },
+                "tk": {
+                    "de": "Trocknis"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_delivery_term",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Lieferbedingungen"
+                }
+            },
+            "values": {
+                "uws": {
+                    "de": "Unfrei Waldstraße",
+                    "pos": 5
+                },
+                "uwe": {
+                    "de": "Unfrei Werk",
+                    "pos": 9
+                },
+                "uzw": {
+                    "de": "Unfrei Zwischenlager",
+                    "pos": 8
+                },
+                "uwa": {
+                    "de": "Unfrei Waggon",
+                    "pos": 6
+                },
+                "usc": {
+                    "de": "Unfrei Schiff",
+                    "pos": 7
+                },
+                "exw": {
+                    "de": "Frei Stock / Ab Werk (incoterm)",
+                    "pos": 0
+                },
+                "fca": {
+                    "de": "Frei Waldstraße / Frei Frachtführer (incoterm)",
+                    "pos": 1
+                },
+                "fob": {
+                    "de": "Frei Schiff/Waggon / Frei an Bord (incoterm)",
+                    "pos": 2
+                },
+                "dat": {
+                    "de": "Frei Zwischenlager / Geliefert frei Terminal (incoterm)",
+                    "pos": 3
+                },
+                "ddp": {
+                    "de": "Frei Werk / Geliefert verzollt (incoterm)",
+                    "pos": 4
+                },
+                "cpt": {
+                    "de": "Frachtfrei bis (incoterm)"
+                },
+                "cip": {
+                    "de": "Frachtfrei versichert bis (incoterm)"
+                },
+                "dap": {
+                    "de": "Geliefert benannter Ort (incoterm)"
+                },
+                "fas": {
+                    "de": "Frei längsseits Schiff (incoterm)"
+                },
+                "cfr": {
+                    "de": "Kosten und Fracht (incoterm)"
+                },
+                "cif": {
+                    "de": "Frachtfrei (incoterm)"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_determination_base",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Bemessungsgrundlage"
+                }
+            },
+            "values": {
+                "cbm": {
+                    "de": "Kubikmeter"
+                },
+                "lfm": {
+                    "de": "Laufmeter"
+                },
+                "stk": {
+                    "de": "Stück"
+                },
+                "srm": {
+                    "de": "Schüttraummeter"
+                },
+                "cft": {
+                    "de": "Kubikfuß"
+                },
+                "lut": {
+                    "de": "Tonne lutro"
+                },
+                "atr": {
+                    "de": "Tonne atro"
+                },
+                "rmm": {
+                    "de": "Raummeter"
+                },
+                "fmo": {
+                    "de": "Festmeter"
+                },
+                "std": {
+                    "de": "Stunde"
+                },
+                "min": {
+                    "de": "Minute"
+                },
+                "klm": {
+                    "de": "Kilometer"
+                },
+                "met": {
+                    "de": "Meter"
+                },
+                "trz": {
+                    "de": "Transportzone"
+                },
+                "pol": {
+                    "de": "Polter"
+                },
+                "ein": {
+                    "de": "Einzelstamm"
+                },
+                "fah": {
+                    "de": "Fahrt"
+                },
+                "son": {
+                    "de": "Sonstige"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_dia_measurement",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Durchmesserermittlung"
+                }
+            },
+            "values": {
+                "mara": {
+                    "de": "Manueller Rindenabzug"
+                },
+                "aura": {
+                    "de": "Automatischer Rindenabzug"
+                },
+                "ohra": {
+                    "de": "Ohne Rindenabzug"
+                },
+                "ratv": {
+                    "de": "Rindenabzugstabelle vor dem Rücken gemessen"
+                },
+                "ratn": {
+                    "de": "Rindenabzugstabelle nach dem Rücken gemessen"
+                },
+                "umit": {
+                    "de": "Unentrindet mit Mittenring"
+                },
+                "inri": {
+                    "de": "Gemessen in Rinde"
+                },
+                "ohri": {
+                    "de": "Gemessen ohne Rinde"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_disc_sur_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Rabatt oder Zuschlag"
+                }
+            },
+            "values": {
+                "dis": {
+                    "de": "Rabatt"
+                },
+                "sur": {
+                    "de": "Zuschlag"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_doc_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Dokumentfunktion"
+                }
+            },
+            "values": {
+                "abf": {
+                    "de": "Abfuhrfreigabe"
+                },
+                "ang": {
+                    "de": "Angebot"
+                },
+                "hba": {
+                    "de": "Holzbereitstellungsanzeige"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_grade",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Sorte"
+                }
+            },
+            "values": {
+                "xy": {
+                    "de": "Keine",
+                    "pos": 0
+                },
+                "st": {
+                    "de": "Stammholz lang",
+                    "pos": 1
+                },
+                "fl": {
+                    "de": "Stammholz Abschnitte",
+                    "pos": 2
+                },
+                "il": {
+                    "de": "Industrieholz lang",
+                    "pos": 3
+                },
+                "bl": {
+                    "de": "Energieholz lang",
+                    "pos": 5
+                },
+                "bs": {
+                    "de": "Energieholz kurz",
+                    "pos": 6
+                },
+                "is": {
+                    "de": "Industrieholz kurz",
+                    "pos": 4
+                },
+                "hs": {
+                    "de": "Hackschnitzel",
+                    "pos": 7
+                },
+                "a_wh": {
+                    "de": "Wertholz (ÖNORM L 2021)",
+                    "pos": 8
+                },
+                "a_bl": {
+                    "de": "Blochholz (ÖNORM L 2021)",
+                    "pos": 9
+                },
+                "a_db": {
+                    "de": "Doppelbloch (ÖNORM L 2021)",
+                    "pos": 10
+                },
+                "a_lh": {
+                    "de": "Langholz (ÖNORM L 2021)",
+                    "pos": 11
+                },
+                "a_sb": {
+                    "de": "Schwachbloch (ÖNORM L 2021)",
+                    "pos": 12
+                },
+                "a_hb": {
+                    "de": "Hoblerbloch (ÖNORM L 2021)",
+                    "pos": 13
+                },
+                "a_kb": {
+                    "de": "Kurzbloch (ÖNORM L 2021)",
+                    "pos": 14
+                },
+                "a_zb": {
+                    "de": "Zerspanerbloch (ÖNORM L 2021)",
+                    "pos": 15
+                },
+                "ch_r": {
+                    "de": "Rundholz",
+                    "pos": 16
+                },
+                "ch_e": {
+                    "de": "Energieholz",
+                    "pos": 17
+                },
+                "ch_i": {
+                    "de": "Industrieholz",
+                    "pos": 18
+                }
+            }
+        }
+    },
+    {
+        "id": "refid_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Holznummerntyp"
+                }
+            },
+            "values": {
+                "arb": {
+                    "de": "Arbeitsauftragsnummer",
+                    "pos": 0
+                },
+                "art": {
+                    "de": "Artikelnummer",
+                    "pos": 1
+                },
+                "hab": {
+                    "de": "HAB-Nummer",
+                    "pos": 2
+                },
+                "hal": {
+                    "de": "HAB- und Los-Nummer",
+                    "pos": 3
+                },
+                "los": {
+                    "de": "Los-Nummer",
+                    "pos": 4
+                },
+                "pol": {
+                    "de": "Polternummer",
+                    "pos": 5
+                },
+                "poa": {
+                    "de": "Polter-Auftragsnummer",
+                    "pos": 6
+                },
+                "pog": {
+                    "de": "Polter-GUID",
+                    "pos": 7
+                },
+                "sta": {
+                    "de": "Stammnummer",
+                    "pos": 8
+                },
+                "vlo": {
+                    "de": "Verkaufslos-Nummer",
+                    "pos": 9
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_invoice_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Rechnungstyp"
+                }
+            },
+            "values": {
+                "abs": {
+                    "de": "Abschlagsrechnung"
+                },
+                "end": {
+                    "de": "Endabrechnung"
+                },
+                "gut": {
+                    "de": "Gutschrift"
+                },
+                "tei": {
+                    "de": "Teilrechnung"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_length_class",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Längenklasse"
+                }
+            },
+            "values": {
+                "l1": {
+                    "de": "Nadelholz L1 (4-6m)",
+                    "pos": 9
+                },
+                "l2": {
+                    "de": "Nadelholz L2 (6,5-14,5m)",
+                    "pos": 10
+                },
+                "l3": {
+                    "de": "Nadelholz L3 (≥15m)",
+                    "pos": 11
+                },
+                "l_lbh": {
+                    "de": "Laubholz L_LBH (≥3m)",
+                    "pos": 12
+                },
+                "lks1": {
+                    "de": "Kleinstangen (13-15m)",
+                    "pos": 13
+                },
+                "lks2": {
+                    "de": "Kleinstangen (9-12m)",
+                    "pos": 14
+                },
+                "lks3": {
+                    "de": "Kleinstangen (6-8m)",
+                    "pos": 15
+                },
+                "lks4": {
+                    "de": "Kleinstangen (5m)",
+                    "pos": 16
+                },
+                "llh_kranlang": {
+                    "de": "Energie-Industrieholz_Länge: Langholz (3-7m Schrittmaß)",
+                    "pos": 17
+                },
+                "lkh1": {
+                    "de": "Energie_Industrieholz_Länge: Kurzholz (1m)",
+                    "pos": 18
+                },
+                "lkh2": {
+                    "de": "Energie-Industrieholz_Länge: Kurzholz (2m)",
+                    "pos": 19
+                },
+                "llh_bahn": {
+                    "de": "Industrieholz_Länge: Langholz (5-6m Bahn)",
+                    "pos": 20
+                },
+                "llh_lastwagen": {
+                    "de": "Industrieholz_Länge: Langholz (3-7m Lastwagen)",
+                    "pos": 21
+                },
+                "bf": {
+                    "de": "Baumfallend",
+                    "pos": 22
+                },
+                "ku": {
+                    "de": "Kranlänge unvermessen (3-7m)",
+                    "pos": 23
+                },
+                "kv": {
+                    "de": "Kranlänge vermessen und abgelängt (3-7m)",
+                    "pos": 24
+                },
+                "sus": {
+                    "de": "Stammholz Abschnitte, < 6 m",
+                    "pos": 0
+                },
+                "slz": {
+                    "de": "Stammholz lang, zufällige Längen",
+                    "pos": 1
+                },
+                "ild": {
+                    "de": "Industrieholz lang, > 3 m",
+                    "pos": 2
+                },
+                "iku": {
+                    "de": "Industrieholz kurz, 1-3 m",
+                    "pos": 3
+                },
+                "eld": {
+                    "de": "Energieholz lang, > 3 m",
+                    "pos": 4
+                },
+                "eku": {
+                    "de": "Energieholz kurz, 1-3 m",
+                    "pos": 5
+                },
+                "sue": {
+                    "de": "Scheitholz, < 1 m",
+                    "pos": 6
+                },
+                "sei": {
+                    "de": "Schichtholz, 1 m",
+                    "pos": 7
+                },
+                "szw": {
+                    "de": "Schichtholz, 2 m",
+                    "pos": 8
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_location_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Stellentyp"
+                }
+            },
+            "values": {
+                "pol": {
+                    "de": "Polter"
+                },
+                "wal": {
+                    "de": "Waldlager"
+                },
+                "bhf": {
+                    "de": "Bahnhof"
+                },
+                "wag": {
+                    "de": "Waggon"
+                },
+                "haf": {
+                    "de": "Hafen"
+                },
+                "sch": {
+                    "de": "Schiff"
+                },
+                "wer": {
+                    "de": "Werk"
+                },
+                "wzw": {
+                    "de": "Werk Zwischenlager"
+                },
+                "wva": {
+                    "de": "Werk Vermessungsanlage"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_measuring_method",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Vermessungsverfahren"
+                }
+            },
+            "values": {
+                "mit": {
+                    "de": "Mittenstärkenvermessung"
+                },
+                "mis": {
+                    "de": "Mittenstärkenstichprobenverfahren"
+                },
+                "arm": {
+                    "de": "Raummaßverfahren allgemein"
+                },
+                "srm": {
+                    "de": "Sektionsraummaßverfahren"
+                },
+                "krm": {
+                    "de": "Konventionelles Raummaßverfahren"
+                },
+                "stf": {
+                    "de": "Stirnflächenverfahren"
+                },
+                "zae": {
+                    "de": "Zählung"
+                },
+                "stz": {
+                    "de": "Schätzung"
+                },
+                "wev": {
+                    "de": "Werkvermessung"
+                },
+                "gwm": {
+                    "de": "Gewichtsmaßermittlung"
+                },
+                "gwa": {
+                    "de": "Gewichtsmaßermittlung atro"
+                },
+                "gwl": {
+                    "de": "Gewichtsmaßermittlung lutro"
+                },
+                "stg": {
+                    "de": "Stangenvermessung"
+                },
+                "zsv": {
+                    "de": "Zopfstärkenvermessung"
+                },
+                "fra": {
+                    "de": "Fremdvermessung"
+                },
+                "lfm": {
+                    "de": "Laufmeter"
+                },
+                "son": {
+                    "de": "Sonstiges"
+                },
+                "hvm": {
+                    "de": "Harvestermaß"
+                },
+                "opv": {
+                    "de": "optische Poltervermessung"
+                },
+                "wam": {
+                    "de": "Waldmaß"
+                },
+                "xy": {
+                    "de": "Keins"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_measuring_technique",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Messtechnik"
+                }
+            },
+            "values": {
+                "klma": {
+                    "de": "Kluppe/Maßband"
+                },
+                "harv": {
+                    "de": "Harvesteraggregat"
+                },
+                "inul": {
+                    "de": "2D Messverfahren (zwei Ebenen Messung Infrarot/Ultraschall)"
+                },
+                "inin": {
+                    "de": "2D Messverfahren (zwei Ebenen Messung Infrarot/Infrarot)"
+                },
+                "drei": {
+                    "de": "3D Messverfahren"
+                },
+                "rokl": {
+                    "de": "3D rotierende Kluppe"
+                },
+                "rome": {
+                    "de": "Röntgen-Messverfahren"
+                },
+                "foha": {
+                    "de": "Foto-optisches Messverfahren (handgeführtes Gerät)"
+                },
+                "foim": {
+                    "de": "Foto-optisches Messverfahren (montiertes/immobiles Gerät)"
+                },
+                "fomo": {
+                    "de": "Foto-optisches Messverfahren (montiertes/mobiles Gerät)"
+                },
+                "tauv": {
+                    "de": "Tauchverfahren"
+                },
+                "stve": {
+                    "de": "Schnelltrocknungsverfahren (atro, Probenwaage)"
+                },
+                "mame": {
+                    "de": "Masseermittlung (lutro, Fahrzeugwaage)"
+                },
+                "elwi": {
+                    "de": "Elektrische Widerstandsmessung"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_payment_procedure",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Zahlungsverfahren"
+                }
+            },
+            "values": {
+                "rev": {
+                    "de": "Rechnungsverfahren"
+                },
+                "lav": {
+                    "de": "Lastschriftverfahren"
+                },
+                "guv": {
+                    "de": "Gutschriftsverfahren"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_price_unit",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Preiseinheit"
+                }
+            },
+            "values": {
+                "bei": {
+                    "de": "Betrag je Einheit"
+                },
+                "bet": {
+                    "de": "Absolutbetrag"
+                },
+                "pro": {
+                    "de": "Prozent"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_pricing_attribute",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Preismerkmal"
+                }
+            },
+            "values": {
+                "lmi": {
+                    "de": "Länge < Minimalwert"
+                },
+                "lma": {
+                    "de": "Länge > Maximalwert"
+                },
+                "dmi": {
+                    "de": "Durchmesser < Minimaldurchmesser"
+                },
+                "dma": {
+                    "de": "Durchmesser > Maximaldurchmesser"
+                },
+                "lbe": {
+                    "de": "Länge < Bestelllänge ≥ Mindestlänge"
+                },
+                "dmd": {
+                    "de": "Durchmesser < Mindestmittendurchmesser"
+                },
+                "sma": {
+                    "de": "Stammfußdurchmesser > Maximaldurchmesser"
+                },
+                "smi": {
+                    "de": "Stammfußdurchmesser < Minimaldurchmesser"
+                },
+                "zmi": {
+                    "de": "Zopfdurchmesser < Mindestzopfdurchmesser"
+                },
+                "zma": {
+                    "de": "Zopfdurchmesser > Maximalzopfdurchmesser"
+                },
+                "ama": {
+                    "de": "Abholzigkeit > zulässige Abholzigkeit"
+                },
+                "kma": {
+                    "de": "Krümmung > zulässige Krümmung"
+                },
+                "nsf": {
+                    "de": "Nicht Sägefähig"
+                },
+                "oma": {
+                    "de": "Ovalität > zulässige Ovalität"
+                },
+                "spl": {
+                    "de": "Splitter"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_quality",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Qualität"
+                }
+            },
+            "values": {
+                "o": {
+                    "de": "Ohne Qualität",
+                    "pos": 0
+                },
+                "in": {
+                    "de": "Normale Qualität",
+                    "pos": 1
+                },
+                "if": {
+                    "de": "Fehlerhafte Qualität",
+                    "pos": 2
+                },
+                "ik": {
+                    "de": "Krank",
+                    "pos": 3
+                },
+                "fk": {
+                    "de": "Qualität fehlerhaft/krank",
+                    "pos": 4
+                },
+                "nf": {
+                    "de": "Qualität normal/fehlerhaft",
+                    "pos": 5
+                },
+                "nfk": {
+                    "de": "Qualität normal/fehlerhaft/krank",
+                    "pos": 6
+                },
+                "b": {
+                    "de": "Qualität B",
+                    "pos": 9
+                },
+                "bk": {
+                    "de": "Qualität B Rotkern",
+                    "pos": 10
+                },
+                "c": {
+                    "de": "Qualität C",
+                    "pos": 11
+                },
+                "d": {
+                    "de": "Qualität D",
+                    "pos": 12
+                },
+                "oa": {
+                    "de": "Ohne Qualitätsausscheidung",
+                    "pos": 13
+                },
+                "bc": {
+                    "de": "B/C Mischqualität",
+                    "pos": 14
+                },
+                "cd": {
+                    "de": "C/D Mischqualität",
+                    "pos": 15
+                },
+                "bcd": {
+                    "de": "B/C/D Mischqualität",
+                    "pos": 16
+                },
+                "a_fu": {
+                    "de": "Furnierholz (ÖNORM L 2021)",
+                    "pos": 17
+                },
+                "a_is": {
+                    "de": "Schleifholz (ÖNORM L 2021)",
+                    "pos": 18
+                },
+                "a_if": {
+                    "de": "Faserholz (ÖNORM L 2021)",
+                    "pos": 19
+                },
+                "a_i2": {
+                    "de": "Sekunda (ÖNORM L 2021)",
+                    "pos": 20
+                },
+                "aid": {
+                    "de": "Industriedünnholz (ÖNORM L 2021)",
+                    "pos": 21
+                },
+                "a_im": {
+                    "de": "Manipulationsholz (ÖNORM L 2021)",
+                    "pos": 22
+                },
+                "a_sp": {
+                    "de": "Splitterholz (ÖNORM L 2021)",
+                    "pos": 23
+                },
+                "a_y": {
+                    "de": "Braunbloche (ÖNORM L 2021)",
+                    "pos": 24
+                },
+                "a_x": {
+                    "de": "C-Kreuz (noch sägefähiger Ausschuss) (ÖNORM L 2021)",
+                    "pos": 25
+                },
+                "a_z": {
+                    "de": "Ausschuss (ÖNORM L 2021)",
+                    "pos": 26
+                },
+                "a_bh": {
+                    "de": "Brennholz (ÖNORM L 2021)",
+                    "pos": 27
+                },
+                "ch_k": {
+                    "de": "Qualität Käferholz",
+                    "pos": 28
+                },
+                "ch_ab": {
+                    "de": "Qualität AB",
+                    "pos": 29
+                },
+                "ch_bc": {
+                    "de": "Qualität BC",
+                    "pos": 30
+                },
+                "ch_cd": {
+                    "de": "Qualität CD",
+                    "pos": 31
+                },
+                "ch_abc": {
+                    "de": "Qualität ABC",
+                    "pos": 32
+                },
+                "ch_r": {
+                    "de": "Qualität Rotholz",
+                    "pos": 33
+                },
+                "ch_1": {
+                    "de": "Qualität 1. Klasse",
+                    "pos": 34
+                },
+                "ch_2": {
+                    "de": "Qualität 2. Klasse",
+                    "pos": 35
+                },
+                "ch_bk": {
+                    "de": "Braunkern",
+                    "pos": 36
+                },
+                "ch_sk": {
+                    "de": "Spritzkern",
+                    "pos": 37
+                },
+                "a": {
+                    "de": "Qualität A",
+                    "pos": 7
+                },
+                "ak": {
+                    "de": "Qualität A Rotkern",
+                    "pos": 8
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_quality_attribute",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Qualitätsmerkmale"
+                }
+            },
+            "values": {
+                "ab": {
+                    "de": "abiotische Schäden"
+                },
+                "bk": {
+                    "de": "Borkenkäferbefall"
+                },
+                "bl": {
+                    "de": "Bläue"
+                },
+                "bo": {
+                    "de": "Bockkäferbefall"
+                },
+                "fs": {
+                    "de": "Schälschaden durch Wild"
+                },
+                "hw": {
+                    "de": "Holzwespenbefall"
+                },
+                "hz": {
+                    "de": "Harznutzung"
+                },
+                "in": {
+                    "de": "Schaden durch Insekten"
+                },
+                "li": {
+                    "de": "Lineatusbefall"
+                },
+                "nk": {
+                    "de": "Nasskern"
+                },
+                "nw": {
+                    "de": "Neuartige Waldschäden"
+                },
+                "os": {
+                    "de": "ohne Schaden"
+                },
+                "pi": {
+                    "de": "Pilzbefall"
+                },
+                "rf": {
+                    "de": "Rotfäule"
+                },
+                "ri": {
+                    "de": "Ringschäle"
+                },
+                "rk": {
+                    "de": "Rotkern"
+                },
+                "rk1": {
+                    "de": "Rotkern <12cm"
+                },
+                "rk2": {
+                    "de": "Rotkern <1/3"
+                },
+                "rk3": {
+                    "de": "Rotkern <1/2"
+                },
+                "rk4": {
+                    "de": "Rotkern >1/2"
+                },
+                "rs": {
+                    "de": "Rotstreife"
+                },
+                "sb": {
+                    "de": "Schnee-, Eis- und Duftbruch"
+                },
+                "sf": {
+                    "de": "Schleimfluss"
+                },
+                "sk": {
+                    "de": "Spritzkern"
+                },
+                "so": {
+                    "de": "Sonstige Schäden"
+                },
+                "sp": {
+                    "de": "Splitter"
+                },
+                "s1": {
+                    "de": "leichte Besplitterung"
+                },
+                "s2": {
+                    "de": "mäßige Besplitterung"
+                },
+                "s3": {
+                    "de": "starke Besplitterung"
+                },
+                "sv": {
+                    "de": "Splitterverdacht"
+                },
+                "ss": {
+                    "de": "Sturmschäden"
+                },
+                "tk": {
+                    "de": "Trocknis"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_ref_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Referenznummerntyp"
+                }
+            },
+            "values": {
+                "afn": {
+                    "de": "Abfuhrfreigabenummer",
+                    "pos": 4
+                },
+                "hin": {
+                    "de": "Hiebsnummer",
+                    "pos": 5
+                },
+                "kas": {
+                    "de": "Kassenzeichen",
+                    "pos": 21
+                },
+                "rha": {
+                    "de": "Referenznummer Holzabnehmer",
+                    "pos": 9
+                },
+                "rli": {
+                    "de": "Referenznummer Lieferant",
+                    "pos": 7
+                },
+                "rsp": {
+                    "de": "Referenznummer Spediteur",
+                    "pos": 12
+                },
+                "vli": {
+                    "de": "Vertragsnummer Lieferant",
+                    "pos": 14
+                },
+                "vta": {
+                    "de": "Vertragsnummer Transportauftraggeber",
+                    "pos": 18
+                },
+                "rta": {
+                    "de": "Referenznummer Transportauftraggeber",
+                    "pos": 11
+                },
+                "vha": {
+                    "de": "Vertragsnummer Holzabnehmer",
+                    "pos": 16
+                },
+                "vsp": {
+                    "de": "Vertragsnummer Spediteur",
+                    "pos": 19
+                },
+                "vzn": {
+                    "de": "Vorzeigungsnummer",
+                    "pos": 20
+                },
+                "rhb": {
+                    "de": "Referenznummer Holzbesitzer",
+                    "pos": 6
+                },
+                "vhb": {
+                    "de": "Vertragsnummer Holzbesitzer",
+                    "pos": 13
+                },
+                "rhh": {
+                    "de": "Referenznummer Holzhändler",
+                    "pos": 8
+                },
+                "vhh": {
+                    "de": "Vertragsnummer Holzhändler",
+                    "pos": 15
+                },
+                "rka": {
+                    "de": "Referenznummer Holzkäufer",
+                    "pos": 10
+                },
+                "vka": {
+                    "de": "Vertragsnummer Holzkäufer",
+                    "pos": 17
+                },
+                "aec": {
+                    "de": "Anliefernummer Entladestelle Container",
+                    "pos": 0
+                },
+                "aew": {
+                    "de": "Anliefernummer Entladestelle Waggon",
+                    "pos": 3
+                },
+                "ael": {
+                    "de": "Anliefernummer Entladestelle Lagerbox",
+                    "pos": 1
+                },
+                "aes": {
+                    "de": "Anliefernummer Entladestelle Sonstige",
+                    "pos": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_role",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Rolle"
+                }
+            },
+            "values": {
+                "abn": {
+                    "de": "Abnehmer",
+                    "pos": 0
+                },
+                "ent": {
+                    "de": "Entladestelle",
+                    "pos": 1
+                },
+                "hol": {
+                    "de": "Holzbesitzer",
+                    "pos": 4
+                },
+                "lad": {
+                    "de": "Ladestelle",
+                    "pos": 5
+                },
+                "lie": {
+                    "de": "Lieferant",
+                    "pos": 6
+                },
+                "spe": {
+                    "de": "Spediteur",
+                    "pos": 7
+                },
+                "tra": {
+                    "de": "Transportauftraggeber",
+                    "pos": 8
+                },
+                "ver": {
+                    "de": "Vermessungsfirma",
+                    "pos": 9
+                },
+                "hoh": {
+                    "de": "Holzhändler",
+                    "pos": 3
+                },
+                "hka": {
+                    "de": "Holzkäufer",
+                    "pos": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_species",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Holzart"
+                }
+            },
+            "values": {
+                "xy": {
+                    "de": "Keine"
+                },
+                "ndh": {
+                    "de": "Nadelholz"
+                },
+                "fi": {
+                    "de": "Fichte"
+                },
+                "gfi": {
+                    "de": "Gemeine Fichte"
+                },
+                "ofi": {
+                    "de": "Omorikafichte"
+                },
+                "sfi": {
+                    "de": "Sitkafichte"
+                },
+                "swfi": {
+                    "de": "Schwarzfichte"
+                },
+                "efi": {
+                    "de": "Engelmannsfichte"
+                },
+                "bfi": {
+                    "de": "Blaufichte, Stechfichte"
+                },
+                "wfi": {
+                    "de": "Weißfichte"
+                },
+                "sofi": {
+                    "de": "Sonstige Fichten"
+                },
+                "kie": {
+                    "de": "Kiefer"
+                },
+                "ki": {
+                    "de": "Gemeine Kiefer"
+                },
+                "bki": {
+                    "de": "Bergkiefer"
+                },
+                "ski": {
+                    "de": "Schwarzkiefer"
+                },
+                "rki": {
+                    "de": "Rumelische Kiefer"
+                },
+                "zki": {
+                    "de": "Zirbelkiefer"
+                },
+                "wki": {
+                    "de": "Weymouthskiefer"
+                },
+                "mki": {
+                    "de": "Murraykiefer"
+                },
+                "gki": {
+                    "de": "Gelbkiefer"
+                },
+                "soki": {
+                    "de": "Sonstige Kiefer"
+                },
+                "ta": {
+                    "de": "Tanne"
+                },
+                "wta": {
+                    "de": "Weißtanne"
+                },
+                "ata": {
+                    "de": "Amerikanische Edeltanne"
+                },
+                "cta": {
+                    "de": "Coloradotanne"
+                },
+                "kta": {
+                    "de": "Küstentanne"
+                },
+                "nita": {
+                    "de": "Nikkotanne"
+                },
+                "nota": {
+                    "de": "Nordmannstanne"
+                },
+                "vta": {
+                    "de": "Veitchtanne"
+                },
+                "sota": {
+                    "de": "Sonstige Tannen"
+                },
+                "dgl": {
+                    "de": "Douglasie"
+                },
+                "la": {
+                    "de": "Lärche"
+                },
+                "ela": {
+                    "de": "Europäische Lärche"
+                },
+                "jla": {
+                    "de": "Japanische Lärche (+Hybrid)"
+                },
+                "sla": {
+                    "de": "Sonstige Lärchen"
+                },
+                "sonb": {
+                    "de": "Sonstige Nadelbäume"
+                },
+                "lb": {
+                    "de": "Lebensbaum"
+                },
+                "ht": {
+                    "de": "Hemlockstanne"
+                },
+                "mam": {
+                    "de": "Mammutbaum"
+                },
+                "eib": {
+                    "de": "Eibe"
+                },
+                "sz": {
+                    "de": "Lawsonszypresse"
+                },
+                "bu": {
+                    "de": "Buche"
+                },
+                "sei": {
+                    "de": "Stieleiche"
+                },
+                "tei": {
+                    "de": "Traubeneiche"
+                },
+                "rei": {
+                    "de": "Roteiche"
+                },
+                "zei": {
+                    "de": "Zerreiche"
+                },
+                "suei": {
+                    "de": "Sumpfeiche"
+                },
+                "ei": {
+                    "de": "Eiche"
+                },
+                "que": {
+                    "de": "sonstige Eichen"
+                },
+                "es": {
+                    "de": "Esche"
+                },
+                "ges": {
+                    "de": "Gemeine Esche"
+                },
+                "wes": {
+                    "de": "Weißesche"
+                },
+                "fra": {
+                    "de": "Sonstige Eschen"
+                },
+                "hbu": {
+                    "de": "Hainbuche (Weißbuche)"
+                },
+                "ah": {
+                    "de": "Ahorn"
+                },
+                "bah": {
+                    "de": "Bergahorn"
+                },
+                "sah": {
+                    "de": "Spitzahorn"
+                },
+                "fah": {
+                    "de": "Feldahorn"
+                },
+                "eah": {
+                    "de": "Eschenblättriger Ahorn"
+                },
+                "siah": {
+                    "de": "Silberahorn"
+                },
+                "ace": {
+                    "de": "Sonstige Ahorne"
+                },
+                "li": {
+                    "de": "Linde"
+                },
+                "wli": {
+                    "de": "Winterlinde"
+                },
+                "sli": {
+                    "de": "Sommerlinde"
+                },
+                "til": {
+                    "de": "Sonstige Linden"
+                },
+                "rob": {
+                    "de": "Robinie"
+                },
+                "akz": {
+                    "de": "Akazie"
+                },
+                "ul": {
+                    "de": "Ulme"
+                },
+                "bul": {
+                    "de": "Bergulme"
+                },
+                "ful": {
+                    "de": "Feldulme"
+                },
+                "flu": {
+                    "de": "Flatterulme"
+                },
+                "ulm": {
+                    "de": "Sonstige Ulmen"
+                },
+                "rka": {
+                    "de": "Rosskastanie"
+                },
+                "eka": {
+                    "de": "Edelkastanie"
+                },
+                "ka": {
+                    "de": "Kastanie"
+                },
+                "mau": {
+                    "de": "Weißer Maulbeerbaum"
+                },
+                "nus": {
+                    "de": "Nussbaum"
+                },
+                "wnu": {
+                    "de": "Walnuss"
+                },
+                "snu": {
+                    "de": "Schwarznuss (+Hybriden)"
+                },
+                "jug": {
+                    "de": "Sonstige Nussbäume"
+                },
+                "ste": {
+                    "de": "Stechpalme"
+                },
+                "pla": {
+                    "de": "Platane"
+                },
+                "apl": {
+                    "de": "Ahornblättrige Platane"
+                },
+                "solh": {
+                    "de": "Sonstige Laubbäume mit hoher Lebensdauer"
+                },
+                "gbi": {
+                    "de": "Gemeine Birke"
+                },
+                "mbi": {
+                    "de": "Moorbirke (+Karpatenbirke)"
+                },
+                "bi": {
+                    "de": "Birke"
+                },
+                "erl": {
+                    "de": "Erle"
+                },
+                "ser": {
+                    "de": "Schwarzerle"
+                },
+                "wer": {
+                    "de": "Weißerle, Grauerle"
+                },
+                "ger": {
+                    "de": "Grünerle"
+                },
+                "aln": {
+                    "de": "Sonstige Erlen"
+                },
+                "pap": {
+                    "de": "Pappel"
+                },
+                "zpa": {
+                    "de": "Aspe, Zitterpappel"
+                },
+                "spa": {
+                    "de": "Europäische Schwarzpappel"
+                },
+                "spah": {
+                    "de": "Schwarzpappel Hypriden"
+                },
+                "gpa": {
+                    "de": "Graupappel (+Hybriden)"
+                },
+                "wpa": {
+                    "de": "Silberpappel, Weißpappel"
+                },
+                "bpa": {
+                    "de": "Balsampappel"
+                },
+                "bpah": {
+                    "de": "Balsampappel Hybriden"
+                },
+                "pop": {
+                    "de": "Sonstige Pappeln"
+                },
+                "sor": {
+                    "de": "Sorbusarten"
+                },
+                "sso": {
+                    "de": "Sonstige Sorbusarten"
+                },
+                "vb": {
+                    "de": "Vogelbeere"
+                },
+                "els": {
+                    "de": "Elsbeere"
+                },
+                "spe": {
+                    "de": "Speierling"
+                },
+                "meb": {
+                    "de": "Echte Mehlbeere"
+                },
+                "wei": {
+                    "de": "Weide"
+                },
+                "swei": {
+                    "de": "Salweide"
+                },
+                "kir": {
+                    "de": "Kirsche"
+                },
+                "gtk": {
+                    "de": "Gewöhnliche Traubenkirsche"
+                },
+                "vk": {
+                    "de": "Vogelkirsche"
+                },
+                "stk": {
+                    "de": "Spätblühende Traubenkirsche"
+                },
+                "pru": {
+                    "de": "Sonstige Kirschen"
+                },
+                "zwe": {
+                    "de": "Zwetschge"
+                },
+                "hic": {
+                    "de": "Hickory"
+                },
+                "soln": {
+                    "de": "Sonstige Laubbäume mit niedriger Lebensdauer"
+                },
+                "fau": {
+                    "de": "Gemeiner Faulbaum, Pulverholz"
+                },
+                "wob": {
+                    "de": "Wildobst (unbestimmt)"
+                },
+                "wap": {
+                    "de": "Holzapfel, Wildapfel"
+                },
+                "wbi": {
+                    "de": "Holzbirne, Wildbirne"
+                },
+                "has": {
+                    "de": "Baumhasel"
+                },
+                "got": {
+                    "de": "Gemeiner Götterbaum"
+                },
+                "slbh": {
+                    "de": "Sonstiges Hartlaubholz"
+                },
+                "lbh": {
+                    "de": "Laubholz"
+                },
+                "slbw": {
+                    "de": "Sonstiges Weichlaubholz"
+                },
+                "str": {
+                    "de": "Strauch (unbestimmt)"
+                },
+                "fita": {
+                    "de": "Mischsortiment Fichte/Tanne"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_state",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Staat"
+                }
+            },
+            "values": {
+                "DE": {
+                    "de": "Deutschland"
+                },
+                "BY": {
+                    "de": "Belarus"
+                },
+                "BE": {
+                    "de": "Belgien"
+                },
+                "BG": {
+                    "de": "Bulgarien"
+                },
+                "DK": {
+                    "de": "Dänemark"
+                },
+                "EE": {
+                    "de": "Estland"
+                },
+                "FI": {
+                    "de": "Finnland"
+                },
+                "FR": {
+                    "de": "Frankreich"
+                },
+                "GE": {
+                    "de": "Georgien"
+                },
+                "GR": {
+                    "de": "Griechenland"
+                },
+                "IE": {
+                    "de": "Irland"
+                },
+                "IS": {
+                    "de": "Island"
+                },
+                "IT": {
+                    "de": "Italien"
+                },
+                "CA": {
+                    "de": "Kanada"
+                },
+                "HR": {
+                    "de": "Kroatien"
+                },
+                "LV": {
+                    "de": "Lettland"
+                },
+                "LI": {
+                    "de": "Liechtenstein"
+                },
+                "LT": {
+                    "de": "Litauen"
+                },
+                "LU": {
+                    "de": "Luxemburg"
+                },
+                "NL": {
+                    "de": "Niederlande"
+                },
+                "NO": {
+                    "de": "Norwegen"
+                },
+                "AT": {
+                    "de": "Österreich"
+                },
+                "PL": {
+                    "de": "Polen"
+                },
+                "PT": {
+                    "de": "Portugal"
+                },
+                "RO": {
+                    "de": "Rumänien"
+                },
+                "RU": {
+                    "de": "Russische Föderation"
+                },
+                "SE": {
+                    "de": "Schweden"
+                },
+                "CH": {
+                    "de": "Schweiz"
+                },
+                "RS": {
+                    "de": "Serbien"
+                },
+                "SK": {
+                    "de": "Slowakei"
+                },
+                "SI": {
+                    "de": "Slowenien"
+                },
+                "ES": {
+                    "de": "Spanien"
+                },
+                "CZ": {
+                    "de": "Tschechien"
+                },
+                "UA": {
+                    "de": "Ukraine"
+                },
+                "HU": {
+                    "de": "Ungarn"
+                },
+                "US": {
+                    "de": "Vereinigte Staaten von Amerika"
+                },
+                "GB": {
+                    "de": "Vereinigtes Königreich Großbritannien und Nordirland"
+                },
+                "CX": {
+                    "de": "Weihnachtsinseln"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_statusid",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Status-ID"
+                }
+            },
+            "values": {
+                "10": {
+                    "de": "Erstellt"
+                },
+                "20": {
+                    "de": "Geändert"
+                },
+                "30": {
+                    "de": "Storniert"
+                },
+                "40": {
+                    "de": "Gesendet"
+                },
+                "50": {
+                    "de": "Angenommen"
+                },
+                "60": {
+                    "de": "Abgelehnt"
+                },
+                "70": {
+                    "de": "Disponiert"
+                },
+                "80": {
+                    "de": "Auftragsbeginn"
+                },
+                "90": {
+                    "de": "Unterbrochen"
+                },
+                "100": {
+                    "de": "Abgebrochen"
+                },
+                "110": {
+                    "de": "Fahre ins Revier"
+                },
+                "120": {
+                    "de": "Lieferschein erstellt"
+                },
+                "130": {
+                    "de": "Verlasse Revier"
+                },
+                "140": {
+                    "de": "Am Lieferort angekommen"
+                },
+                "150": {
+                    "de": "Auftragsende"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_tax_no_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Steuernummerntyp"
+                }
+            },
+            "values": {
+                "ust": {
+                    "de": "Umsatzsteuer-ID"
+                },
+                "stn": {
+                    "de": "Steuernummer"
+                },
+                "xy": {
+                    "de": "Keine"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_tax_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Besteuerung"
+                }
+            },
+            "values": {
+                "reg": {
+                    "de": "Regelbesteuert"
+                },
+                "pau": {
+                    "de": "Pauschalbesteuert"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_thickness_class",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Stärkeklasse"
+                }
+            },
+            "values": {
+                "o": {
+                    "de": "Ohne Stärke",
+                    "pos": 0
+                },
+                "ch_1a": {
+                    "de": "Stärke: 1a (10-14 cm)",
+                    "pos": 38
+                },
+                "ch_1b": {
+                    "de": "Stärke: 1b (15-19 cm), Zopf 14 cm",
+                    "pos": 39
+                },
+                "ch_2a": {
+                    "de": "Stärke: 2a (20-24 cm), Zopf 18 cm",
+                    "pos": 40
+                },
+                "ch_2b": {
+                    "de": "Stärke: 2b (25-29 cm), Zopf 18 cm",
+                    "pos": 41
+                },
+                "ch_3a": {
+                    "de": "Stärke: 3a (30-34 cm), Zopf 18 cm",
+                    "pos": 42
+                },
+                "ch_3b": {
+                    "de": "Stärke: 3b (35-39 cm), Zopf 18 cm",
+                    "pos": 43
+                },
+                "ch_4a": {
+                    "de": "Stärke: 4a (40-44 cm), Zopf 22 cm",
+                    "pos": 44
+                },
+                "ch_4b": {
+                    "de": "Stärke: 4b (45-49 cm), Zopf 22 cm",
+                    "pos": 45
+                },
+                "ch_4": {
+                    "de": "Stärke: 4 (40-49 cm), Zopf 22 cm",
+                    "pos": 46
+                },
+                "ch_5": {
+                    "de": "Stärke: 5 (50-59 cm), Zopf 22 cm",
+                    "pos": 47
+                },
+                "ch_5a": {
+                    "de": "Stärke: 5a (50-54 cm), Zopf 22 cm",
+                    "pos": 48
+                },
+                "ch_5b": {
+                    "de": "Stärke: 5b (55-59 cm), Zopf 22 cm",
+                    "pos": 49
+                },
+                "ch_6": {
+                    "de": "Stärke: 6 (60-69 cm), Zopf 22 cm",
+                    "pos": 50
+                },
+                "ch_6a": {
+                    "de": "Stärke: 6a (60-64 cm), Zopf 22 cm",
+                    "pos": 51
+                },
+                "ch_6b": {
+                    "de": "Stärke: 6b (65-69 cm), Zopf 22 cm",
+                    "pos": 52
+                },
+                "d0": {
+                    "de": "Mittenstärke 0-9 cm",
+                    "pos": 1
+                },
+                "d1": {
+                    "de": "Mittenstärke 10-19 cm",
+                    "pos": 2
+                },
+                "d1a": {
+                    "de": "Mittenstärke 10-14 cm",
+                    "pos": 3
+                },
+                "d1b": {
+                    "de": "Mittenstärke 15-19 cm",
+                    "pos": 4
+                },
+                "d2": {
+                    "de": "Mittenstärke 20-29 cm",
+                    "pos": 5
+                },
+                "d2a": {
+                    "de": "Mittenstärke 20-24 cm",
+                    "pos": 6
+                },
+                "d2b": {
+                    "de": "Mittenstärke 25-29 cm",
+                    "pos": 7
+                },
+                "d3": {
+                    "de": "Mittenstärke 30-39 cm",
+                    "pos": 8
+                },
+                "d3a": {
+                    "de": "Mittenstärke 30-34 cm",
+                    "pos": 9
+                },
+                "d3b": {
+                    "de": "Mittenstärke 35-39 cm",
+                    "pos": 10
+                },
+                "d4": {
+                    "de": "Mittenstärke 40-49 cm",
+                    "pos": 11
+                },
+                "d4a": {
+                    "de": "Mittenstärke 40-44 cm",
+                    "pos": 12
+                },
+                "d4b": {
+                    "de": "Mittenstärke 45-49 cm",
+                    "pos": 13
+                },
+                "d5": {
+                    "de": "Mittenstärke 50-59 cm",
+                    "pos": 14
+                },
+                "d5a": {
+                    "de": "Mittenstärke 50-54 cm",
+                    "pos": 15
+                },
+                "d5b": {
+                    "de": "Mittenstärke 55-59 cm",
+                    "pos": 16
+                },
+                "d6": {
+                    "de": "Mittenstärke 60-69 cm",
+                    "pos": 17
+                },
+                "d6a": {
+                    "de": "Mittenstärke 60-64 cm",
+                    "pos": 18
+                },
+                "d6b": {
+                    "de": "Mittenstärke 65-69 cm",
+                    "pos": 19
+                },
+                "d7": {
+                    "de": "Mittenstärke 70-79 cm",
+                    "pos": 20
+                },
+                "d8": {
+                    "de": "Mittenstärke ≥80 cm",
+                    "pos": 21
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_use",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Verwendungssorte"
+                }
+            },
+            "values": {
+                "xy": {
+                    "de": "Keine"
+                },
+                "f": {
+                    "de": "Furnier"
+                },
+                "tf": {
+                    "de": "Teilfurnier"
+                },
+                "ss": {
+                    "de": "Schälholz"
+                },
+                "sg": {
+                    "de": "Sägeholz"
+                },
+                "wh": {
+                    "de": "Wertholz"
+                },
+                "pz": {
+                    "de": "Profilzerspaner"
+                },
+                "sf": {
+                    "de": "Schleifholz"
+                },
+                "rh": {
+                    "de": "Restholz"
+                },
+                "hs": {
+                    "de": "Hackschnitzel"
+                },
+                "eh": {
+                    "de": "Energieholz"
+                },
+                "ru": {
+                    "de": "Rundholz"
+                },
+                "ih": {
+                    "de": "Industrieholz"
+                },
+                "p": {
+                    "de": "Stangen"
+                },
+                "m": {
+                    "de": "Masten"
+                },
+                "r": {
+                    "de": "Rammpfähle"
+                },
+                "sw": {
+                    "de": "Schwellenholz"
+                },
+                "ov": {
+                    "de": "Ohne Verwendungssorte"
+                },
+                "pa": {
+                    "de": "Palette"
+                },
+                "pk": {
+                    "de": "Parkett"
+                },
+                "st": {
+                    "de": "Starkholz"
+                },
+                "osb": {
+                    "de": "Oriented Strand Board"
+                },
+                "mdf": {
+                    "de": "Mitteldichte Faserplatte"
+                },
+                "cb": {
+                    "de": "Chipboard, Spanholz"
+                },
+                "la": {
+                    "de": "Lamellenholz"
+                },
+                "bl": {
+                    "de": "Blochholz"
+                },
+                "sb": {
+                    "de": "Säge-, Schneide- und Bauholz"
+                },
+                "vp": {
+                    "de": "Verpackungs- und Palettenholz"
+                },
+                "ph": {
+                    "de": "Papier-, Zellstoff- und Holzwerkstoffholz"
+                },
+                "sl": {
+                    "de": "Sägefähiges Industrieholz, lang"
+                },
+                "nl": {
+                    "de": "Nutzindustrieholz, lang"
+                },
+                "gl": {
+                    "de": "Grubenlangholz"
+                },
+                "ns": {
+                    "de": "Nutz- und Grubenschichtholz"
+                },
+                "au": {
+                    "de": "Ausschuss"
+                },
+                "ch_sw": {
+                    "de": "Schwellen"
+                },
+                "ch_kst": {
+                    "de": "Kleinstangen"
+                },
+                "ch_kbu": {
+                    "de": "Kleinbuchen"
+                },
+                "ch_z": {
+                    "de": "Zelluloseholz"
+                },
+                "ch_p": {
+                    "de": "Plattenholz"
+                },
+                "ch_h": {
+                    "de": "Holzwolleholz"
+                },
+                "ch_hs": {
+                    "de": "Lieferform: Hackschnitzel"
+                },
+                "ch_hhap": {
+                    "de": "Lieferform: Hackholz auf Polter"
+                },
+                "ch_hheb": {
+                    "de": "Lieferform: Hackholz Einzelbaum"
+                },
+                "ch_brhl": {
+                    "de": "Lieferform: Brennholz, lang"
+                },
+                "ch_brhk": {
+                    "de": "Lieferform: Brennholz, kurz"
+                },
+                "ch_sp": {
+                    "de": "Lieferform: Spälten"
+                },
+                "ch_ksp": {
+                    "de": "Lieferform: Kleinspälten"
+                },
+                "ch_ru": {
+                    "de": "Lieferform: Rugel"
+                },
+                "ch_lang": {
+                    "de": "Lieferform: Lang"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_volume",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Volumen"
+                }
+            },
+            "values": {
+                "atr": {
+                    "de": "Tonne atro",
+                    "pos": 4
+                },
+                "lut": {
+                    "de": "Tonne lutro",
+                    "pos": 5
+                },
+                "cft": {
+                    "de": "Kubikfuß",
+                    "pos": 6
+                },
+                "srm": {
+                    "de": "Schüttraummeter",
+                    "pos": 7
+                },
+                "stk": {
+                    "de": "Stück",
+                    "pos": 8
+                },
+                "lfm": {
+                    "de": "Laufmeter",
+                    "pos": 9
+                },
+                "cbm": {
+                    "de": "Kubikmeter",
+                    "pos": 10
+                },
+                "fmo": {
+                    "de": "Festmeter ohne Rinde",
+                    "pos": 0
+                },
+                "rmm": {
+                    "de": "Raummeter mit Rinde",
+                    "pos": 1
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_wood_cert_type",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Holzzertifizierungstyp"
+                }
+            },
+            "values": {
+                "xy": {
+                    "de": "Keine"
+                },
+                "pefc": {
+                    "de": "PEFC zertifiziert"
+                },
+                "pecs": {
+                    "de": "PEFC Controlled Sources"
+                },
+                "fsc": {
+                    "de": "FSC 100 % zertifiziert"
+                },
+                "fscm": {
+                    "de": "FSC Mix zertifiziert"
+                },
+                "fscc": {
+                    "de": "FSC Credit zertifiziert"
+                },
+                "fscw": {
+                    "de": "FSC Controlled Wood"
+                },
+                "natl": {
+                    "de": "Naturland"
+                },
+                "iso0": {
+                    "de": "DIN EN ISO 9000"
+                },
+                "iso1": {
+                    "de": "DIN EN ISO 9001"
+                },
+                "iso2": {
+                    "de": "DIN EN ISO 9002"
+                },
+                "iso3": {
+                    "de": "DIN EN ISO 9003"
+                },
+                "iso4": {
+                    "de": "DIN EN ISO 14000"
+                },
+                "oeko": {
+                    "de": "Öko Audit"
+                },
+                "ral": {
+                    "de": "RAL Gütegemeinschaft"
+                },
+                "qlab": {
+                    "de": "Q-Label"
+                }
+            }
+        }
+    },
+    {
+        "id": "ref_wood_depiction",
+        "value": {
+            "language": {
+                "de": {
+                    "name": "Holzdarstellung"
+                }
+            },
+            "values": {
+                "sh": {
+                    "de": "Sägeholz-Modell",
+                    "pos": 2
+                },
+                "wh": {
+                    "de": "Wertholz-Modell",
+                    "pos": 3
+                },
+                "bh": {
+                    "de": "Brennholz-Modell",
+                    "pos": 0
+                },
+                "ih": {
+                    "de": "Industrieholz-Modell",
+                    "pos": 1
+                },
+                "gl": {
+                    "de": "Gesamtlos-Modell",
+                    "pos": 5
+                },
+                "ag": {
+                    "de": "Aggregations-Modell",
+                    "pos": 4
+                }
+            }
+        }
+    }
+]
