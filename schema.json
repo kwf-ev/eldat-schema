@@ -22,7 +22,9 @@
         "meta": {
             "type": "object",
             "required": [
-                "version"
+                "version",
+                "documentId",
+                "processId"
             ],
             "properties": {
                 "version": {
@@ -34,6 +36,35 @@
                         "code": {
                             "type": "string",
                             "pattern": "[0-9]+.[0-9]+.[0-9]+$"
+                        }
+                    }
+                },
+                "documentId": {
+                    "type": "string",
+                    "minLength": 32,
+                    "maxLength": 68
+                },
+                "processId": {
+                    "type": "string",
+                    "minLength": 32,
+                    "maxLength": 68
+                },
+                "status": {
+                    "type": "object",
+                    "required": [
+                        "code"
+                    ],
+                    "properties": {
+                        "code": {
+                            "type": "integer",
+                            "minimum": 100,
+                            "maximum": 990,
+                            "multipleOf" : 10
+                        },
+                        "referenceDocumentId": {
+                            "type": "string",
+                            "minLength": 32,
+                            "maxLength": 68
                         }
                     }
                 }
@@ -1125,6 +1156,9 @@
                     "qual_type": {
                         "$ref": "#/definitions/qual_type"
                     },
+                    "other_qual_type": {
+                        "$ref": "#/definitions/other_qual_type"
+                    },
                     "qual_rat": {
                         "$ref": "#/definitions/qual_rat"
                     }
@@ -1147,7 +1181,6 @@
                 "nf",
                 "nfk",
                 "b",
-                "bmi",
                 "bk",
                 "c",
                 "d",
@@ -1155,15 +1188,6 @@
                 "bc",
                 "cd",
                 "bcd",
-                "bccgw",
-                "cgw",
-                "f",
-                "tf",
-                "atf",
-                "btf",
-                "ctf",
-                "ss",
-                "ts",
                 "a_fu",
                 "a_is",
                 "a_if",
@@ -1185,9 +1209,14 @@
                 "ch_2",
                 "ch_bk",
                 "ch_sk",
-                "a"
+                "a",
+                "ak"
             ],
             "type": "string"
+        },
+        "other_qual_type": {
+            "type": "string",
+            "maxLength": 20
         },
         "qual_rat": {
             "type": "number",
@@ -2858,7 +2887,16 @@
                 "llh_lastwagen",
                 "bf",
                 "ku",
-                "kv"
+                "kv",
+                "sus",
+                "slz",
+                "ild",
+                "iku",
+                "eld",
+                "eku",
+                "sue",
+                "sei",
+                "szw"
             ],
             "type": "string"
         },
