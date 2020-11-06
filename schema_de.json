@@ -1,0 +1,3662 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "https://raw.githubusercontent.com/kwf-ev/eldat-schema/1.0.1/schema_de.json",
+    "title": ".eldat schema 1.0.1",
+    "description": ".eldat data standard for communication between the partners in the wood supply chain.",
+    "type": "object",
+    "definitions": {
+        "document": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+                "meta",
+                "eldat"
+            ],
+            "properties": {
+                "meta": {
+                    "$ref": "#/definitions/meta"
+                },
+                "eldat": {
+                    "$ref": "#/definitions/eldat"
+                }
+            }
+        },
+        "meta": {
+            "type": "object",
+            "required": [
+                "version"
+            ],
+            "properties": {
+                "version": {
+                    "type": "object",
+                    "required": [
+                        "code"
+                    ],
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "pattern": "[0-9]+.[0-9]+.[0-9]+$"
+                        }
+                    }
+                }
+            }
+        },
+        "eldat": {
+            "type": "object",
+            "anyOf": [
+                {
+                    "required": [
+                        "clearing"
+                    ]
+                },
+                {
+                    "required": [
+                        "delivery_note"
+                    ]
+                },
+                {
+                    "required": [
+                        "measurement_journal"
+                    ]
+                },
+                {
+                    "required": [
+                        "transfer_order"
+                    ]
+                },
+                {
+                    "required": [
+                        "wood_allocation"
+                    ]
+                }
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "clearing": {
+                    "$ref": "#/definitions/clearing"
+                },
+                "delivery_note": {
+                    "$ref": "#/definitions/delivery_note"
+                },
+                "measurement_journal": {
+                    "$ref": "#/definitions/measurement_journal"
+                },
+                "transfer_order": {
+                    "$ref": "#/definitions/transfer_order"
+                },
+                "wood_allocation": {
+                    "$ref": "#/definitions/wood_allocation"
+                }
+            }
+        },
+        "clearing": {
+            "type": "object",
+            "required": [
+                "clearing_address",
+                "invoice_header"
+            ],
+            "properties": {
+                "clearing_address": {
+                    "$ref": "#/definitions/clearing_address"
+                },
+                "invoice_header": {
+                    "$ref": "#/definitions/invoice_header"
+                },
+                "status": {
+                    "$ref": "#/definitions/status"
+                }
+            }
+        },
+        "clearing_address": {
+            "type": "object",
+            "properties": {
+                "supplier": {
+                    "$ref": "#/definitions/supplier"
+                },
+                "consumer": {
+                    "$ref": "#/definitions/consumer"
+                }
+            },
+            "required": [
+                "supplier",
+                "consumer"
+            ]
+        },
+        "supplier": {
+            "type": "object",
+            "properties": {
+                "business": {
+                    "$ref": "#/definitions/business"
+                },
+                "contact": {
+                    "$ref": "#/definitions/contact"
+                }
+            },
+            "required": [
+                "business",
+                "contact"
+            ]
+        },
+        "business": {
+            "type": "object",
+            "properties": {
+                "business_data": {
+                    "$ref": "#/definitions/business_data"
+                },
+                "tax": {
+                    "$ref": "#/definitions/tax"
+                }
+            },
+            "required": [
+                "business_data"
+            ]
+        },
+        "business_data": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$ref": "#/definitions/name"
+                },
+                "street": {
+                    "$ref": "#/definitions/street"
+                },
+                "postcode": {
+                    "$ref": "#/definitions/postcode"
+                },
+                "city": {
+                    "$ref": "#/definitions/city"
+                },
+                "state": {
+                    "$ref": "#/definitions/state"
+                },
+                "certification": {
+                    "$ref": "#/definitions/certification"
+                },
+                "forestry": {
+                    "$ref": "#/definitions/forestry"
+                },
+                "bank_data": {
+                    "$ref": "#/definitions/bank_data"
+                },
+                "process": {
+                    "$ref": "#/definitions/process"
+                },
+                "coordinate": {
+                    "$ref": "#/definitions/coordinate"
+                }
+            },
+            "required": [
+                "name",
+                "street",
+                "postcode",
+                "city",
+                "state"
+            ]
+        },
+        "name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "street": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "postcode": {
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z]{3,10}$"
+        },
+        "city": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "state": {
+            "enum": [
+                "DE",
+                "BY",
+                "BE",
+                "BG",
+                "DK",
+                "EE",
+                "FI",
+                "FR",
+                "GE",
+                "GR",
+                "IE",
+                "IS",
+                "IT",
+                "CA",
+                "HR",
+                "LV",
+                "LI",
+                "LT",
+                "LU",
+                "NL",
+                "NO",
+                "AT",
+                "PL",
+                "PT",
+                "RO",
+                "RU",
+                "SE",
+                "CH",
+                "RS",
+                "SK",
+                "SI",
+                "ES",
+                "CZ",
+                "UA",
+                "HU",
+                "US",
+                "GB",
+                "CX"
+            ],
+            "type": "string"
+        },
+        "certification": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "cert_type": {
+                        "$ref": "#/definitions/cert_type"
+                    },
+                    "cert_no": {
+                        "$ref": "#/definitions/cert_no"
+                    }
+                },
+                "required": [
+                    "cert_type",
+                    "cert_no"
+                ]
+            },
+            "properties": {}
+        },
+        "cert_type": {
+            "enum": [
+                "xy",
+                "pefc",
+                "fsc1",
+                "natl",
+                "iso0",
+                "iso1",
+                "iso2",
+                "iso3",
+                "iso4",
+                "oeko",
+                "qlab",
+                "ralg",
+                "fscf",
+                "peco"
+            ],
+            "type": "string"
+        },
+        "cert_no": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "forestry": {
+            "type": "object",
+            "properties": {
+                "business_type": {
+                    "$ref": "#/definitions/business_type"
+                },
+                "office_no": {
+                    "$ref": "#/definitions/office_no"
+                },
+                "office_name": {
+                    "$ref": "#/definitions/office_name"
+                },
+                "district_no": {
+                    "$ref": "#/definitions/district_no"
+                },
+                "district_name": {
+                    "$ref": "#/definitions/district_name"
+                }
+            }
+        },
+        "business_type": {
+            "enum": [
+                "bw",
+                "lw",
+                "kw",
+                "kwgw",
+                "kwki",
+                "kwge",
+                "kwgs",
+                "pw",
+                "pwki",
+                "pwge",
+                "th",
+                "ha",
+                "sond",
+                "pwsg",
+                "pwsm",
+                "pwsk",
+                "swso",
+                "kwso",
+                "pwso"
+            ],
+            "type": "string"
+        },
+        "office_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "office_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "district_no": {
+            "type": "string",
+            "pattern": "^[0-9\\.,\\-]{0,30}$"
+        },
+        "district_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "bank_data": {
+            "type": "object",
+            "properties": {
+                "payee_name": {
+                    "$ref": "#/definitions/payee_name"
+                },
+                "payee_bic": {
+                    "$ref": "#/definitions/payee_bic"
+                },
+                "payee_iban": {
+                    "$ref": "#/definitions/payee_iban"
+                }
+            },
+            "required": [
+                "payee_name",
+                "payee_iban"
+            ]
+        },
+        "payee_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "payee_bic": {
+            "type": "string",
+            "pattern": "^[A-Z]{6}[A-Z0-9]{2,5}$"
+        },
+        "payee_iban": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$"
+        },
+        "process": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ref_type": {
+                        "$ref": "#/definitions/ref_type"
+                    },
+                    "ref_no": {
+                        "$ref": "#/definitions/ref_no"
+                    },
+                    "date": {
+                        "$ref": "#/definitions/date"
+                    }
+                },
+                "required": [
+                    "ref_type",
+                    "ref_no"
+                ]
+            },
+            "properties": {},
+            "maxItems": 2
+        },
+        "ref_type": {
+            "enum": [
+                "afn",
+                "hin",
+                "kas",
+                "rha",
+                "rli",
+                "rsp",
+                "vli",
+                "vta",
+                "rta",
+                "vha",
+                "vsp",
+                "vzn",
+                "rhb",
+                "vhb",
+                "rhh",
+                "vhh",
+                "rka",
+                "vka",
+                "aec",
+                "aew",
+                "ael",
+                "aes"
+            ],
+            "type": "string"
+        },
+        "ref_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "coordinate": {
+            "type": "object",
+            "properties": {
+                "longitude": {
+                    "$ref": "#/definitions/longitude"
+                },
+                "latitude": {
+                    "$ref": "#/definitions/latitude"
+                },
+                "crs": {
+                    "$ref": "#/definitions/crs"
+                }
+            },
+            "required": [
+                "longitude",
+                "latitude",
+                "crs"
+            ]
+        },
+        "longitude": {
+            "type": "number"
+        },
+        "latitude": {
+            "type": "number"
+        },
+        "crs": {
+            "type": "string",
+            "pattern": "[0-9]{4,5}"
+        },
+        "tax": {
+            "type": "object",
+            "properties": {
+                "tax_type": {
+                    "$ref": "#/definitions/tax_type"
+                },
+                "tax_no_type": {
+                    "$ref": "#/definitions/tax_no_type"
+                },
+                "tax_no": {
+                    "$ref": "#/definitions/tax_no"
+                }
+            },
+            "required": [
+                "tax_no_type",
+                "tax_no"
+            ]
+        },
+        "tax_type": {
+            "enum": [
+                "reg",
+                "pau"
+            ],
+            "type": "string"
+        },
+        "tax_no_type": {
+            "enum": [
+                "ust",
+                "stn",
+                "xy"
+            ],
+            "type": "string"
+        },
+        "tax_no": {
+            "type": "string",
+            "pattern": "[A-Z0-9/]{4,13}"
+        },
+        "contact": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "role_contact": {
+                        "$ref": "#/definitions/role_contact"
+                    },
+                    "contact_name": {
+                        "$ref": "#/definitions/contact_name"
+                    },
+                    "contact_surname": {
+                        "$ref": "#/definitions/contact_surname"
+                    },
+                    "contact_telephone": {
+                        "$ref": "#/definitions/contact_telephone"
+                    },
+                    "contact_email": {
+                        "$ref": "#/definitions/contact_email"
+                    }
+                },
+                "required": [
+                    "role_contact",
+                    "contact_surname",
+                    "contact_telephone",
+                    "contact_email"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "role_contact": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "contact_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "contact_surname": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "contact_telephone": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^\\+?[0-9 /-]{5,20}$"
+            },
+            "minItems": 1
+        },
+        "contact_email": {
+            "type": "string",
+            "pattern": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+        },
+        "consumer": {
+            "type": "object",
+            "properties": {
+                "business": {
+                    "$ref": "#/definitions/business"
+                },
+                "contact": {
+                    "$ref": "#/definitions/contact"
+                }
+            },
+            "required": [
+                "business",
+                "contact"
+            ]
+        },
+        "invoice_header": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "process": {
+                        "$ref": "#/definitions/process"
+                    },
+                    "invoice_currency": {
+                        "$ref": "#/definitions/invoice_currency"
+                    },
+                    "invoice_type": {
+                        "$ref": "#/definitions/invoice_type"
+                    },
+                    "invoice_no": {
+                        "$ref": "#/definitions/invoice_no"
+                    },
+                    "invoice_cancel": {
+                        "$ref": "#/definitions/invoice_cancel"
+                    },
+                    "cancel_ref_no": {
+                        "$ref": "#/definitions/cancel_ref_no"
+                    },
+                    "doc_date": {
+                        "$ref": "#/definitions/doc_date"
+                    },
+                    "service_period_from": {
+                        "$ref": "#/definitions/service_period_from"
+                    },
+                    "service_period_until": {
+                        "$ref": "#/definitions/service_period_until"
+                    },
+                    "payment_procedure": {
+                        "$ref": "#/definitions/payment_procedure"
+                    },
+                    "invoice_text": {
+                        "$ref": "#/definitions/invoice_text"
+                    },
+                    "cash_id": {
+                        "$ref": "#/definitions/cash_id"
+                    },
+                    "net_price": {
+                        "$ref": "#/definitions/net_price"
+                    },
+                    "discount_surcharge": {
+                        "$ref": "#/definitions/discount_surcharge"
+                    },
+                    "gross_price": {
+                        "$ref": "#/definitions/gross_price"
+                    },
+                    "vat": {
+                        "$ref": "#/definitions/vat"
+                    },
+                    "due_date_for_payment": {
+                        "$ref": "#/definitions/due_date_for_payment"
+                    },
+                    "discount": {
+                        "$ref": "#/definitions/discount"
+                    },
+                    "advance_payment": {
+                        "$ref": "#/definitions/advance_payment"
+                    },
+                    "payee": {
+                        "$ref": "#/definitions/payee"
+                    },
+                    "invoice_item": {
+                        "$ref": "#/definitions/invoice_item"
+                    }
+                },
+                "required": [
+                    "invoice_currency",
+                    "invoice_type",
+                    "invoice_no",
+                    "invoice_cancel",
+                    "doc_date",
+                    "service_period_from",
+                    "service_period_until",
+                    "payment_procedure",
+                    "cash_id",
+                    "net_price",
+                    "gross_price",
+                    "due_date_for_payment",
+                    "advance_payment",
+                    "payee",
+                    "invoice_item"
+                ]
+            },
+            "properties": {}
+        },
+        "invoice_currency": {
+            "enum": [
+                "EUR",
+                "USD",
+                "BGN",
+                "BYN",
+                "CAD",
+                "CHF",
+                "CZK",
+                "DKK",
+                "GBP",
+                "GEL",
+                "HRK",
+                "HUF",
+                "NOK",
+                "PLN",
+                "RON",
+                "RSD",
+                "SEK",
+                "UAH"
+            ],
+            "type": "string"
+        },
+        "invoice_type": {
+            "enum": [
+                "abs",
+                "end",
+                "gut",
+                "tei"
+            ],
+            "type": "string"
+        },
+        "invoice_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "invoice_cancel": {
+            "type": "boolean"
+        },
+        "cancel_ref_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "doc_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "service_period_from": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "service_period_until": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "payment_procedure": {
+            "enum": [
+                "rev",
+                "lav",
+                "guv"
+            ],
+            "type": "string"
+        },
+        "invoice_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "cash_id": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "net_price": {
+            "type": "number"
+        },
+        "discount_surcharge": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "disc_sur_type": {
+                        "$ref": "#/definitions/disc_sur_type"
+                    },
+                    "disc_sur_value": {
+                        "$ref": "#/definitions/disc_sur_value"
+                    },
+                    "disc_sur_unit": {
+                        "$ref": "#/definitions/disc_sur_unit"
+                    },
+                    "det_base": {
+                        "$ref": "#/definitions/det_base"
+                    },
+                    "disc_sur_text": {
+                        "$ref": "#/definitions/disc_sur_text"
+                    }
+                },
+                "required": [
+                    "disc_sur_type",
+                    "disc_sur_value",
+                    "disc_sur_unit",
+                    "disc_sur_text"
+                ]
+            },
+            "properties": {}
+        },
+        "disc_sur_type": {
+            "enum": [
+                "dis",
+                "sur"
+            ],
+            "type": "string"
+        },
+        "disc_sur_value": {
+            "type": "number"
+        },
+        "disc_sur_unit": {
+            "enum": [
+                "bei",
+                "bet",
+                "pro"
+            ],
+            "type": "string"
+        },
+        "det_base": {
+            "enum": [
+                "cbm",
+                "lfm",
+                "stk",
+                "srm",
+                "cft",
+                "lut",
+                "atr",
+                "rmm",
+                "fmo",
+                "std",
+                "min",
+                "klm",
+                "met",
+                "trz",
+                "pol",
+                "ein",
+                "fah",
+                "son"
+            ],
+            "type": "string"
+        },
+        "disc_sur_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "gross_price": {
+            "type": "number"
+        },
+        "vat": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "vat_percent": {
+                        "$ref": "#/definitions/vat_percent"
+                    },
+                    "vat_comp_contr": {
+                        "$ref": "#/definitions/vat_comp_contr"
+                    },
+                    "vat_value": {
+                        "$ref": "#/definitions/vat_value"
+                    },
+                    "vat_text": {
+                        "$ref": "#/definitions/vat_text"
+                    }
+                },
+                "required": [
+                    "vat_percent",
+                    "vat_comp_contr",
+                    "vat_value",
+                    "vat_text"
+                ]
+            },
+            "properties": {}
+        },
+        "vat_percent": {
+            "type": "number",
+            "maximum": 100
+        },
+        "vat_comp_contr": {
+            "type": "number"
+        },
+        "vat_value": {
+            "type": "number"
+        },
+        "vat_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "due_date_for_payment": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "discount": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "discount_period": {
+                        "$ref": "#/definitions/discount_period"
+                    },
+                    "discount_percent": {
+                        "$ref": "#/definitions/discount_percent"
+                    },
+                    "discount_value": {
+                        "$ref": "#/definitions/discount_value"
+                    },
+                    "discount_text": {
+                        "$ref": "#/definitions/discount_text"
+                    }
+                },
+                "required": [
+                    "discount_period",
+                    "discount_percent",
+                    "discount_value",
+                    "discount_text"
+                ]
+            },
+            "properties": {}
+        },
+        "discount_period": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "discount_percent": {
+            "type": "number",
+            "maximum": 100
+        },
+        "discount_value": {
+            "type": "number"
+        },
+        "discount_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "advance_payment": {
+            "type": "object",
+            "properties": {
+                "ad_pay_value": {
+                    "$ref": "#/definitions/ad_pay_value"
+                },
+                "ad_pay_ref_no": {
+                    "$ref": "#/definitions/ad_pay_ref_no"
+                }
+            },
+            "required": [
+                "ad_pay_value",
+                "ad_pay_ref_no"
+            ]
+        },
+        "ad_pay_value": {
+            "type": "number"
+        },
+        "ad_pay_ref_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "payee": {
+            "type": "object",
+            "properties": {
+                "bank_data": {
+                    "$ref": "#/definitions/bank_data"
+                },
+                "payee_vat_rate": {
+                    "$ref": "#/definitions/payee_vat_rate"
+                }
+            },
+            "required": [
+                "payee_vat_rate"
+            ]
+        },
+        "payee_vat_rate": {
+            "type": "number",
+            "maximum": 100
+        },
+        "invoice_item": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "aggregation_type": {
+                        "$ref": "#/definitions/aggregation_type"
+                    },
+                    "quality": {
+                        "$ref": "#/definitions/quality"
+                    },
+                    "grade": {
+                        "$ref": "#/definitions/grade"
+                    },
+                    "use": {
+                        "$ref": "#/definitions/use"
+                    },
+                    "species": {
+                        "$ref": "#/definitions/species"
+                    },
+                    "amount": {
+                        "$ref": "#/definitions/amount"
+                    },
+                    "mean_length": {
+                        "$ref": "#/definitions/mean_length"
+                    },
+                    "grade_length": {
+                        "$ref": "#/definitions/grade_length"
+                    },
+                    "diameter": {
+                        "$ref": "#/definitions/diameter"
+                    },
+                    "thickness_class": {
+                        "$ref": "#/definitions/thickness_class"
+                    },
+                    "wood_certification": {
+                        "$ref": "#/definitions/wood_certification"
+                    },
+                    "article_class": {
+                        "$ref": "#/definitions/article_class"
+                    },
+                    "article_type": {
+                        "$ref": "#/definitions/article_type"
+                    },
+                    "invoice_item_text": {
+                        "$ref": "#/definitions/invoice_item_text"
+                    },
+                    "attribute": {
+                        "$ref": "#/definitions/attribute"
+                    },
+                    "product_price": {
+                        "$ref": "#/definitions/product_price"
+                    },
+                    "discount_surcharge": {
+                        "$ref": "#/definitions/discount_surcharge"
+                    },
+                    "tax_rate": {
+                        "$ref": "#/definitions/tax_rate"
+                    }
+                },
+                "required": [
+                    "wood_id",
+                    "aggregation_type",
+                    "grade",
+                    "use",
+                    "species",
+                    "amount",
+                    "article_class",
+                    "product_price",
+                    "tax_rate"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "wood_id": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id_type": {
+                        "$ref": "#/definitions/wood_id_type"
+                    },
+                    "wood_id_no": {
+                        "$ref": "#/definitions/wood_id_no"
+                    }
+                },
+                "required": [
+                    "wood_id_type",
+                    "wood_id_no"
+                ]
+            },
+            "properties": {}
+        },
+        "wood_id_type": {
+            "enum": [
+                "arb",
+                "art",
+                "hab",
+                "hal",
+                "los",
+                "pol",
+                "poa",
+                "pog",
+                "sta",
+                "vlo"
+            ],
+            "type": "string"
+        },
+        "wood_id_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "aggregation_type": {
+            "enum": [
+                "so",
+                "vw",
+                "ha",
+                "qu",
+                "sk",
+                "du",
+                "la",
+                "soha",
+                "sohaqu",
+                "sohaqusk",
+                "sohaquskla",
+                "sohaqudu",
+                "sohaqudula",
+                "soqu",
+                "soqusk",
+                "soquskla",
+                "soqudu",
+                "soqudula",
+                "sosk",
+                "soskla",
+                "sodu",
+                "sodula",
+                "sovwha",
+                "sovwhaqu",
+                "sovwhaqusk",
+                "sovwqu",
+                "sovwqusk",
+                "sovwsk",
+                "vwha",
+                "vwhaqu",
+                "vwhaqusk",
+                "vwhaquskla",
+                "vwhaqudu",
+                "vwhaqudula",
+                "vwsk",
+                "haqu",
+                "haqula",
+                "haqusk",
+                "haquskla",
+                "haqudu",
+                "haqudula",
+                "hasovwqula",
+                "hasovwqulask",
+                "qusk",
+                "pol",
+                "los",
+                "ein",
+                "vwqu",
+                "vwhask",
+                "vwhaskla",
+                "vwhadu",
+                "vwhadula"
+            ],
+            "type": "string"
+        },
+        "quality": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "qual_type": {
+                        "$ref": "#/definitions/qual_type"
+                    },
+                    "qual_rat": {
+                        "$ref": "#/definitions/qual_rat"
+                    }
+                },
+                "required": [
+                    "qual_type",
+                    "qual_rat"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "qual_type": {
+            "enum": [
+                "o",
+                "in",
+                "if",
+                "ik",
+                "fk",
+                "nf",
+                "nfk",
+                "b",
+                "bmi",
+                "bk",
+                "c",
+                "d",
+                "oa",
+                "bc",
+                "cd",
+                "bcd",
+                "bccgw",
+                "cgw",
+                "f",
+                "tf",
+                "atf",
+                "btf",
+                "ctf",
+                "ss",
+                "ts",
+                "a_fu",
+                "a_is",
+                "a_if",
+                "a_i2",
+                "a_id",
+                "a_im",
+                "a_sp",
+                "a_y",
+                "a_x",
+                "a_z",
+                "a_bh",
+                "ch_k",
+                "ch_ab",
+                "ch_bc",
+                "ch_cd",
+                "ch_abc",
+                "ch_r",
+                "ch_1",
+                "ch_2",
+                "ch_bk",
+                "ch_sk",
+                "a"
+            ],
+            "type": "string"
+        },
+        "qual_rat": {
+            "type": "number",
+            "maximum": 100
+        },
+        "grade": {
+            "enum": [
+                "xy",
+                "st",
+                "fl",
+                "il",
+                "bl",
+                "bs",
+                "is",
+                "hs",
+                "a_wh",
+                "a_bl",
+                "a_db",
+                "a_lh",
+                "a_sb",
+                "a_hb",
+                "a_kb",
+                "a_zb",
+                "ch_r",
+                "ch_e",
+                "ch_i"
+            ],
+            "type": "string"
+        },
+        "use": {
+            "enum": [
+                "xy",
+                "f",
+                "tf",
+                "ss",
+                "sg",
+                "wh",
+                "pz",
+                "sf",
+                "rh",
+                "hs",
+                "eh",
+                "ru",
+                "ih",
+                "p",
+                "m",
+                "r",
+                "sw",
+                "ov",
+                "pa",
+                "pk",
+                "st",
+                "osb",
+                "mdf",
+                "cb",
+                "la",
+                "bl",
+                "sb",
+                "vp",
+                "ph",
+                "sl",
+                "nl",
+                "gl",
+                "ns",
+                "au",
+                "ch_sw",
+                "ch_kst",
+                "ch_kbu",
+                "ch_z",
+                "ch_p",
+                "ch_h",
+                "ch_hs",
+                "ch_hhap",
+                "ch_hheb",
+                "ch_brhl",
+                "ch_brhk",
+                "ch_sp",
+                "ch_ksp",
+                "ch_ru",
+                "ch_lang"
+            ],
+            "type": "string"
+        },
+        "species": {
+            "enum": [
+                "xy",
+                "ndh",
+                "fi",
+                "gfi",
+                "ofi",
+                "sfi",
+                "swfi",
+                "efi",
+                "bfi",
+                "wfi",
+                "sofi",
+                "kie",
+                "ki",
+                "bki",
+                "ski",
+                "rki",
+                "zki",
+                "wki",
+                "mki",
+                "gki",
+                "soki",
+                "ta",
+                "wta",
+                "ata",
+                "cta",
+                "kta",
+                "nita",
+                "nota",
+                "vta",
+                "sota",
+                "dgl",
+                "la",
+                "ela",
+                "jla",
+                "sla",
+                "sonb",
+                "lb",
+                "ht",
+                "mam",
+                "eib",
+                "sz",
+                "bu",
+                "sei",
+                "tei",
+                "rei",
+                "zei",
+                "suei",
+                "ei",
+                "que",
+                "es",
+                "ges",
+                "wes",
+                "fra",
+                "hbu",
+                "ah",
+                "bah",
+                "sah",
+                "fah",
+                "eah",
+                "siah",
+                "ace",
+                "li",
+                "wli",
+                "sli",
+                "til",
+                "rob",
+                "akz",
+                "ul",
+                "bul",
+                "ful",
+                "flu",
+                "ulm",
+                "rka",
+                "eka",
+                "ka",
+                "mau",
+                "nus",
+                "wnu",
+                "snu",
+                "jug",
+                "ste",
+                "pla",
+                "apl",
+                "solh",
+                "gbi",
+                "mbi",
+                "bi",
+                "erl",
+                "ser",
+                "wer",
+                "ger",
+                "aln",
+                "pap",
+                "zpa",
+                "spa",
+                "spah",
+                "gpa",
+                "wpa",
+                "bpa",
+                "bpah",
+                "pop",
+                "sor",
+                "sso",
+                "vb",
+                "els",
+                "spe",
+                "meb",
+                "wei",
+                "swei",
+                "kir",
+                "gtk",
+                "vk",
+                "stk",
+                "pru",
+                "zwe",
+                "hic",
+                "soln",
+                "fau",
+                "wob",
+                "wap",
+                "wbi",
+                "has",
+                "got",
+                "slbh",
+                "lbh",
+                "slbw",
+                "str",
+                "fita"
+            ],
+            "type": "string"
+        },
+        "amount": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "amount_value": {
+                        "$ref": "#/definitions/amount_value"
+                    },
+                    "amount_unit": {
+                        "$ref": "#/definitions/amount_unit"
+                    }
+                },
+                "required": [
+                    "amount_value",
+                    "amount_unit"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "amount_value": {
+            "type": "number"
+        },
+        "amount_unit": {
+            "enum": [
+                "atr",
+                "lut",
+                "cft",
+                "srm",
+                "stk",
+                "lfm",
+                "cbm",
+                "fmo",
+                "rmm"
+            ],
+            "type": "string"
+        },
+        "mean_length": {
+            "type": "number",
+            "maximum": 20
+        },
+        "grade_length": {
+            "type": "number",
+            "maximum": 20
+        },
+        "diameter": {
+            "type": "object",
+            "properties": {
+                "diameter_value": {
+                    "$ref": "#/definitions/diameter_value"
+                },
+                "dia_measurement": {
+                    "$ref": "#/definitions/dia_measurement"
+                },
+                "bark_condition": {
+                    "$ref": "#/definitions/bark_condition"
+                },
+                "bark_thickness": {
+                    "$ref": "#/definitions/bark_thickness"
+                },
+                "dia_on_bark": {
+                    "$ref": "#/definitions/dia_on_bark"
+                }
+            }
+        },
+        "diameter_value": {
+            "type": "number",
+            "maximum": 200
+        },
+        "dia_measurement": {
+            "enum": [
+                "mara",
+                "aura",
+                "ohra",
+                "ratv",
+                "ratn",
+                "umit",
+                "inri",
+                "ohri"
+            ],
+            "type": "string"
+        },
+        "bark_condition": {
+            "enum": [
+                "edr",
+                "ent",
+                "gst",
+                "hae",
+                "mae",
+                "ten",
+                "ube",
+                "uen",
+                "umi"
+            ],
+            "type": "string"
+        },
+        "bark_thickness": {
+            "type": "number",
+            "maximum": 10
+        },
+        "dia_on_bark": {
+            "type": "number",
+            "maximum": 200
+        },
+        "thickness_class": {
+            "enum": [
+                "o",
+                "ch_1a",
+                "ch_1b",
+                "ch_2a",
+                "ch_2b",
+                "ch_3a",
+                "ch_3b",
+                "ch_4a",
+                "ch_4b",
+                "ch_4",
+                "ch_5",
+                "ch_5a",
+                "ch_5b",
+                "ch_6",
+                "ch_6a",
+                "ch_6b",
+                "d0",
+                "d1",
+                "d1a",
+                "d1b",
+                "d2",
+                "d2a",
+                "d2b",
+                "d3",
+                "d3a",
+                "d3b",
+                "d4",
+                "d4a",
+                "d4b",
+                "d5",
+                "d5a",
+                "d5b",
+                "d6",
+                "d6a",
+                "d6b",
+                "d7",
+                "d8"
+            ],
+            "type": "string"
+        },
+        "wood_certification": {
+            "type": "object",
+            "properties": {
+                "wood_origin": {
+                    "$ref": "#/definitions/wood_origin"
+                },
+                "wood_certificat": {
+                    "$ref": "#/definitions/wood_certificat"
+                }
+            },
+            "required": [
+                "wood_origin"
+            ]
+        },
+        "wood_origin": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "$ref": "#/definitions/state"
+                },
+                "state_subdivision": {
+                    "$ref": "#/definitions/state_subdivision"
+                }
+            },
+            "required": [
+                "state"
+            ]
+        },
+        "state_subdivision": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}\\-[A-Z0-9]{2,3}$"
+        },
+        "wood_certificat": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_certificat_type": {
+                        "$ref": "#/definitions/wood_certificat_type"
+                    },
+                    "wood_certificat_ratio": {
+                        "$ref": "#/definitions/wood_certificat_ratio"
+                    },
+                    "wood_certificat_id": {
+                        "$ref": "#/definitions/wood_certificat_id"
+                    }
+                },
+                "required": [
+                    "wood_certificat_type",
+                    "wood_certificat_ratio",
+                    "wood_certificat_id"
+                ]
+            },
+            "properties": {}
+        },
+        "wood_certificat_type": {
+            "enum": [
+                "xy",
+                "pefc",
+                "pecs",
+                "fsc",
+                "fscm",
+                "fscc",
+                "fscw",
+                "natl",
+                "iso0",
+                "iso1",
+                "iso2",
+                "iso3",
+                "iso4",
+                "oeko",
+                "ral",
+                "qlab"
+            ],
+            "type": "string"
+        },
+        "wood_certificat_ratio": {
+            "type": "number",
+            "maximum": 100
+        },
+        "wood_certificat_id": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "article_class": {
+            "enum": [
+                "dei",
+                "den",
+                "dlo",
+                "dru",
+                "dso",
+                "dsp",
+                "dve",
+                "hol",
+                "pro"
+            ],
+            "type": "string"
+        },
+        "article_type": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "invoice_item_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "attribute": {
+            "enum": [
+                "lmi",
+                "lma",
+                "dmi",
+                "dma",
+                "lbe",
+                "dmd",
+                "sma",
+                "smi",
+                "zmi",
+                "zma",
+                "ama",
+                "kma",
+                "nsf",
+                "oma",
+                "spl"
+            ],
+            "type": "string"
+        },
+        "product_price": {
+            "type": "object",
+            "properties": {
+                "product_price_value": {
+                    "$ref": "#/definitions/product_price_value"
+                },
+                "product_price_unit": {
+                    "$ref": "#/definitions/product_price_unit"
+                },
+                "det_base": {
+                    "$ref": "#/definitions/det_base"
+                },
+                "product_item_price": {
+                    "$ref": "#/definitions/product_item_price"
+                }
+            },
+            "required": [
+                "product_price_value",
+                "product_price_unit",
+                "product_item_price"
+            ]
+        },
+        "product_price_value": {
+            "type": "number"
+        },
+        "product_price_unit": {
+            "enum": [
+                "bei",
+                "bet",
+                "pro"
+            ],
+            "type": "string"
+        },
+        "product_item_price": {
+            "type": "number"
+        },
+        "tax_rate": {
+            "type": "object",
+            "properties": {
+                "tax_rate_value": {
+                    "$ref": "#/definitions/tax_rate_value"
+                },
+                "tax_rate_percent": {
+                    "$ref": "#/definitions/tax_rate_percent"
+                },
+                "tax_rate_text": {
+                    "$ref": "#/definitions/tax_rate_text"
+                }
+            },
+            "required": [
+                "tax_rate_percent",
+                "tax_rate_text"
+            ]
+        },
+        "tax_rate_value": {
+            "type": "number"
+        },
+        "tax_rate_percent": {
+            "type": "number",
+            "maximum": 100
+        },
+        "tax_rate_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "status": {
+            "type": "object",
+            "properties": {
+                "creation_datetime": {
+                    "$ref": "#/definitions/creation_datetime"
+                },
+                "statusid": {
+                    "$ref": "#/definitions/statusid"
+                },
+                "additionalinformation": {
+                    "$ref": "#/definitions/additionalinformation"
+                },
+                "coordinate": {
+                    "$ref": "#/definitions/coordinate"
+                }
+            }
+        },
+        "creation_datetime": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "statusid": {
+            "enum": [
+                "10",
+                "20",
+                "30",
+                "40",
+                "50",
+                "60",
+                "70",
+                "80",
+                "90",
+                "100",
+                "110",
+                "120",
+                "130",
+                "140",
+                "150"
+            ],
+            "type": "string"
+        },
+        "additionalinformation": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "delivery_note": {
+            "type": "object",
+            "required": [
+                "transfer_address",
+                "transfer",
+                "origin"
+            ],
+            "properties": {
+                "transfer_address": {
+                    "$ref": "#/definitions/transfer_address"
+                },
+                "transfer": {
+                    "$ref": "#/definitions/transfer"
+                },
+                "origin": {
+                    "$ref": "#/definitions/origin"
+                },
+                "status": {
+                    "$ref": "#/definitions/status"
+                }
+            }
+        },
+        "transfer_address": {
+            "type": "object",
+            "properties": {
+                "transfer_employer": {
+                    "$ref": "#/definitions/transfer_employer"
+                },
+                "loading_location": {
+                    "$ref": "#/definitions/loading_location"
+                },
+                "unloading_location": {
+                    "$ref": "#/definitions/unloading_location"
+                },
+                "shipper": {
+                    "$ref": "#/definitions/shipper"
+                }
+            },
+            "required": [
+                "transfer_employer",
+                "loading_location",
+                "unloading_location",
+                "shipper"
+            ]
+        },
+        "transfer_employer": {
+            "type": "object",
+            "properties": {
+                "business": {
+                    "$ref": "#/definitions/business"
+                },
+                "contact": {
+                    "$ref": "#/definitions/contact"
+                }
+            },
+            "required": [
+                "business",
+                "contact"
+            ]
+        },
+        "loading_location": {
+            "type": "object",
+            "properties": {
+                "location_type": {
+                    "$ref": "#/definitions/location_type"
+                },
+                "location": {
+                    "$ref": "#/definitions/location"
+                },
+                "other_contact": {
+                    "$ref": "#/definitions/other_contact"
+                }
+            },
+            "required": [
+                "other_contact"
+            ]
+        },
+        "location_type": {
+            "enum": [
+                "pol",
+                "wal",
+                "bhf",
+                "wag",
+                "haf",
+                "sch",
+                "wer",
+                "wzw",
+                "wva"
+            ],
+            "type": "string"
+        },
+        "location": {
+            "type": "object",
+            "properties": {
+                "location_data": {
+                    "$ref": "#/definitions/location_data"
+                },
+                "location_tax": {
+                    "$ref": "#/definitions/location_tax"
+                }
+            }
+        },
+        "location_data": {
+            "type": "object",
+            "properties": {
+                "location_name": {
+                    "$ref": "#/definitions/location_name"
+                },
+                "location_street": {
+                    "$ref": "#/definitions/location_street"
+                },
+                "location_postcode": {
+                    "$ref": "#/definitions/location_postcode"
+                },
+                "location_city": {
+                    "$ref": "#/definitions/location_city"
+                },
+                "location_state": {
+                    "$ref": "#/definitions/location_state"
+                },
+                "certification": {
+                    "$ref": "#/definitions/certification"
+                },
+                "forestry": {
+                    "$ref": "#/definitions/forestry"
+                },
+                "bank_data": {
+                    "$ref": "#/definitions/bank_data"
+                },
+                "process": {
+                    "$ref": "#/definitions/process"
+                },
+                "coordinate": {
+                    "$ref": "#/definitions/coordinate"
+                }
+            }
+        },
+        "location_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "location_street": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "location_postcode": {
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z]{3,10}$"
+        },
+        "location_city": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "location_state": {
+            "enum": [
+                "DE",
+                "BY",
+                "BE",
+                "BG",
+                "DK",
+                "EE",
+                "FI",
+                "FR",
+                "GE",
+                "GR",
+                "IE",
+                "IS",
+                "IT",
+                "CA",
+                "HR",
+                "LV",
+                "LI",
+                "LT",
+                "LU",
+                "NL",
+                "NO",
+                "AT",
+                "PL",
+                "PT",
+                "RO",
+                "RU",
+                "SE",
+                "CH",
+                "RS",
+                "SK",
+                "SI",
+                "ES",
+                "CZ",
+                "UA",
+                "HU",
+                "US",
+                "GB",
+                "CX"
+            ],
+            "type": "string"
+        },
+        "location_tax": {
+            "type": "object",
+            "properties": {
+                "tax_type": {
+                    "$ref": "#/definitions/tax_type"
+                },
+                "tax_no_type": {
+                    "$ref": "#/definitions/tax_no_type"
+                },
+                "tax_no": {
+                    "$ref": "#/definitions/tax_no"
+                }
+            },
+            "required": [
+                "tax_no_type",
+                "tax_no"
+            ]
+        },
+        "other_contact": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "other_contact_role": {
+                        "$ref": "#/definitions/other_contact_role"
+                    },
+                    "other_contact_name": {
+                        "$ref": "#/definitions/other_contact_name"
+                    },
+                    "other_contact_surname": {
+                        "$ref": "#/definitions/other_contact_surname"
+                    },
+                    "other_contact_telephone": {
+                        "$ref": "#/definitions/other_contact_telephone"
+                    },
+                    "other_contact_email": {
+                        "$ref": "#/definitions/other_contact_email"
+                    }
+                },
+                "required": [
+                    "other_contact_role"
+                ]
+            },
+            "properties": {}
+        },
+        "other_contact_role": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "other_contact_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "other_contact_surname": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "other_contact_telephone": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^\\+?[0-9 /-]{5,20}$"
+            }
+        },
+        "other_contact_email": {
+            "type": "string",
+            "pattern": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+        },
+        "unloading_location": {
+            "type": "object",
+            "properties": {
+                "location_type": {
+                    "$ref": "#/definitions/location_type"
+                },
+                "location": {
+                    "$ref": "#/definitions/location"
+                },
+                "other_contact": {
+                    "$ref": "#/definitions/other_contact"
+                }
+            },
+            "required": [
+                "other_contact"
+            ]
+        },
+        "shipper": {
+            "type": "object",
+            "properties": {
+                "business": {
+                    "$ref": "#/definitions/business"
+                },
+                "contact": {
+                    "$ref": "#/definitions/contact"
+                }
+            },
+            "required": [
+                "business",
+                "contact"
+            ]
+        },
+        "transfer": {
+            "type": "object",
+            "properties": {
+                "delivery": {
+                    "$ref": "#/definitions/delivery"
+                },
+                "haulier": {
+                    "$ref": "#/definitions/haulier"
+                },
+                "haul_means": {
+                    "$ref": "#/definitions/haul_means"
+                }
+            },
+            "required": [
+                "delivery",
+                "haulier",
+                "haul_means"
+            ]
+        },
+        "delivery": {
+            "type": "object",
+            "properties": {
+                "delivery_no": {
+                    "$ref": "#/definitions/delivery_no"
+                },
+                "signature": {
+                    "$ref": "#/definitions/signature"
+                }
+            },
+            "required": [
+                "delivery_no"
+            ]
+        },
+        "delivery_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "signature": {
+            "type": "string"
+        },
+        "haulier": {
+            "type": "object",
+            "properties": {
+                "haulier_name": {
+                    "$ref": "#/definitions/haulier_name"
+                },
+                "haulier_surname": {
+                    "$ref": "#/definitions/haulier_surname"
+                },
+                "haulier_telephone": {
+                    "$ref": "#/definitions/haulier_telephone"
+                },
+                "haulier_email": {
+                    "$ref": "#/definitions/haulier_email"
+                }
+            },
+            "required": [
+                "haulier_surname"
+            ]
+        },
+        "haulier_name": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "haulier_surname": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "haulier_telephone": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^\\+?[0-9 /-]{5,20}$"
+            }
+        },
+        "haulier_email": {
+            "type": "string",
+            "pattern": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+        },
+        "haul_means": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "haul_means_no": {
+                        "$ref": "#/definitions/haul_means_no"
+                    },
+                    "amount": {
+                        "$ref": "#/definitions/amount"
+                    },
+                    "haul_text": {
+                        "$ref": "#/definitions/haul_text"
+                    }
+                },
+                "required": [
+                    "haul_means_no",
+                    "amount"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "haul_means_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "haul_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "origin": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "load": {
+                        "$ref": "#/definitions/load"
+                    },
+                    "pile_data": {
+                        "$ref": "#/definitions/pile_data"
+                    }
+                },
+                "required": [
+                    "load",
+                    "pile_data"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "load": {
+            "type": "object",
+            "properties": {
+                "loading_time": {
+                    "$ref": "#/definitions/loading_time"
+                },
+                "estimated_amount": {
+                    "$ref": "#/definitions/estimated_amount"
+                },
+                "residual_amount": {
+                    "$ref": "#/definitions/residual_amount"
+                }
+            },
+            "required": [
+                "estimated_amount"
+            ]
+        },
+        "loading_time": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "estimated_amount": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "$ref": "#/definitions/amount"
+                    }
+                },
+                "required": [
+                    "amount"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "residual_amount": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "$ref": "#/definitions/amount"
+                    }
+                },
+                "required": [
+                    "amount"
+                ]
+            },
+            "properties": {}
+        },
+        "pile_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "product_data": {
+                        "$ref": "#/definitions/product_data"
+                    },
+                    "pile_preservation": {
+                        "$ref": "#/definitions/pile_preservation"
+                    },
+                    "pile_text": {
+                        "$ref": "#/definitions/pile_text"
+                    },
+                    "coordinate": {
+                        "$ref": "#/definitions/coordinate"
+                    },
+                    "other_file": {
+                        "$ref": "#/definitions/other_file"
+                    }
+                },
+                "required": [
+                    "wood_id",
+                    "product_data",
+                    "coordinate"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "product_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "aggregation_type": {
+                        "$ref": "#/definitions/aggregation_type"
+                    },
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "wood_definition": {
+                        "$ref": "#/definitions/wood_definition"
+                    },
+                    "part_no": {
+                        "$ref": "#/definitions/part_no"
+                    },
+                    "mean_length": {
+                        "$ref": "#/definitions/mean_length"
+                    },
+                    "diameter": {
+                        "$ref": "#/definitions/diameter"
+                    },
+                    "thickness_class": {
+                        "$ref": "#/definitions/thickness_class"
+                    },
+                    "quality_attribute": {
+                        "$ref": "#/definitions/quality_attribute"
+                    },
+                    "vat_rate": {
+                        "$ref": "#/definitions/vat_rate"
+                    }
+                },
+                "required": [
+                    "aggregation_type",
+                    "wood_definition"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "wood_definition": {
+            "type": "object",
+            "properties": {
+                "quality": {
+                    "$ref": "#/definitions/quality"
+                },
+                "grade": {
+                    "$ref": "#/definitions/grade"
+                },
+                "use": {
+                    "$ref": "#/definitions/use"
+                },
+                "species": {
+                    "$ref": "#/definitions/species"
+                },
+                "amount": {
+                    "$ref": "#/definitions/amount"
+                }
+            },
+            "required": [
+                "quality",
+                "grade",
+                "use",
+                "species",
+                "amount"
+            ]
+        },
+        "part_no": {
+            "type": "number",
+            "maximum": 10
+        },
+        "quality_attribute": {
+            "additionalItems": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "ab",
+                    "bk",
+                    "bl",
+                    "bo",
+                    "fs",
+                    "hw",
+                    "hz",
+                    "in",
+                    "li",
+                    "nk",
+                    "nw",
+                    "os",
+                    "pi",
+                    "rf",
+                    "ri",
+                    "rk",
+                    "rk1",
+                    "rk2",
+                    "rk3",
+                    "rk4",
+                    "rs",
+                    "sb",
+                    "sf",
+                    "sk",
+                    "so",
+                    "sp",
+                    "s1",
+                    "s2",
+                    "s3",
+                    "sv",
+                    "ss",
+                    "tk"
+                ],
+                "type": "string"
+            }
+        },
+        "vat_rate": {
+            "type": "number",
+            "maximum": 100
+        },
+        "pile_preservation": {
+            "type": "boolean"
+        },
+        "pile_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "other_file": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "$ref": "#/definitions/path"
+                    },
+                    "file_text": {
+                        "$ref": "#/definitions/file_text"
+                    }
+                },
+                "required": [
+                    "path",
+                    "file_text"
+                ]
+            },
+            "properties": {}
+        },
+        "path": {
+            "type": "string",
+            "maxLength": 2048,
+            "pattern": "https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]\\.[^\\s]{2,}"
+        },
+        "file_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "measurement_journal": {
+            "type": "object",
+            "required": [
+                "other_address",
+                "measurement_data"
+            ],
+            "properties": {
+                "other_address": {
+                    "$ref": "#/definitions/other_address"
+                },
+                "measurement_data": {
+                    "$ref": "#/definitions/measurement_data"
+                },
+                "status": {
+                    "$ref": "#/definitions/status"
+                }
+            }
+        },
+        "other_address": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "other_business": {
+                        "$ref": "#/definitions/other_business"
+                    },
+                    "other_contact": {
+                        "$ref": "#/definitions/other_contact"
+                    }
+                },
+                "required": [
+                    "other_business"
+                ]
+            },
+            "properties": {}
+        },
+        "other_business": {
+            "type": "object",
+            "properties": {
+                "role_business": {
+                    "$ref": "#/definitions/role_business"
+                },
+                "business_data": {
+                    "$ref": "#/definitions/business_data"
+                },
+                "tax": {
+                    "$ref": "#/definitions/tax"
+                }
+            },
+            "required": [
+                "role_business",
+                "business_data"
+            ]
+        },
+        "role_business": {
+            "enum": [
+                "abn",
+                "ent",
+                "hol",
+                "lad",
+                "lie",
+                "spe",
+                "tra",
+                "ver",
+                "hoh",
+                "hka"
+            ],
+            "type": "string"
+        },
+        "measurement_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "measurer": {
+                        "$ref": "#/definitions/measurer"
+                    },
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "measurement_method": {
+                        "$ref": "#/definitions/measurement_method"
+                    },
+                    "screening_valid_to": {
+                        "$ref": "#/definitions/screening_valid_to"
+                    },
+                    "calibration_id": {
+                        "$ref": "#/definitions/calibration_id"
+                    },
+                    "calibrated_until": {
+                        "$ref": "#/definitions/calibrated_until"
+                    },
+                    "measuring_medium": {
+                        "$ref": "#/definitions/measuring_medium"
+                    },
+                    "measurement": {
+                        "$ref": "#/definitions/measurement"
+                    }
+                },
+                "required": [
+                    "measurer",
+                    "measurement_method",
+                    "calibration_id",
+                    "calibrated_until",
+                    "measuring_medium",
+                    "measurement"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "measurer": {
+            "type": "object",
+            "properties": {
+                "business": {
+                    "$ref": "#/definitions/business"
+                },
+                "contact": {
+                    "$ref": "#/definitions/contact"
+                }
+            }
+        },
+        "measurement_method": {
+            "enum": [
+                "mit",
+                "mis",
+                "arm",
+                "srm",
+                "krm",
+                "stf",
+                "zae",
+                "stz",
+                "wev",
+                "gwm",
+                "gwa",
+                "gwl",
+                "stg",
+                "zsv",
+                "fra",
+                "lfm",
+                "son",
+                "hvm",
+                "opv",
+                "wam",
+                "xy"
+            ],
+            "type": "string"
+        },
+        "screening_valid_to": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "calibration_id": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "calibrated_until": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "measuring_medium": {
+            "enum": [
+                "mit",
+                "mis",
+                "arm",
+                "srm",
+                "krm",
+                "stf",
+                "zae",
+                "stz",
+                "wev",
+                "gwm",
+                "gwa",
+                "gwl",
+                "stg",
+                "zsv",
+                "fra",
+                "lfm",
+                "son",
+                "hvm",
+                "opv",
+                "wam",
+                "xy"
+            ],
+            "type": "string"
+        },
+        "measurement": {
+            "type": "object",
+            "properties": {
+                "photo_optical": {
+                    "$ref": "#/definitions/photo_optical"
+                },
+                "gravimetric": {
+                    "$ref": "#/definitions/gravimetric"
+                },
+                "multi_log": {
+                    "$ref": "#/definitions/multi_log"
+                },
+                "single_log": {
+                    "$ref": "#/definitions/single_log"
+                }
+            }
+        },
+        "photo_optical": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "measuring_data": {
+                        "$ref": "#/definitions/measuring_data"
+                    },
+                    "photo_measuring_technique": {
+                        "$ref": "#/definitions/photo_measuring_technique"
+                    },
+                    "photo_device_id": {
+                        "$ref": "#/definitions/photo_device_id"
+                    },
+                    "pile_pic": {
+                        "$ref": "#/definitions/pile_pic"
+                    },
+                    "photo_text": {
+                        "$ref": "#/definitions/photo_text"
+                    },
+                    "invoice_header": {
+                        "$ref": "#/definitions/invoice_header"
+                    }
+                },
+                "required": [
+                    "measuring_data",
+                    "pile_pic"
+                ]
+            },
+            "properties": {}
+        },
+        "measuring_data": {
+            "type": "object",
+            "properties": {
+                "measuring_time": {
+                    "$ref": "#/definitions/measuring_time"
+                },
+                "measurement_no": {
+                    "$ref": "#/definitions/measurement_no"
+                },
+                "measurement_item": {
+                    "$ref": "#/definitions/measurement_item"
+                }
+            },
+            "required": [
+                "measuring_time",
+                "measurement_no"
+            ]
+        },
+        "measuring_time": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "measurement_no": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "measurement_item": {
+            "type": "number"
+        },
+        "photo_measuring_technique": {
+            "enum": [
+                "klma",
+                "harv",
+                "inul",
+                "inin",
+                "drei",
+                "rokl",
+                "rome",
+                "foha",
+                "foim",
+                "fomo",
+                "tauv",
+                "stve",
+                "mame",
+                "elwi"
+            ],
+            "type": "string"
+        },
+        "photo_device_id": {
+            "type": "string",
+            "maxLength": 30
+        },
+        "pile_pic": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "square_measure": {
+                        "$ref": "#/definitions/square_measure"
+                    },
+                    "pile_pic_data": {
+                        "$ref": "#/definitions/pile_pic_data"
+                    },
+                    "coordinate": {
+                        "$ref": "#/definitions/coordinate"
+                    },
+                    "other_file": {
+                        "$ref": "#/definitions/other_file"
+                    }
+                },
+                "required": [
+                    "square_measure",
+                    "pile_pic_data",
+                    "coordinate"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "square_measure": {
+            "type": "object",
+            "properties": {
+                "conversion_factor": {
+                    "$ref": "#/definitions/conversion_factor"
+                },
+                "pile_front": {
+                    "$ref": "#/definitions/pile_front"
+                },
+                "pile_back": {
+                    "$ref": "#/definitions/pile_back"
+                }
+            },
+            "required": [
+                "conversion_factor",
+                "pile_front"
+            ]
+        },
+        "conversion_factor": {
+            "type": "number"
+        },
+        "pile_front": {
+            "type": "number"
+        },
+        "pile_back": {
+            "type": "number"
+        },
+        "pile_pic_data": {
+            "type": "object",
+            "properties": {
+                "aggregation_type": {
+                    "$ref": "#/definitions/aggregation_type"
+                },
+                "aggregation_level": {
+                    "$ref": "#/definitions/aggregation_level"
+                },
+                "wood_definition": {
+                    "$ref": "#/definitions/wood_definition"
+                },
+                "mean_length": {
+                    "$ref": "#/definitions/mean_length"
+                },
+                "length_class": {
+                    "$ref": "#/definitions/length_class"
+                },
+                "mean_diameter": {
+                    "$ref": "#/definitions/mean_diameter"
+                },
+                "thickness_class": {
+                    "$ref": "#/definitions/thickness_class"
+                },
+                "quality_attribute": {
+                    "$ref": "#/definitions/quality_attribute"
+                },
+                "attribute": {
+                    "$ref": "#/definitions/attribute"
+                }
+            },
+            "required": [
+                "aggregation_type",
+                "wood_definition"
+            ]
+        },
+        "aggregation_level": {
+            "enum": [
+                "lkw",
+                "bahn",
+                "pol",
+                "mon",
+                "qua",
+                "jah",
+                "gesv",
+                "mesp"
+            ],
+            "type": "string"
+        },
+        "length_class": {
+            "enum": [
+                "l1",
+                "l2",
+                "l3",
+                "l_lbh",
+                "lks1",
+                "lks2",
+                "lks3",
+                "lks4",
+                "llh_kranlang",
+                "lkh1",
+                "lkh2",
+                "llh_bahn",
+                "llh_lastwagen",
+                "bf",
+                "ku",
+                "kv"
+            ],
+            "type": "string"
+        },
+        "mean_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "photo_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "gravimetric": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "measuring_data": {
+                        "$ref": "#/definitions/measuring_data"
+                    },
+                    "gravi_measuring_technique": {
+                        "$ref": "#/definitions/gravi_measuring_technique"
+                    },
+                    "vessel_scale_cal_to": {
+                        "$ref": "#/definitions/vessel_scale_cal_to"
+                    },
+                    "sample_scale_cal_to": {
+                        "$ref": "#/definitions/sample_scale_cal_to"
+                    },
+                    "pile_weight": {
+                        "$ref": "#/definitions/pile_weight"
+                    },
+                    "gravimetric_text": {
+                        "$ref": "#/definitions/gravimetric_text"
+                    },
+                    "invoice_header": {
+                        "$ref": "#/definitions/invoice_header"
+                    }
+                },
+                "required": [
+                    "measuring_data",
+                    "pile_weight"
+                ]
+            },
+            "properties": {}
+        },
+        "gravi_measuring_technique": {
+            "enum": [
+                "klma",
+                "harv",
+                "inul",
+                "inin",
+                "drei",
+                "rokl",
+                "rome",
+                "foha",
+                "foim",
+                "fomo",
+                "tauv",
+                "stve",
+                "mame",
+                "elwi"
+            ],
+            "type": "string"
+        },
+        "vessel_scale_cal_to": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "sample_scale_cal_to": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "pile_weight": {
+            "type": "object",
+            "properties": {
+                "wood_id": {
+                    "$ref": "#/definitions/wood_id"
+                },
+                "wood_definition": {
+                    "$ref": "#/definitions/wood_definition"
+                },
+                "dry_content": {
+                    "$ref": "#/definitions/dry_content"
+                }
+            },
+            "required": [
+                "wood_definition"
+            ]
+        },
+        "dry_content": {
+            "type": "number",
+            "maximum": 100
+        },
+        "gravimetric_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "multi_log": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "measuring_data": {
+                        "$ref": "#/definitions/measuring_data"
+                    },
+                    "measuring_technique": {
+                        "$ref": "#/definitions/measuring_technique"
+                    },
+                    "aggregation_content": {
+                        "$ref": "#/definitions/aggregation_content"
+                    },
+                    "invoice_header": {
+                        "$ref": "#/definitions/invoice_header"
+                    }
+                },
+                "required": [
+                    "measuring_data",
+                    "aggregation_content"
+                ]
+            },
+            "properties": {}
+        },
+        "measuring_technique": {
+            "enum": [
+                "klma",
+                "harv",
+                "inul",
+                "inin",
+                "drei",
+                "rokl",
+                "rome",
+                "foha",
+                "foim",
+                "fomo",
+                "tauv",
+                "stve",
+                "mame",
+                "elwi"
+            ],
+            "type": "string"
+        },
+        "aggregation_content": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "aggregation_data": {
+                        "$ref": "#/definitions/aggregation_data"
+                    },
+                    "other_file": {
+                        "$ref": "#/definitions/other_file"
+                    }
+                },
+                "required": [
+                    "aggregation_data"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "aggregation_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "aggregation_type": {
+                        "$ref": "#/definitions/aggregation_type"
+                    },
+                    "aggregation_level": {
+                        "$ref": "#/definitions/aggregation_level"
+                    },
+                    "wood_definition": {
+                        "$ref": "#/definitions/wood_definition"
+                    },
+                    "mean_length": {
+                        "$ref": "#/definitions/mean_length"
+                    },
+                    "mean_top_diameter": {
+                        "$ref": "#/definitions/mean_top_diameter"
+                    },
+                    "mean_centre_diameter": {
+                        "$ref": "#/definitions/mean_centre_diameter"
+                    },
+                    "mean_bottom_diameter": {
+                        "$ref": "#/definitions/mean_bottom_diameter"
+                    },
+                    "thickness_class": {
+                        "$ref": "#/definitions/thickness_class"
+                    },
+                    "attribute": {
+                        "$ref": "#/definitions/attribute"
+                    }
+                },
+                "required": [
+                    "aggregation_type",
+                    "wood_definition"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "mean_top_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "mean_centre_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "mean_bottom_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "single_log": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "measuring_data": {
+                        "$ref": "#/definitions/measuring_data"
+                    },
+                    "measuring_technique": {
+                        "$ref": "#/definitions/measuring_technique"
+                    },
+                    "single_log_data": {
+                        "$ref": "#/definitions/single_log_data"
+                    },
+                    "other_file": {
+                        "$ref": "#/definitions/other_file"
+                    },
+                    "invoice_header": {
+                        "$ref": "#/definitions/invoice_header"
+                    }
+                },
+                "required": [
+                    "measuring_data",
+                    "single_log_data"
+                ]
+            },
+            "properties": {}
+        },
+        "single_log_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "part_no": {
+                        "$ref": "#/definitions/part_no"
+                    },
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "wood_definition": {
+                        "$ref": "#/definitions/wood_definition"
+                    },
+                    "real_length": {
+                        "$ref": "#/definitions/real_length"
+                    },
+                    "grade_length": {
+                        "$ref": "#/definitions/grade_length"
+                    },
+                    "diameter": {
+                        "$ref": "#/definitions/diameter"
+                    },
+                    "grade_diameter_one": {
+                        "$ref": "#/definitions/grade_diameter_one"
+                    },
+                    "grade_diameter_two": {
+                        "$ref": "#/definitions/grade_diameter_two"
+                    },
+                    "forest_mean_diameter": {
+                        "$ref": "#/definitions/forest_mean_diameter"
+                    },
+                    "top_diameter": {
+                        "$ref": "#/definitions/top_diameter"
+                    },
+                    "bottom_diameter": {
+                        "$ref": "#/definitions/bottom_diameter"
+                    },
+                    "shrinking": {
+                        "$ref": "#/definitions/shrinking"
+                    },
+                    "crook": {
+                        "$ref": "#/definitions/crook"
+                    },
+                    "ovality": {
+                        "$ref": "#/definitions/ovality"
+                    },
+                    "single_log_thickness_class": {
+                        "$ref": "#/definitions/single_log_thickness_class"
+                    },
+                    "single_log_text": {
+                        "$ref": "#/definitions/single_log_text"
+                    },
+                    "attribute": {
+                        "$ref": "#/definitions/attribute"
+                    }
+                },
+                "required": [
+                    "wood_definition",
+                    "grade_diameter_one",
+                    "forest_mean_diameter",
+                    "top_diameter",
+                    "single_log_thickness_class"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "real_length": {
+            "type": "number"
+        },
+        "grade_diameter_one": {
+            "type": "number",
+            "maximum": 200
+        },
+        "grade_diameter_two": {
+            "type": "number",
+            "maximum": 200
+        },
+        "forest_mean_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "top_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "bottom_diameter": {
+            "type": "number",
+            "maximum": 200
+        },
+        "shrinking": {
+            "type": "number",
+            "maximum": 10
+        },
+        "crook": {
+            "type": "number",
+            "maximum": 10
+        },
+        "ovality": {
+            "type": "number",
+            "maximum": 10
+        },
+        "single_log_thickness_class": {
+            "enum": [
+                "o",
+                "ch_1a",
+                "ch_1b",
+                "ch_2a",
+                "ch_2b",
+                "ch_3a",
+                "ch_3b",
+                "ch_4a",
+                "ch_4b",
+                "ch_4",
+                "ch_5",
+                "ch_5a",
+                "ch_5b",
+                "ch_6",
+                "ch_6a",
+                "ch_6b",
+                "d0",
+                "d1",
+                "d1a",
+                "d1b",
+                "d2",
+                "d2a",
+                "d2b",
+                "d3",
+                "d3a",
+                "d3b",
+                "d4",
+                "d4a",
+                "d4b",
+                "d5",
+                "d5a",
+                "d5b",
+                "d6",
+                "d6a",
+                "d6b",
+                "d7",
+                "d8"
+            ],
+            "type": "string"
+        },
+        "single_log_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "transfer_order": {
+            "type": "object",
+            "required": [
+                "transfer_address",
+                "transfer_inf",
+                "pile_data"
+            ],
+            "properties": {
+                "transfer_address": {
+                    "$ref": "#/definitions/transfer_address"
+                },
+                "transfer_inf": {
+                    "$ref": "#/definitions/transfer_inf"
+                },
+                "barcode_inf": {
+                    "$ref": "#/definitions/barcode_inf"
+                },
+                "pile_data": {
+                    "$ref": "#/definitions/pile_data"
+                },
+                "status": {
+                    "$ref": "#/definitions/status"
+                }
+            }
+        },
+        "transfer_inf": {
+            "type": "object",
+            "properties": {
+                "validity_period": {
+                    "$ref": "#/definitions/validity_period"
+                },
+                "trans_period_date": {
+                    "$ref": "#/definitions/trans_period_date"
+                },
+                "distance": {
+                    "$ref": "#/definitions/distance"
+                },
+                "trans_zone": {
+                    "$ref": "#/definitions/trans_zone"
+                },
+                "trans_price": {
+                    "$ref": "#/definitions/trans_price"
+                },
+                "delivery_no_range": {
+                    "$ref": "#/definitions/delivery_no_range"
+                },
+                "trans_text": {
+                    "$ref": "#/definitions/trans_text"
+                },
+                "other_file": {
+                    "$ref": "#/definitions/other_file"
+                }
+            }
+        },
+        "validity_period": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "$ref": "#/definitions/from"
+                },
+                "until": {
+                    "$ref": "#/definitions/until"
+                }
+            }
+        },
+        "from": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "until": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "trans_period_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "distance": {
+            "type": "number"
+        },
+        "trans_zone": {
+            "type": "string",
+            "maxLength": 100
+        },
+        "trans_price": {
+            "type": "object",
+            "properties": {
+                "trans_price_value": {
+                    "$ref": "#/definitions/trans_price_value"
+                },
+                "trans_price_unit": {
+                    "$ref": "#/definitions/trans_price_unit"
+                },
+                "det_base": {
+                    "$ref": "#/definitions/det_base"
+                },
+                "trans_price_currency": {
+                    "$ref": "#/definitions/trans_price_currency"
+                }
+            }
+        },
+        "trans_price_value": {
+            "type": "number"
+        },
+        "trans_price_unit": {
+            "enum": [
+                "bei",
+                "bet",
+                "pro"
+            ],
+            "type": "string"
+        },
+        "trans_price_currency": {
+            "enum": [
+                "EUR",
+                "USD",
+                "BGN",
+                "BYN",
+                "CAD",
+                "CHF",
+                "CZK",
+                "DKK",
+                "GBP",
+                "GEL",
+                "HRK",
+                "HUF",
+                "NOK",
+                "PLN",
+                "RON",
+                "RSD",
+                "SEK",
+                "UAH"
+            ],
+            "type": "string"
+        },
+        "delivery_no_range": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "delivery_no": {
+                        "$ref": "#/definitions/delivery_no"
+                    }
+                },
+                "required": [
+                    "delivery_no"
+                ]
+            },
+            "properties": {}
+        },
+        "trans_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "barcode_inf": {
+            "type": "object",
+            "properties": {
+                "barcode_type": {
+                    "$ref": "#/definitions/barcode_type"
+                },
+                "barcode_subtype": {
+                    "$ref": "#/definitions/barcode_subtype"
+                },
+                "barcode_length": {
+                    "$ref": "#/definitions/barcode_length"
+                },
+                "character_set": {
+                    "$ref": "#/definitions/character_set"
+                },
+                "content": {
+                    "$ref": "#/definitions/content"
+                },
+                "codification": {
+                    "$ref": "#/definitions/codification"
+                }
+            }
+        },
+        "barcode_type": {
+            "type": "string",
+            "maxLength": 25
+        },
+        "barcode_subtype": {
+            "type": "string"
+        },
+        "barcode_length": {
+            "type": "number",
+            "maximum": 128
+        },
+        "character_set": {
+            "type": "string",
+            "maxLength": 25
+        },
+        "content": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "codification": {
+            "type": "string",
+            "maxLength": 128
+        },
+        "wood_allocation": {
+            "type": "object",
+            "required": [
+                "doc_type",
+                "address",
+                "wood_data"
+            ],
+            "properties": {
+                "doc_type": {
+                    "$ref": "#/definitions/doc_type"
+                },
+                "address": {
+                    "$ref": "#/definitions/address"
+                },
+                "delivery_inf": {
+                    "$ref": "#/definitions/delivery_inf"
+                },
+                "wood_data": {
+                    "$ref": "#/definitions/wood_data"
+                },
+                "status": {
+                    "$ref": "#/definitions/status"
+                }
+            }
+        },
+        "doc_type": {
+            "enum": [
+                "abf",
+                "ang",
+                "hba"
+            ],
+            "type": "string"
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "supplier": {
+                    "$ref": "#/definitions/supplier"
+                },
+                "other_address": {
+                    "$ref": "#/definitions/other_address"
+                }
+            },
+            "required": [
+                "supplier"
+            ]
+        },
+        "delivery_inf": {
+            "type": "object",
+            "properties": {
+                "delivery_term": {
+                    "$ref": "#/definitions/delivery_term"
+                },
+                "trans_clearance_date": {
+                    "$ref": "#/definitions/trans_clearance_date"
+                },
+                "trans_period_days": {
+                    "$ref": "#/definitions/trans_period_days"
+                },
+                "other_file": {
+                    "$ref": "#/definitions/other_file"
+                },
+                "del_inf_text": {
+                    "$ref": "#/definitions/del_inf_text"
+                }
+            }
+        },
+        "delivery_term": {
+            "enum": [
+                "uws",
+                "uwe",
+                "uzw",
+                "uwa",
+                "usc",
+                "exw",
+                "fca",
+                "fob",
+                "dat",
+                "ddp",
+                "cpt",
+                "cip",
+                "dap",
+                "fas",
+                "cfr",
+                "cif"
+            ],
+            "type": "string"
+        },
+        "trans_clearance_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "trans_period_days": {
+            "type": "number",
+            "pattern": "[0-9]{1,3}"
+        },
+        "del_inf_text": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "wood_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "measurement_method": {
+                        "$ref": "#/definitions/measurement_method"
+                    },
+                    "felling_date": {
+                        "$ref": "#/definitions/felling_date"
+                    },
+                    "wood_certification": {
+                        "$ref": "#/definitions/wood_certification"
+                    },
+                    "wood_depiction": {
+                        "$ref": "#/definitions/wood_depiction"
+                    },
+                    "product_data": {
+                        "$ref": "#/definitions/product_data"
+                    },
+                    "allocated_wood": {
+                        "$ref": "#/definitions/allocated_wood"
+                    }
+                },
+                "required": [
+                    "wood_id",
+                    "measurement_method",
+                    "felling_date",
+                    "allocated_wood"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "felling_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "wood_depiction": {
+            "enum": [
+                "sh",
+                "wh",
+                "bh",
+                "ih",
+                "gl",
+                "ag"
+            ],
+            "type": "string"
+        },
+        "allocated_wood": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "wood_id": {
+                        "$ref": "#/definitions/wood_id"
+                    },
+                    "product_data": {
+                        "$ref": "#/definitions/product_data"
+                    },
+                    "conversion_factor": {
+                        "$ref": "#/definitions/conversion_factor"
+                    },
+                    "preservation": {
+                        "$ref": "#/definitions/preservation"
+                    },
+                    "all_wood_text": {
+                        "$ref": "#/definitions/all_wood_text"
+                    },
+                    "coordinate": {
+                        "$ref": "#/definitions/coordinate"
+                    },
+                    "other_file": {
+                        "$ref": "#/definitions/other_file"
+                    }
+                },
+                "required": [
+                    "wood_id",
+                    "product_data",
+                    "conversion_factor",
+                    "coordinate"
+                ]
+            },
+            "properties": {},
+            "minItems": 1
+        },
+        "preservation": {
+            "type": "boolean"
+        },
+        "all_wood_text": {
+            "type": "string",
+            "maxLength": 255
+        }
+    },
+    "properties": {
+        "document": {
+            "$ref": "#/definitions/document"
+        }
+    },
+    "required": [
+        "document"
+    ]
+}
