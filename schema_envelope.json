@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "https://raw.githubusercontent.com/kwf-ev/eldat-schema/1.0.1/schema_envelope.json",
+    "description": "schema for validating .eldat standards envelope.",
+    "type": "object",
+    "definitions": {
+        "document": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+                "meta"
+            ],
+            "properties": {
+                "meta": {
+                    "$ref": "#/definitions/meta"
+                }
+            }
+        },
+        "meta": {
+            "type": "object",
+            "required": [
+                "version"
+            ],
+            "properties": {
+                "version": {
+                    "type": "object",
+                    "required": [
+                        "code"
+                    ],
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "pattern": "[0-9]+.[0-9]+.[0-9]+$"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "properties": {
+        "document": {
+            "$ref": "#/definitions/document"
+        }
+    },
+    "required": [
+        "document"
+    ]
+}
