@@ -7,7 +7,6 @@
     "definitions": {
         "document": {
             "title": "Dokument",
-            "additionalProperties": false,
             "type": "object",
             "required": [
                 "meta",
@@ -170,13 +169,10 @@
                         }
                     }
                 }
-            ],
-            "additionalProperties": false,
-            "properties": {}
+            ]
         },
         "clearing": {
             "type": "object",
-            "format": "categories",
             "required": [
                 "clearing_address",
                 "invoice_header",
@@ -260,12 +256,12 @@
             "type": "object",
             "properties": {
                 "name": {
-                    "$ref": "#/definitions/name",
+                    "$ref": "#/definitions/string100",
                     "title": "Name",
                     "description": ""
                 },
                 "street": {
-                    "$ref": "#/definitions/street",
+                    "$ref": "#/definitions/string100",
                     "title": "Straße und Hausnummer",
                     "description": ""
                 },
@@ -275,7 +271,7 @@
                     "description": ""
                 },
                 "city": {
-                    "$ref": "#/definitions/city",
+                    "$ref": "#/definitions/string100",
                     "title": "Stadt",
                     "description": ""
                 },
@@ -318,21 +314,9 @@
                 "state"
             ]
         },
-        "name": {
-            "type": "string",
-            "maxLength": 100
-        },
-        "street": {
-            "type": "string",
-            "maxLength": 100
-        },
         "postcode": {
             "type": "string",
             "pattern": "^[0-9a-zA-Z]{3,10}$"
-        },
-        "city": {
-            "type": "string",
-            "maxLength": 100
         },
         "state": {
             "title": "Staat",
@@ -432,7 +416,7 @@
                         "description": "Angabe der forstlichen Zertifizierungsart"
                     },
                     "cert_no": {
-                        "$ref": "#/definitions/cert_no",
+                        "$ref": "#/definitions/string100",
                         "title": "Zertifizierungsnummer",
                         "description": "Angabe der eindeutigen Zertifizierungskennung"
                     }
@@ -441,8 +425,7 @@
                     "cert_type",
                     "cert_no"
                 ]
-            },
-            "properties": {}
+            }
         },
         "cert_type": {
             "title": "Zertifizierung",
@@ -482,10 +465,6 @@
             },
             "type": "string"
         },
-        "cert_no": {
-            "type": "string",
-            "maxLength": 100
-        },
         "forestry": {
             "type": "object",
             "properties": {
@@ -495,12 +474,12 @@
                     "description": "Definieren Sie die Art des Waldbesitzes"
                 },
                 "office_no": {
-                    "$ref": "#/definitions/office_no",
+                    "$ref": "#/definitions/string30",
                     "title": "Forstamtsnummer",
                     "description": "Offizielle Nummerierung des Forstamtes, falls vorhanden"
                 },
                 "office_name": {
-                    "$ref": "#/definitions/office_name",
+                    "$ref": "#/definitions/string100",
                     "title": "Forstamtsname",
                     "description": "Offizieller Name des Forstamtes, falls vorhanden"
                 },
@@ -510,7 +489,7 @@
                     "description": "Offizielle Nummerierung des Revieres, falls vorhanden"
                 },
                 "district_name": {
-                    "$ref": "#/definitions/district_name",
+                    "$ref": "#/definitions/string100",
                     "title": "Reviername",
                     "description": "Offizieller Name des Revieres, falls vorhanden"
                 }
@@ -564,27 +543,15 @@
             },
             "type": "string"
         },
-        "office_no": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "office_name": {
-            "type": "string",
-            "maxLength": 100
-        },
         "district_no": {
             "type": "string",
             "pattern": "^[0-9\\.,\\-]{0,30}$"
-        },
-        "district_name": {
-            "type": "string",
-            "maxLength": 100
         },
         "bank_data": {
             "type": "object",
             "properties": {
                 "payee_name": {
-                    "$ref": "#/definitions/payee_name",
+                    "$ref": "#/definitions/string100",
                     "title": "Zahlungsempfänger",
                     "description": "Name des Zahlungsempfängers"
                 },
@@ -603,10 +570,6 @@
                 "payee_name",
                 "payee_iban"
             ]
-        },
-        "payee_name": {
-            "type": "string",
-            "maxLength": 100
         },
         "payee_bic": {
             "type": "string",
@@ -628,12 +591,12 @@
                         "description": "Definition der Vorgangs- bzw. Referenznummer"
                     },
                     "ref_no": {
-                        "$ref": "#/definitions/ref_no",
+                        "$ref": "#/definitions/string36",
                         "title": "Referenznummer",
                         "description": "Angabe der Vorgangs- oder Referenznummer"
                     },
                     "date": {
-                        "$ref": "#/definitions/date",
+                        "$ref": "#/definitions/date_time",
                         "title": "Datum",
                         "description": "Datum zu dem die Vorgangs- oder Referenznummer erstellt wurde"
                     }
@@ -700,11 +663,7 @@
             },
             "type": "string"
         },
-        "ref_no": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "date": {
+        "date_time": {
             "type": "string",
             "format": "date-time"
         },
@@ -712,12 +671,12 @@
             "type": "object",
             "properties": {
                 "longitude": {
-                    "$ref": "#/definitions/longitude",
+                    "$ref": "#/definitions/coord",
                     "title": "Längengrad",
                     "description": "Ost-Koordinate in Dezimalgrad (z.B.: 8,916091918945312)"
                 },
                 "latitude": {
-                    "$ref": "#/definitions/latitude",
+                    "$ref": "#/definitions/coord",
                     "title": "Breitengrad",
                     "description": "Nord-Koordinate in Dezimalgrad (z.B.: 49,86861816524657)"
                 },
@@ -733,10 +692,7 @@
                 "crs"
             ]
         },
-        "longitude": {
-            "type": "number"
-        },
-        "latitude": {
+        "coord": {
             "type": "number"
         },
         "crs": {
@@ -808,7 +764,7 @@
                 "type": "object",
                 "properties": {
                     "role_contact": {
-                        "$ref": "#/definitions/role_contact",
+                        "$ref": "#/definitions/string100",
                         "title": "Rolle des Kontaktes",
                         "description": "Angabe zur Funktion des Kontaktes"
                     },
@@ -842,10 +798,6 @@
             },
             "properties": {},
             "minItems": 1
-        },
-        "role_contact": {
-            "type": "string",
-            "maxLength": 100
         },
         "contact_name": {
             "type": "string",
@@ -909,32 +861,32 @@
                         "description": "Art der Abrechnung"
                     },
                     "invoice_no": {
-                        "$ref": "#/definitions/invoice_no",
+                        "$ref": "#/definitions/string36",
                         "title": "Rechnungsnummer",
                         "description": "Eindeutige Kennung der Rechnung"
                     },
                     "invoice_cancel": {
-                        "$ref": "#/definitions/invoice_cancel",
+                        "$ref": "#/definitions/bool",
                         "title": "Storno",
                         "description": "Angabe ob hiermit eine Abrechnung storniert wird"
                     },
                     "cancel_ref_no": {
-                        "$ref": "#/definitions/cancel_ref_no",
+                        "$ref": "#/definitions/string36",
                         "title": "Stornierungsnummer",
                         "description": "Referenznummer zur Stornierung"
                     },
                     "doc_date": {
-                        "$ref": "#/definitions/doc_date",
+                        "$ref": "#/definitions/date_time",
                         "title": "Datum des Beleges",
                         "description": "Datum zu dem die Abrechnung erstellt wird"
                     },
                     "service_period_from": {
-                        "$ref": "#/definitions/service_period_from",
+                        "$ref": "#/definitions/date_time",
                         "title": "Leistungsbeginn",
                         "description": "Datum zu dem die Leistung begonnen wurde"
                     },
                     "service_period_until": {
-                        "$ref": "#/definitions/service_period_until",
+                        "$ref": "#/definitions/date_time",
                         "title": "Leistungsende",
                         "description": "Datum zu dem die Leistung beendet wird"
                     },
@@ -944,7 +896,7 @@
                         "description": "Angabe zum gewählten Abrechnungsverfahren"
                     },
                     "invoice_text": {
-                        "$ref": "#/definitions/invoice_text",
+                        "$ref": "#/definitions/string255",
                         "title": "Rechnungstext",
                         "description": "Freie Texteingaben zur Abrechnung"
                     },
@@ -969,7 +921,7 @@
                         "description": ""
                     },
                     "due_date_for_payment": {
-                        "$ref": "#/definitions/due_date_for_payment",
+                        "$ref": "#/definitions/date_time",
                         "title": "Zahlungsziel",
                         "description": "Datum zu dem die Zahlung erfolgt sein soll"
                     },
@@ -1031,29 +983,6 @@
             },
             "type": "string"
         },
-        "invoice_no": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "invoice_cancel": {
-            "type": "boolean"
-        },
-        "cancel_ref_no": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "doc_date": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "service_period_from": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "service_period_until": {
-            "type": "string",
-            "format": "date-time"
-        },
         "payment_procedure": {
             "title": "Zahlungsverfahren",
             "enum": [
@@ -1069,10 +998,6 @@
                 ]
             },
             "type": "string"
-        },
-        "invoice_text": {
-            "type": "string",
-            "maxLength": 255
         },
         "net_price": {
             "type": "number"
@@ -1252,17 +1177,13 @@
             "type": "string",
             "maxLength": 255
         },
-        "due_date_for_payment": {
-            "type": "string",
-            "format": "date-time"
-        },
         "discount": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
                     "discount_period": {
-                        "$ref": "#/definitions/discount_period",
+                        "$ref": "#/definitions/date_time",
                         "title": "Skontofrist",
                         "description": "Datum bis zu dem ein Skonto gewährt wird"
                     },
@@ -1290,10 +1211,6 @@
             },
             "properties": {}
         },
-        "discount_period": {
-            "type": "string",
-            "format": "date-time"
-        },
         "discount_percent": {
             "type": "number",
             "maximum": 100
@@ -1314,7 +1231,7 @@
                     "description": "Höhe der bereits getätigten Abschlagszahlung"
                 },
                 "ad_pay_ref_no": {
-                    "$ref": "#/definitions/ad_pay_ref_no",
+                    "$ref": "#/definitions/string36",
                     "title": "Referenznummer",
                     "description": "Referenznummer zur bereits getätigten Abschlagszahlung"
                 }
@@ -1326,10 +1243,6 @@
         },
         "ad_pay_value": {
             "type": "number"
-        },
-        "ad_pay_ref_no": {
-            "type": "string",
-            "maxLength": 30
         },
         "payee": {
             "type": "object",
@@ -1422,12 +1335,12 @@
                         "description": "Angabe welcher Artikelgruppe die Rechnungsposition zuzuordnen ist"
                     },
                     "article_type": {
-                        "$ref": "#/definitions/article_type",
+                        "$ref": "#/definitions/string30",
                         "title": "Artikeltyp",
                         "description": "Nähere Beschreibung des Artikels, falls die Artikelklasse zu unspezifisch ist"
                     },
                     "invoice_item_text": {
-                        "$ref": "#/definitions/invoice_item_text",
+                        "$ref": "#/definitions/string255",
                         "title": "Bemerkungen",
                         "description": "Freie Texteingabe für Bemerkungen zur Rechnungspositin"
                     },
@@ -2405,7 +2318,7 @@
                         "description": "Gibt den Anteil des zertifizierten Holzes an"
                     },
                     "wood_certificat_id": {
-                        "$ref": "#/definitions/wood_certificat_id",
+                        "$ref": "#/definitions/string30",
                         "title": "Zertifikatsnummer",
                         "description": "Eindeutige Kennung des Zertifikates"
                     }
@@ -2464,10 +2377,6 @@
             "type": "number",
             "maximum": 100
         },
-        "wood_certificat_id": {
-            "type": "string",
-            "maxLength": 30
-        },
         "article_class": {
             "title": "Artikelgruppe",
             "enum": [
@@ -2495,14 +2404,6 @@
                 ]
             },
             "type": "string"
-        },
-        "article_type": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "invoice_item_text": {
-            "type": "string",
-            "maxLength": 255
         },
         "attribute": {
             "title": "Preismerkmal",
@@ -2642,7 +2543,7 @@
             "type": "object",
             "properties": {
                 "creation_datetime": {
-                    "$ref": "#/definitions/creation_datetime",
+                    "$ref": "#/definitions/date_time",
                     "title": "Erstelldatum und -zeit",
                     "description": "Angabe des Datums, und gegebenenfalls der Uhrzeit, zu dem der Status erstellt wird"
                 },
@@ -2662,10 +2563,6 @@
                     "description": ""
                 }
             }
-        },
-        "creation_datetime": {
-            "type": "string",
-            "format": "date-time"
         },
         "statusid": {
             "title": "Status-ID",
@@ -2712,7 +2609,6 @@
             "maxLength": 255
         },
         "delivery_note": {
-            "format": "categories",
             "type": "object",
             "required": [
                 "transfer_address",
@@ -3044,17 +2940,17 @@
                 "type": "object",
                 "properties": {
                     "other_contact_role": {
-                        "$ref": "#/definitions/other_contact_role",
+                        "$ref": "#/definitions/string100",
                         "title": "Rolle des Kontaktes",
                         "description": "Angabe zur Funktion des Kontaktes"
                     },
                     "other_contact_name": {
-                        "$ref": "#/definitions/other_contact_name",
+                        "$ref": "#/definitions/string100",
                         "title": "Vorname",
                         "description": ""
                     },
                     "other_contact_surname": {
-                        "$ref": "#/definitions/other_contact_surname",
+                        "$ref": "#/definitions/string100",
                         "title": "Nachname",
                         "description": ""
                     },
@@ -3074,18 +2970,6 @@
                 ]
             },
             "properties": {}
-        },
-        "other_contact_role": {
-            "type": "string",
-            "maxLength": 100
-        },
-        "other_contact_name": {
-            "type": "string",
-            "maxLength": 100
-        },
-        "other_contact_surname": {
-            "type": "string",
-            "maxLength": 100
         },
         "other_contact_telephone": {
             "type": "array",
@@ -3169,7 +3053,7 @@
             "type": "object",
             "properties": {
                 "delivery_no": {
-                    "$ref": "#/definitions/delivery_no",
+                    "$ref": "#/definitions/string36",
                     "title": "Lieferscheinnummer",
                     "description": "Eindeutige Kennung des Lieferscheines als Referenz"
                 },
@@ -3182,10 +3066,6 @@
             "required": [
                 "delivery_no"
             ]
-        },
-        "delivery_no": {
-            "type": "string",
-            "maxLength": 30
         },
         "signature_data": { 
             "type": "object",
@@ -3217,12 +3097,12 @@
             "type": "object",
             "properties": {
                 "haulier_name": {
-                    "$ref": "#/definitions/haulier_name",
+                    "$ref": "#/definitions/string100",
                     "title": "Vorname",
                     "description": "Vorname des Frächters"
                 },
                 "haulier_surname": {
-                    "$ref": "#/definitions/haulier_surname",
+                    "$ref": "#/definitions/string100",
                     "title": "Nachname",
                     "description": "Nachname des Frächters"
                 },
@@ -3240,14 +3120,6 @@
             "required": [
                 "haulier_surname"
             ]
-        },
-        "haulier_name": {
-            "type": "string",
-            "maxLength": 100
-        },
-        "haulier_surname": {
-            "type": "string",
-            "maxLength": 100
         },
         "haulier_telephone": {
             "type": "array",
@@ -3267,7 +3139,7 @@
                 "type": "object",
                 "properties": {
                     "haul_means_no": {
-                        "$ref": "#/definitions/haul_means_no",
+                        "$ref": "#/definitions/string30",
                         "title": "Nummer des Transportmittels",
                         "description": "KFZ-Kennzeichen oder Waggon-Kennung des aufnehmenden Transportmittels"
                     },
@@ -3282,7 +3154,7 @@
                         "description": "Die beförderte Menge, definiert durch das Aufnahmeverfahren."
                     },
                     "haul_text": {
-                        "$ref": "#/definitions/haul_text",
+                        "$ref": "#/definitions/string255",
                         "title": "Bemerkungen",
                         "description": "Freie Texteingaben zum Transportmittel"
                     }
@@ -3294,14 +3166,6 @@
             },
             "properties": {},
             "minItems": 1
-        },
-        "haul_means_no": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "haul_text": {
-            "type": "string",
-            "maxLength": 255
         },
         "origin": {
             "title": "Ursprung",
@@ -3326,7 +3190,7 @@
             "type": "object",
             "properties": {
                 "loading_time": {
-                    "$ref": "#/definitions/loading_time",
+                    "$ref": "#/definitions/date_time",
                     "title": "Aufladezeitpunkt",
                     "description": "Uhrzeit und Datum zu dem das Holz aufgeladen wird"
                 },
@@ -3344,10 +3208,6 @@
             "required": [
                 "estimated_amount"
             ]
-        },
-        "loading_time": {
-            "type": "string",
-            "format": "date-time"
         },
         "estimated_amount": {
             "type": "array",
@@ -3400,12 +3260,12 @@
                         "description": ""
                     },
                     "pile_preservation": {
-                        "$ref": "#/definitions/pile_preservation",
+                        "$ref": "#/definitions/bool",
                         "title": "Holzschutz",
                         "description": "Angabe ob das Polter mit Schutzmittel behandelt ist"
                     },
                     "pile_text": {
-                        "$ref": "#/definitions/pile_text",
+                        "$ref": "#/definitions/string255",
                         "title": "Polterbemerkung",
                         "description": "Weitere Bemerkungen zum beschriebenen Polter"
                     },
@@ -3475,7 +3335,7 @@
                         "description": "Reduktionsfaktor von Brutto- zu Nettowert des Polters"
                     },
                     "preservation": {
-                        "$ref": "#/definitions/preservation",
+                        "$ref": "#/definitions/bool",
                         "title": "Holzschutz",
                         "description": "Angabe ob das Polter mit Holzschutz behandelt wurde"
                     },
@@ -3485,7 +3345,7 @@
                         "description": "Anzahl der Stämme als Polterunterlage"
                     },
                     "all_wood_text": {
-                        "$ref": "#/definitions/all_wood_text",
+                        "$ref": "#/definitions/string255",
                         "title": "Bemerkungen zum Polter",
                         "description": "Freie Texteingabe für Informationen zum Polter"
                     },
@@ -3577,7 +3437,6 @@
             "maximum": 10
         },
         "quality_attribute": {
-            "additionalItems": false,
             "type": "array",
             "items": {
                 "enum": [
@@ -3657,13 +3516,6 @@
             "type": "number",
             "maximum": 100
         },
-        "pile_preservation": {
-            "type": "boolean"
-        },
-        "pile_text": {
-            "type": "string",
-            "maxLength": 255
-        },
         "other_file": {
             "type": "array",
             "items": {
@@ -3676,7 +3528,7 @@
                         "description": "Pfad unter dem die externe Datei zu finden ist"
                     },
                     "file_text": {
-                        "$ref": "#/definitions/file_text",
+                        "$ref": "#/definitions/string255",
                         "title": "Bemerkungen zur externen Datei",
                         "description": "Weitere Informationen die die externe Datei beschreiben"
                     }
@@ -3692,12 +3544,7 @@
             "maxLength": 2048,
             "pattern": "https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]\\.[^\\s]{2,}"
         },
-        "file_text": {
-            "type": "string",
-            "maxLength": 255
-        },
         "measurement_journal": {
-            "format": "categories",
             "type": "object",
             "required": [
                 "other_address",
@@ -3847,28 +3694,16 @@
                 }
             }
         },
-        "screening_valid_to": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "calibration_id": {
-            "type": "string",
-            "maxLength": 30
-        },
-        "calibrated_until": {
-            "type": "string",
-            "format": "date-time"
-        },
         "measuring_data": {
             "type": "object",
             "properties": {
                 "measuring_time": {
-                    "$ref": "#/definitions/measuring_time",
+                    "$ref": "#/definitions/date_time",
                     "title": "Vermessungszeitpunkt",
                     "description": "Datum und Uhrzeit zu dem das Messergebnis vorliegt"
                 },
                 "measurement_no": {
-                    "$ref": "#/definitions/measurement_no",
+                    "$ref": "#/definitions/string36",
                     "title": "Messprotokollnummer",
                     "description": "Eindeutige Kennung der Vermessung"
                 },
@@ -3883,20 +3718,8 @@
                 "measurement_no"
             ]
         },
-        "measuring_time": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "measurement_no": {
-            "type": "string",
-            "maxLength": 30
-        },
         "measurement_item": {
             "type": "number"
-        },
-        "photo_device_id": {
-            "type": "string",
-            "maxLength": 30
         },
         "square_measure": {
             "type": "object",
@@ -4067,7 +3890,6 @@
             "maxLength": 255
         },
         "transfer_order": {
-            "format": "categories",
             "type": "object",
             "required": [
                 "transfer_address",
@@ -4112,7 +3934,7 @@
                     "description": ""
                 },
                 "trans_period_date": {
-                    "$ref": "#/definitions/trans_period_date",
+                    "$ref": "#/definitions/date_time",
                     "title": "Abfuhrfristdatum",
                     "description": "Sofern sich die Abfuhrfrist vom Gültigkeitszeitraum des Transportauftrages unterscheidet"
                 },
@@ -4152,28 +3974,16 @@
             "type": "object",
             "properties": {
                 "from": {
-                    "$ref": "#/definitions/from",
+                    "$ref": "#/definitions/date_time",
                     "title": "Gültigkeitsbeginn",
                     "description": "Datum ab dem der Transportauftrag gültig ist"
                 },
                 "until": {
-                    "$ref": "#/definitions/until",
+                    "$ref": "#/definitions/date_time",
                     "title": "Gültigkeitsende",
                     "description": "Datum zu dem der Transportauftrag endet"
                 }
             }
-        },
-        "from": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "until": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "trans_period_date": {
-            "type": "string",
-            "format": "date-time"
         },
         "distance": {
             "type": "number"
@@ -4281,7 +4091,7 @@
                 "type": "object",
                 "properties": {
                     "delivery_no": {
-                        "$ref": "#/definitions/delivery_no",
+                        "$ref": "#/definitions/string36",
                         "title": "Lieferscheinnummer",
                         "description": "Eindeutige Kennung des Lieferscheines als Referenz"
                     }
@@ -4347,7 +4157,6 @@
         },
         "wood_allocation": {
             "type": "object",
-            "format": "categories",
             "required": [
                 "doc_type",
                 "address",
@@ -4425,7 +4234,7 @@
                     "description": "Definition der vereinbarten Lieferbedingungen, wie z.B. \"Frei Werk\" oder \"Frei Waldstraße\""
                 },
                 "trans_clearance_date": {
-                    "$ref": "#/definitions/trans_clearance_date",
+                    "$ref": "#/definitions/date_time",
                     "title": "Abfuhrfreigabedatum",
                     "description": "Datum ab dem die Abfuhr freigegeben ist"
                 },
@@ -4444,7 +4253,7 @@
                     "description": ""
                 },
                 "del_inf_text": {
-                    "$ref": "#/definitions/del_inf_text",
+                    "$ref": "#/definitions/string255",
                     "title": "Bemerkungen zur Lieferung",
                     "description": "Weitere Informationen bezüglich der Lieferung"
                 }
@@ -4492,17 +4301,9 @@
             },
             "type": "string"
         },
-        "trans_clearance_date": {
-            "type": "string",
-            "format": "date-time"
-        },
         "trans_period_days": {
             "type": "number",
             "pattern": "[0-9]{1,3}"
-        },
-        "del_inf_text": {
-            "type": "string",
-            "maxLength": 255
         },
         "wood_data": {
             "type": "object",
@@ -4513,7 +4314,7 @@
                     "description": ""
                 },
                 "felling_date": {
-                    "$ref": "#/definitions/felling_date",
+                    "$ref": "#/definitions/date_time",
                     "title": "Hiebsdatum",
                     "description": "Datum zu dem der Hieb durchgeführt wurde"
                 },
@@ -4533,10 +4334,6 @@
                 "felling_date",
                 "allocated_pile"
             ]
-        },
-        "felling_date": {
-            "type": "string",
-            "format": "date-time"
         },
         "business_transaction":{
             "title": "Geschäftsvorfall",
@@ -4588,23 +4385,16 @@
             "properties": {},
             "minItems": 1
         },
-        "preservation": {
-            "type": "boolean"
-        },
-        "all_wood_text": {
-            "type": "string",
-            "maxLength": 255
-        },
         "calibration":{
             "type":"object",
             "properties":{
                 "calibration_id": {
-                    "$ref": "#/definitions/calibration_id",
+                    "$ref": "#/definitions/string30",
                     "title": "Eich-ID",
                     "description": "ID zur Überprüfung der Eichung"
                 },
                 "calibrated_until": {
-                    "$ref": "#/definitions/calibrated_until",
+                    "$ref": "#/definitions/date_time",
                     "title": "Eichung gültig bis",
                     "description": "Datum bis zu dem das Gerät geeicht ist"
                 },
@@ -4682,10 +4472,9 @@
                         "description": "Durchmesser in cm"
                     },
                     "under_bark": {
-                        "type": "boolean",
+                        "$ref": "#/definitions/bool",
                         "title": "Messung ohne Rinde",
-                        "description": "Angabe, ob unter der Rinde gemessen wurde",
-                        "format": "checkbox"
+                        "description": "Angabe, ob unter der Rinde gemessen wurde"
                     },
                     "diameter_position": {
                         "type": "number",
@@ -4793,7 +4582,6 @@
             "type": "object",
             "title": "Holzmenge",
             "description": "Die beförderte Menge, definiert durch das Aufnahmeverfahren.",
-            "additionalProperties": false,
             "oneOf": [
                 {
                     "title": "Einzelstammvermessung",
@@ -4959,13 +4747,11 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "log": {
                     "type":"array",
                     "title": "Stamm",
-                    "format": "tabs",
                     "minItems": 1,
                     "items": {
                         "title": "Stamm",
@@ -5023,14 +4809,12 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "estimate": {
                     "type":"array",
                     "title": "Holzart/Qualität",
                     "minItems": 1,
-                    "format": "tabs",
                     "items": {
                         "title": "Holzart/Qualität",
                         "type": "object",
@@ -5103,14 +4887,12 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "estimate": {
                     "type":"array",
                     "title": "Holzart/Qualität",
                     "minItems": 1,
-                    "format": "tabs",
                     "items": {
                         "title": "Holzart/Qualität",
                         "type": "object",
@@ -5163,8 +4945,7 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "estimate": {
                     "type":"array",
@@ -5252,8 +5033,7 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "calibration": {
                     "title": "Eichung",
@@ -5325,13 +5105,11 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "log": {
                     "type":"array",
                     "title": "Stamm",
-                    "format": "tabs",
                     "minItems": 1,
                     "items": {
                         "title": "Stamm",
@@ -5393,13 +5171,11 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "sample": {
                     "type":"array",
                     "title": "Stichproben",
-                    "format": "tabs",
                     "minItems": 1,
                     "items": {
                         "title": "Stichprobe",
@@ -5455,6 +5231,7 @@
             ]
         },
         "measuring_technique_single_log_industrie": {
+            "title": "Messtechnik",
             "enum": [
                 "fewi",
                 "vawi"
@@ -5482,11 +5259,10 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "screening_valid_to": {
-                    "$ref": "#/definitions/screening_valid_to",
+                    "$ref": "#/definitions/date_time",
                     "title": "Forst-Sortierprüfung gültig bis",
                     "description": "Datum bis zu dem die forstliche Sortierprüfung des Gerätes gültig ist"
                 },
@@ -5497,7 +5273,6 @@
                 "log_industrie": {
                     "type":"array",
                     "title": "Stamm",
-                    "format": "tabs",
                     "minItems": 1,
                     "items": {
                         "title": "Stamm",
@@ -5629,8 +5404,7 @@
                 },
                 "measurement_datetime": {
                     "title": "Vermessungsdatum",
-                    "type": "string",
-                    "format": "datetime-local"
+                    "$ref": "#/definitions/date_time"
                 },
                 "calibration": {
                     "title": "Geeichte Geräte",
@@ -5644,7 +5418,6 @@
                 "sample": {
                     "type":"array",
                     "title": "Messungen",
-                    "format": "tabs",
                     "minItems": 1,
                     "items": {
                         "title": "Messung",
@@ -5709,20 +5482,37 @@
             "type": "object",
             "properties": {
                 "longitude": {
-                    "$ref": "#/definitions/longitude",
+                    "$ref": "#/definitions/coord",
                     "title": "Längengrad",
                     "description": "Ost-Koordinate in Dezimalgrad (z.B.: 8,916091918945312)"
                 },
                 "latitude": {
-                    "$ref": "#/definitions/latitude",
+                    "$ref": "#/definitions/coord",
                     "title": "Breitengrad",
                     "description": "Nord-Koordinate in Dezimalgrad (z.B.: 49,86861816524657)"
                 }
             }
         },
+        "image_encode": {
+            "title": "Bild-Verschlüsselung",
+            "type": "string",
+            "enum": [
+                "base64"
+            ],
+            "enum_titles": [
+                "Base64"
+            ]
+        },
+        "bool": {
+            "type": "boolean"
+        },
         "integer": {
             "type": "number",
             "maximum": 255
+        },
+        "string100": {
+            "type": "string",
+            "maxLength": 100
         },
         "string255": {
             "type": "string",
@@ -5736,17 +5526,12 @@
             "type": "string",
             "maxLength": 36
         },
+        "string30": {
+            "type": "string",
+            "maxLength": 30
+        },
         "string": {
             "type": "string"
-        },
-        "image_encode": {
-            "type": "string",
-            "enum": [
-                "base64"
-            ],
-            "enum_titles": [
-                "Base64"
-            ]
         }
     },
     "properties": {
