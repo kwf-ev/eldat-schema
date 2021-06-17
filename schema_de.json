@@ -4377,9 +4377,7 @@
                 },
                 "required": [
                     "wood_id",
-                    "product_data",
-                    "conversion_factor",
-                    "coordinate"
+                    "product_data"
                 ]
             },
             "properties": {},
