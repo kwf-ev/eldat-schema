@@ -41,20 +41,23 @@
                         "code": {
                             "title": "Versions-Code",
                             "type": "string",
-                            "pattern": "[0-9]+.[0-9]+.[0-9]+$"
+                            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
                         }
                     }
                 },
                 "transaction_id": {
-                    "description": "Eindeutige Kennung der Übermittlung",
+                    "title": "Kennung der Übermittlung",
+                    "description": "Eindeutige Id, die für jede Übertragung vom Versender neu erstellt wird.",
                     "$ref": "#/definitions/string36"
                 },
                 "process_id": {
-                    "description": "Eindeutige Kennung des Prozesses",
+                    "title": "Kennung des Prozesses",
+                    "description": "Eindeutige Id, die mit dem ersten .eldat-Dokumentes erstellt wird, dass den Prozess anstößt (meist in der Holzbereitstellungsmeldung). Weitere .eldat-Dokumente, die während der Holzbereitstellungskette erstellt werden, enthalten ebenfalls diese Id.",
                     "$ref": "#/definitions/string36"
                 },
                 "module_id": {
-                    "description": "Eindeutige Kennung des übermittelten Moduls",
+                    "title": "Kennung des übermittelten Moduls",
+                    "description": "Eindeutige Id, die das Modul eindeutig identifizierbar macht.",
                     "$ref": "#/definitions/string36"
                 },
                 "status_tech": {
@@ -63,6 +66,7 @@
                         "code": {
                             "type": "number",
                             "title": "Technischer Status",
+                            "description": "Eine 3 stellige Nummer, die den Status “Erstellt” oder “Bearbeitet” enthalten kann.",
                             "default": 100,
                             "enum": [
                                 100,
@@ -76,7 +80,8 @@
                             }
                         },
                         "reference_module_id": {
-                            "description": "Eindeutige Kennung des Moduls, auf das sich bezogen wird.",
+                            "title": "Kennung des Moduls",
+                            "description": "Eindeutige Referenz auf ein, bezugnehmendes Dokument. Hier wird die module_id eines existierenden Dokumentes eingetragen.",
                             "$ref": "#/definitions/string36"
                         }
                     },
@@ -85,15 +90,17 @@
                     ]
                 },
                 "response_system": {
-                    "description": "Eine Adresse auf die, mit einem .eldat Dokument, geantwortet werden kann. (Meist die url einer API des Senders dieses Dokumentes.)",
+                    "description": "Informationen zum System auf das, mit einem .eldat Dokument, geantwortet werden kann. (Meist die url einer API des Senders dieses Dokumentes.)",
                     "type": "object",
                     "properties": {
                         "uri": {
-                            "description": "Host, Pfad und Port der Adresse (z.B. https://api.example.com:3000/eldat/receive)",
+                            "title": "Host, Pfad und Port der Adresse",
+                            "description": "Der Endpunkt des Systemes, an das eine mögliche Antwort gesendet werden soll (z.B. https://api.example.com:3000/eldat/receive ).",
                             "$ref": "#/definitions/string255"
                         },
                         "user_id": {
-                            "description": "Eindeutige Kennung des Nutzers. (Meist die systeminterne ID des Senders der Nachricht.)",
+                            "title": "Kennung des Nutzers",
+                            "description": "Eindeutige Id des Senders des Dokumentes (Authentifizierung / Meist die systeminterne ID des Senders der Nachricht). Diese Id soll bei Antworten auf ein Dokument als “request_system -> user_id” übermittelt werden.",
                             "$ref": "#/definitions/string36"
                         }
                     },
@@ -102,19 +109,29 @@
                     ]
                 },
                 "request_system": {
-                    "description": "Eindeutige Kennung des Nutzers des Empfängersystems. (Meist die systeminterne ID des Empfängers der Nachricht.)",
-                    "$ref": "#/definitions/string36"
+                    "description": "Informationen zum Empfängersystem.",
+                    "type": "object",
+                    "properties": {
+                        "user_id": {
+                            "title": "Kennung des Nutzers des Empfängersystems",
+                            "description": "Eindeutige Id des Empfängers (Authentifizierung / Meist die systeminterne ID des Empfängers der Nachricht). Die Id erhält ein System ausschließlich durch vorangegangene Dokumente. Dort wird sie als “response_system -> user_id” übermittelt.",
+                            "$ref": "#/definitions/string36"
+                        }
+                    }
                 },
                 "created_by": {
                     "type": "object",
                     "properties": {
                         "company": {
+                            "description": "Firmenname des Erstellers des Dokumentes / bzw. Hersteller der erstellenden Software.",
                             "$ref": "#/definitions/string255"
                         },
                         "application": {
+                            "description": "Name der Software, die das Dokument erstellt.",
                             "$ref": "#/definitions/string255"
                         },
                         "application_version": {
+                            "description": "Version der Software, die das Dokument erstellt.",
                             "$ref": "#/definitions/string255"
                         }
                     }
@@ -131,7 +148,8 @@
                         "wood_allocation": {
                             "$ref": "#/definitions/wood_allocation"
                         }
-                    }
+                    },
+                    "required": [ "wood_allocation" ]
                 },
                 {
                     "title": "Abrechnung",
@@ -140,7 +158,8 @@
                         "clearing": {
                             "$ref": "#/definitions/clearing"
                         }
-                    }
+                    },
+                    "required": [ "clearing" ]
                 },
                 {
                     "title": "Lieferschein",
@@ -149,7 +168,8 @@
                         "delivery_note": {
                             "$ref": "#/definitions/delivery_note"
                         }
-                    }
+                    },
+                    "required": [ "delivery_note" ]
                 },
                 {
                     "title": "Messprotokoll",
@@ -158,7 +178,8 @@
                         "measurement_journal": {
                             "$ref": "#/definitions/measurement_journal"
                         }
-                    }
+                    },
+                    "required": [ "measurement_journal" ]
                 },
                 {
                     "title": "Transportauftrag",
@@ -167,7 +188,8 @@
                         "transfer_order": {
                             "$ref": "#/definitions/transfer_order"
                         }
-                    }
+                    },
+                    "required": [ "transfer_order" ]
                 }
             ]
         },
@@ -760,7 +782,7 @@
         "contact": {
             "type": "array",
             "items": {
-                "title":"Kontakt",
+                "title": "Kontakt",
                 "type": "object",
                 "properties": {
                     "role_contact": {
@@ -1063,14 +1085,12 @@
             "title": "Preiseinheit",
             "enum": [
                 "bei",
-                "bet",
-                "pro"
+                "bet"
             ],
             "options": {
                 "enum_titles": [
                     "Betrag je Einheit",
-                    "Absolutbetrag",
-                    "Prozent"
+                    "Absolutbetrag"
                 ]
             },
             "type": "string"
@@ -1306,7 +1326,7 @@
                         "title": "Mittlere Länge",
                         "description": "(Mittlere) Länge des Holzes in der Aggregation"
                     },
-                    "mean_length_deviation":{
+                    "mean_length_deviation": {
                         "$ref": "#/definitions/mean_length_deviation"
                     },
                     "grade_length": {
@@ -1384,16 +1404,16 @@
             "title": "Abweichung von der mittleren Länge",
             "properties": {
                 "negative_deviation": {
-                    "title":"Negative Abweichung",
+                    "title": "Negative Abweichung",
                     "description": "Differenz zwischen dem kürzesten Stamm und der Länge des Mittelstammes",
                     "type": "number",
-                    "minimum":0
+                    "minimum": 0
                 },
                 "positive_deviation": {
-                    "title":"Positive Abweichung",
+                    "title": "Positive Abweichung",
                     "description": "Differenz zwischen dem längsten Stamm und der Länge des Mittelstammes",
                     "type": "number",
-                    "minimum":0
+                    "minimum": 0
                 }
             }
         },
@@ -1495,7 +1515,8 @@
                 "nf",
                 "nfk",
                 "b",
-                "bk",
+                "bk1",
+                "bk2",
                 "c",
                 "d",
                 "oa",
@@ -1536,7 +1557,8 @@
                     "Qualität normal/fehlerhaft",
                     "Qualität normal/fehlerhaft/krank",
                     "Qualität B",
-                    "Qualität B Rotkern",
+                    "Qualität B-Rot1 (Rotkern >33% und <60% des Durchmessers)",
+                    "Qualität B-Rot2 (Rotkern ≥60% des Durchmessers)",
                     "Qualität C",
                     "Qualität D",
                     "Ohne Qualitätsausscheidung",
@@ -1565,7 +1587,7 @@
                     "Braunkern",
                     "Spritzkern",
                     "Qualität A",
-                    "Qualität A Rotkern"
+                    "Qualität A Rotkern (Rotkern >15% des Durchmessers)"
                 ]
             },
             "type": "string"
@@ -2082,34 +2104,7 @@
             "maximum": 20
         },
         "diameter": {
-            "type": "object",
-            "properties": {
-                "diameter_value": {
-                    "$ref": "#/definitions/diameter_value",
-                    "title": "Durchmesserwert ohne Rinde",
-                    "description": "Durchmesser des Einzelstammes oder mittleren Stammes in der Aggregation (cm)"
-                },
-                "dia_measurement": {
-                    "$ref": "#/definitions/dia_measurement",
-                    "title": "Durchmesserermittlung",
-                    "description": "Angabe wie der Stammdurchmesser ermittelt wurde"
-                },
-                "bark_condition": {
-                    "$ref": "#/definitions/bark_condition",
-                    "title": "Rindenzustand",
-                    "description": "Angabe über den Zustand der Rinde bei der Messung"
-                },
-                "bark_thickness": {
-                    "$ref": "#/definitions/bark_thickness",
-                    "title": "Rindenstärke",
-                    "description": "Rindendicke bei Stammvermessung (cm)"
-                },
-                "dia_on_bark": {
-                    "$ref": "#/definitions/dia_on_bark",
-                    "title": "Durchmesser mit Rinde",
-                    "description": "Stammdurchmesser, gemessen in Rinde"
-                }
-            }
+            "$ref": "#/definitions/diameter_length"
         },
         "diameter_value": {
             "type": "number",
@@ -2529,8 +2524,8 @@
             "type": "string",
             "maxLength": 255
         },
-        
-        "status_arr":{
+
+        "status_arr": {
             "title": "Status",
             "type": "array",
             "minItems": 1,
@@ -2695,6 +2690,10 @@
                     "$ref": "#/definitions/location",
                     "title": "Stelle",
                     "description": ""
+                },
+                "route_definition": {
+                    "$ref": "#/definitions/route_definition",
+                    "title": "Anfahrtsweg"
                 },
                 "other_contact": {
                     "$ref": "#/definitions/other_contact",
@@ -2995,6 +2994,10 @@
                     "title": "Stelle",
                     "description": ""
                 },
+                "route_definition": {
+                    "$ref": "#/definitions/route_definition",
+                    "title": "Abfahrtsweg"
+                },
                 "other_contact": {
                     "$ref": "#/definitions/other_contact",
                     "title": "Weiterer Kontakt",
@@ -3067,7 +3070,7 @@
                 "delivery_no"
             ]
         },
-        "signature_data": { 
+        "signature_data": {
             "type": "object",
             "properties": {
                 "signature_string": {
@@ -3321,7 +3324,7 @@
                         "title": "Mittlere Länge",
                         "description": "(Mittlere) Länge des Holzes"
                     },
-                    "mean_length_deviation":{
+                    "mean_length_deviation": {
                         "$ref": "#/definitions/mean_length_deviation"
                     },
                     "vat_rate": {
@@ -3364,7 +3367,8 @@
                     "quality",
                     "grade",
                     "use",
-                    "amount"
+                    "amount",
+                    "coordinate"
                 ]
             }
         },
@@ -3389,7 +3393,7 @@
                         "title": "Mittlere Länge",
                         "description": "(Mittlere) Länge des Holzes in der Aggregation"
                     },
-                    "mean_length_deviation":{
+                    "mean_length_deviation": {
                         "$ref": "#/definitions/mean_length_deviation"
                     },
                     "vat_rate": {
@@ -3647,37 +3651,38 @@
             "type": "string"
         },
         "measurement_data": {
-                "title": "Vermessung",
-                "type": "object",
-                "properties": {
-                    "measurer": {
-                        "$ref": "#/definitions/measurer",
-                        "title": "Vermesser",
-                        "description": ""
-                    },
-                    "wood_id": {
-                        "$ref": "#/definitions/wood_id",
-                        "title": "Holznummer",
-                        "description": ""
-                    },
-                    "business_transaction":{
-                        "$ref": "#/definitions/business_transaction"
-                    },
-                    "other_file": {
-                        "$ref": "#/definitions/other_file",
-                        "title": "Dateianhang",
-                        "description": ""
-                    },
-                    "industrie_measured": {
-                        "$ref": "#/definitions/industrie_measured",
-                        "title": "Werkmaß",
-                        "description": ""
-                    }
+            "title": "Vermessung",
+            "type": "object",
+            "properties": {
+                "measurer": {
+                    "$ref": "#/definitions/measurer",
+                    "title": "Vermesser",
+                    "description": ""
                 },
-                "required": [
-                    "measurer",
-                    "industrie_measured"
-                ]
+                "wood_id": {
+                    "$ref": "#/definitions/wood_id",
+                    "title": "Holznummer",
+                    "description": ""
+                },
+                "business_transaction": {
+                    "$ref": "#/definitions/business_transaction",
+                    "title": "Geschäftsvorfall"
+                },
+                "other_file": {
+                    "$ref": "#/definitions/other_file",
+                    "title": "Dateianhang",
+                    "description": ""
+                },
+                "industrie_measured": {
+                    "$ref": "#/definitions/industrie_measured",
+                    "title": "Werkmaß",
+                    "description": ""
+                }
+            },
+            "required": [
+                "measurer",
+                "industrie_measured"
+            ]
         },
         "measurer": {
             "type": "object",
@@ -4019,6 +4024,11 @@
                     "$ref": "#/definitions/currency",
                     "title": "Währung",
                     "description": "Angabe über die Währung in der die Transportkosten errechnet werden"
+                },
+                "trans_price_text": {
+                    "$ref": "#/definitions/trans_price_text",
+                    "title": "Bemerkungen",
+                    "description": "Freie Texteingabe für sonstige Bemessungsgrundlage"
                 }
             }
         },
@@ -4026,7 +4036,7 @@
             "type": "number"
         },
         "trans_price_unit": {
-            "title":"Preiseinheit",
+            "title": "Preiseinheit",
             "enum": [
                 "bei",
                 "bet"
@@ -4084,6 +4094,10 @@
                 ]
             },
             "type": "string"
+        },
+        "trans_price_text": {
+            "type": "string",
+            "maxLength": 255
         },
         "delivery_no_range": {
             "type": "array",
@@ -4146,7 +4160,7 @@
                     "description": "Klartext-Eingabe der zu verschlüsselnden Daten"
                 }
             },
-            "required":[
+            "required": [
                 "barcode_type",
                 "content"
             ]
@@ -4335,7 +4349,7 @@
                 "allocated_pile"
             ]
         },
-        "business_transaction":{
+        "business_transaction": {
             "title": "Geschäftsvorfall",
             "default": "VWe",
             "type": "string",
@@ -4350,7 +4364,7 @@
                 ]
             }
         },
-        "allocated_pile": { 
+        "allocated_pile": {
             "type": "array",
             "items": {
                 "title": "Vermessung & Polter",
@@ -4361,8 +4375,9 @@
                         "title": "Holznummer",
                         "description": ""
                     },
-                    "business_transaction":{
-                        "$ref": "#/definitions/business_transaction"
+                    "business_transaction": {
+                        "$ref": "#/definitions/business_transaction",
+                        "title": "Geschäftsvorfall"
                     },
                     "forest_measured": {
                         "$ref": "#/definitions/forest_measured",
@@ -4383,24 +4398,24 @@
             "properties": {},
             "minItems": 1
         },
-        "calibration":{
-            "type":"object",
-            "properties":{
+        "calibration": {
+            "type": "object",
+            "properties": {
                 "calibration_id": {
                     "$ref": "#/definitions/string30",
                     "title": "Eich-ID",
-                    "description": "ID zur Überprüfung der Eichung"
+                    "description": "Eindeutige und offizielle Nummer der Eichung"
                 },
                 "calibrated_until": {
                     "$ref": "#/definitions/date_time",
                     "title": "Eichung gültig bis",
-                    "description": "Datum bis zu dem das Gerät geeicht ist"
+                    "description": "Verfallsdatum der Eich-Id"
                 },
                 "calibrated_values": {
                     "type": "array",
                     "title": "Geeichte Messergebnisse",
-                    "description": "Liste der Messergebnisse, die durch das geeichte Verfahren erhoben wurden.",
-                    "items":{
+                    "description": "Liste aller Felder die Messergebnisse beinhalten und eichfähig sind.",
+                    "items": {
                         "title": "Geeichte Messung",
                         "properties": {
                             "calibrated_value": {
@@ -4451,15 +4466,15 @@
                     }
                 }
             },
-            "required":[
+            "required": [
                 "calibration_id",
                 "calibrated_until"
             ]
         },
-        "diameter_length":{
+        "diameter_length": {
             "title": "Durchmesser",
             "type": "array",
-            "minItems":1,
+            "minItems": 1,
             "items": {
                 "title": "Durchmesser",
                 "type": "object",
@@ -4486,7 +4501,7 @@
                 ]
             }
         },
-        "quality_definition":{
+        "quality_definition": {
             "title": "Qualität",
             "type": "object",
             "properties": {
@@ -4589,7 +4604,7 @@
                             "$ref": "#/definitions/measurement_type_single_log"
                         }
                     },
-                    "required": ["measurement_type_single_log"]
+                    "required": [ "measurement_type_single_log" ]
                 },
                 {
                     "title": "Foto-Optische-Vermessung",
@@ -4599,7 +4614,7 @@
                             "$ref": "#/definitions/measurement_type_photo_optical"
                         }
                     },
-                    "required": ["measurement_type_photo_optical"]
+                    "required": [ "measurement_type_photo_optical" ]
                 },
                 {
                     "title": "Kran-Vermessung",
@@ -4609,11 +4624,11 @@
                             "$ref": "#/definitions/measurement_type_crane"
                         }
                     },
-                    "required": ["measurement_type_crane"]
+                    "required": [ "measurement_type_crane" ]
                 }
             ]
         },
-        "forest_measured":{
+        "forest_measured": {
             "type": "object",
             "title": "Waldmaß",
             "oneOf": [
@@ -4625,7 +4640,7 @@
                             "$ref": "#/definitions/measurement_type_single_log"
                         }
                     },
-                    "required": ["measurement_type_single_log"]
+                    "required": [ "measurement_type_single_log" ]
                 },
                 {
                     "title": "Stirnflächenverfahren",
@@ -4635,7 +4650,7 @@
                             "$ref": "#/definitions/measurement_type_surfaces"
                         }
                     },
-                    "required": ["measurement_type_surfaces"]
+                    "required": [ "measurement_type_surfaces" ]
                 },
                 {
                     "title": "Mittendurchmesser-Stichprobe",
@@ -4645,7 +4660,7 @@
                             "$ref": "#/definitions/measurement_type_mid_sample"
                         }
                     },
-                    "required": ["measurement_type_mid_sample"]
+                    "required": [ "measurement_type_mid_sample" ]
                 },
                 {
                     "title": "Sektions-Raummaßverfahren",
@@ -4655,7 +4670,7 @@
                             "$ref": "#/definitions/measurement_type_sectional"
                         }
                     },
-                    "required": ["measurement_type_sectional"]
+                    "required": [ "measurement_type_sectional" ]
                 },
                 {
                     "title": "Foto-Optische-Vermessung",
@@ -4665,7 +4680,7 @@
                             "$ref": "#/definitions/measurement_type_photo_optical"
                         }
                     },
-                    "required": ["measurement_type_photo_optical"]
+                    "required": [ "measurement_type_photo_optical" ]
                 },
                 {
                     "title": "Harvester-Maß",
@@ -4675,7 +4690,7 @@
                             "$ref": "#/definitions/measurement_type_harvester"
                         }
                     },
-                    "required": ["measurement_type_harvester"]
+                    "required": [ "measurement_type_harvester" ]
                 },
                 {
                     "title": "Kran-Vermessung",
@@ -4685,11 +4700,11 @@
                             "$ref": "#/definitions/measurement_type_crane"
                         }
                     },
-                    "required": ["measurement_type_crane"]
+                    "required": [ "measurement_type_crane" ]
                 }
             ]
         },
-        "industrie_measured":{
+        "industrie_measured": {
             "type": "object",
             "title": "Werkmaß",
             "oneOf": [
@@ -4701,7 +4716,7 @@
                             "$ref": "#/definitions/measurement_type_single_log_industrie"
                         }
                     },
-                    "required": ["measurement_type_single_log_industrie"]
+                    "required": [ "measurement_type_single_log_industrie" ]
                 },
                 {
                     "title": "Foto-Optische-Vermessung",
@@ -4711,7 +4726,7 @@
                             "$ref": "#/definitions/measurement_type_photo_optical"
                         }
                     },
-                    "required": ["measurement_type_photo_optical"]
+                    "required": [ "measurement_type_photo_optical" ]
                 },
                 {
                     "title": "Gravimetrische-Vermessung",
@@ -4721,7 +4736,7 @@
                             "$ref": "#/definitions/measurement_type_gravimetric"
                         }
                     },
-                    "required": ["measurement_type_gravimetric"]
+                    "required": [ "measurement_type_gravimetric" ]
                 },
                 {
                     "title": "Harvester-Maß",
@@ -4731,11 +4746,11 @@
                             "$ref": "#/definitions/measurement_type_harvester"
                         }
                     },
-                    "required": ["measurement_type_harvester"]
+                    "required": [ "measurement_type_harvester" ]
                 }
             ]
         },
-        "measurement_type_single_log":{
+        "measurement_type_single_log": {
             "title": "Einzelstamm",
             "type": "object",
             "properties": {
@@ -4748,16 +4763,16 @@
                     "$ref": "#/definitions/date_time"
                 },
                 "log": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Stamm",
                     "minItems": 1,
                     "items": {
                         "title": "Stamm",
                         "type": "object",
                         "properties": {
-                            "stam_id": { 
+                            "stam_id": {
                                 "title": "Stammnummer",
-                                "type": "string" 
+                                "type": "string"
                             },
                             "species": {
                                 "$ref": "#/definitions/species",
@@ -4782,7 +4797,7 @@
                                 "title": "Stammabschnittsnummer",
                                 "description": "Nummerierung des Klammerstammstückes (1 = Erdstammstück, 2 = erstes Folgestück, etc.)"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             }
                         },
@@ -4797,7 +4812,7 @@
             "required": [
             ]
         },
-        "measurement_type_surfaces":{
+        "measurement_type_surfaces": {
             "title": "Stirnflächenverfahren",
             "type": "object",
             "properties": {
@@ -4810,14 +4825,14 @@
                     "$ref": "#/definitions/date_time"
                 },
                 "estimate": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Holzart/Qualität",
                     "minItems": 1,
                     "items": {
                         "title": "Holzart/Qualität",
                         "type": "object",
                         "properties": {
-                            "species_quality": { 
+                            "species_quality": {
                                 "title": "Anteil",
                                 "description": "Anteil der Kombination von Holzart und Qualität in %",
                                 "type": "number"
@@ -4827,7 +4842,7 @@
                                 "title": "Holzart",
                                 "description": "Angabe zur Holzart"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             }
                         },
@@ -4836,19 +4851,19 @@
                         ]
                     }
                 },
-                "count": { 
+                "count": {
                     "title": "Stückzahl",
                     "type": "number"
                 },
-                "pieces": { 
+                "pieces": {
                     "title": "Abstand der Markierungsstriche",
                     "type": "number"
                 },
-                "sort_length": { 
+                "sort_length": {
                     "title": "Sortenlänge",
                     "type": "number"
                 },
-                "pile_length": { 
+                "pile_length": {
                     "title": "Polterlänge",
                     "type": "number"
                 },
@@ -4856,7 +4871,7 @@
                     "title": "Poltervorderseite",
                     "type": "array",
                     "minItems": 1,
-                    "items":{
+                    "items": {
                         "title": "Durchmesser",
                         "type": "number"
                     }
@@ -4866,7 +4881,7 @@
                     "type": "array",
                     "minItems": 1,
                     "default": 0,
-                    "items":{
+                    "items": {
                         "title": "Durchmesser",
                         "type": "number"
                     }
@@ -4875,7 +4890,7 @@
             "required": [
             ]
         },
-        "measurement_type_mid_sample":{
+        "measurement_type_mid_sample": {
             "title": "Mittendurchmesser-Stichprobe",
             "type": "object",
             "properties": {
@@ -4888,14 +4903,14 @@
                     "$ref": "#/definitions/date_time"
                 },
                 "estimate": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Holzart/Qualität",
                     "minItems": 1,
                     "items": {
                         "title": "Holzart/Qualität",
                         "type": "object",
                         "properties": {
-                            "species_quality": { 
+                            "species_quality": {
                                 "title": "Anteil",
                                 "description": "Anteil der Kombination von Holzart und Qualität in %",
                                 "type": "number"
@@ -4905,7 +4920,7 @@
                                 "title": "Holzart",
                                 "description": "Angabe zur Holzart"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             }
                         },
@@ -4914,11 +4929,11 @@
                         ]
                     }
                 },
-                "count": { 
+                "count": {
                     "title": "Stückzahl",
                     "type": "number"
                 },
-                "sort_length": { 
+                "sort_length": {
                     "title": "Sortenlänge",
                     "type": "number"
                 },
@@ -4926,14 +4941,14 @@
                     "title": "Stichprobe",
                     "type": "array",
                     "minItems": 1,
-                    "items":{
+                    "items": {
                         "title": "Durchmesser",
                         "type": "number"
                     }
                 }
             }
         },
-        "measurement_type_sectional":{
+        "measurement_type_sectional": {
             "title": "Mittendurchmesser-Stichprobe",
             "type": "object",
             "properties": {
@@ -4946,14 +4961,14 @@
                     "$ref": "#/definitions/date_time"
                 },
                 "estimate": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Holzart/Qualität",
                     "minItems": 1,
                     "items": {
                         "title": "Holzart/Qualität",
                         "type": "object",
                         "properties": {
-                            "species_quality": { 
+                            "species_quality": {
                                 "title": "Anteil",
                                 "description": "Anteil der Kombination von Holzart und Qualität in %",
                                 "type": "number"
@@ -4963,10 +4978,10 @@
                                 "title": "Holzart",
                                 "description": "Angabe zur Holzart"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             },
-                            "conversion_factor_qm":{
+                            "conversion_factor_qm": {
                                 "$ref": "#/definitions/conversion_factor_qm"
                             }
                         },
@@ -4976,11 +4991,11 @@
                         ]
                     }
                 },
-                "count": { 
+                "count": {
                     "title": "Stückzahl",
                     "type": "integer"
                 },
-                "sort_length": { 
+                "sort_length": {
                     "title": "Sortenlänge",
                     "type": "number"
                 },
@@ -4988,7 +5003,7 @@
                     "title": "Sektionen",
                     "type": "array",
                     "minItems": 1,
-                    "items":{
+                    "items": {
                         "title": "Sektionshöhe",
                         "type": "number"
                     }
@@ -5016,11 +5031,11 @@
             },
             "type": "string"
         },
-        "measurement_type_photo_optical":{
+        "measurement_type_photo_optical": {
             "title": "Foto-Optische-Vermessung",
             "type": "object",
             "properties": {
-                "measuring_technique_photo_optical":{
+                "measuring_technique_photo_optical": {
                     "title": "Messtechnik",
                     "$ref": "#/definitions/measuring_technique_photo_optical",
                     "type": "string"
@@ -5038,14 +5053,14 @@
                     "$ref": "#/definitions/calibration"
                 },
                 "estimate": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Holzart/Qualität",
                     "minItems": 1,
                     "items": {
                         "title": "Holzart/Qualität",
                         "type": "object",
                         "properties": {
-                            "species_quality": { 
+                            "species_quality": {
                                 "title": "Anteil",
                                 "description": "Anteil der Kombination von Holzart und Qualität in %",
                                 "type": "number"
@@ -5055,10 +5070,10 @@
                                 "title": "Holzart",
                                 "description": "Angabe zur Holzart"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             },
-                            "conversion_factor_qm":{
+                            "conversion_factor_qm": {
                                 "$ref": "#/definitions/conversion_factor_qm"
                             }
                         },
@@ -5068,11 +5083,11 @@
                         ]
                     }
                 },
-                "count": { 
+                "count": {
                     "title": "Stückzahl",
                     "type": "integer"
                 },
-                "sort_length": { 
+                "sort_length": {
                     "title": "Sortenlänge",
                     "type": "number"
                 },
@@ -5093,7 +5108,7 @@
                 "sort_length"
             ]
         },
-        "measurement_type_harvester":{
+        "measurement_type_harvester": {
             "title": "Harvester-Maß",
             "type": "object",
             "properties": {
@@ -5106,20 +5121,20 @@
                     "$ref": "#/definitions/date_time"
                 },
                 "log": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Stamm",
                     "minItems": 1,
                     "items": {
                         "title": "Stamm",
                         "type": "object",
                         "properties": {
-                            "stam_id": { 
+                            "stam_id": {
                                 "title": "Stammnummer",
-                                "type": "string" 
+                                "type": "string"
                             },
-                            "operator":{
+                            "operator": {
                                 "title": "Vermesser",
-                                "default":"machine",
+                                "default": "machine",
                                 "type": "string",
                                 "enum": [
                                     "machine",
@@ -5141,12 +5156,12 @@
                             },
                             "stem_length": {
                                 "title": "Stammlänge",
-                                "type": "number" 
+                                "type": "number"
                             },
                             "diameter_length": {
                                 "$ref": "#/definitions/diameter_length"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             }
                         },
@@ -5159,7 +5174,7 @@
                 }
             }
         },
-        "measurement_type_crane":{
+        "measurement_type_crane": {
             "title": "Kran-Vermessung",
             "type": "object",
             "properties": {
@@ -5172,7 +5187,7 @@
                     "$ref": "#/definitions/date_time"
                 },
                 "sample": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Stichproben",
                     "minItems": 1,
                     "items": {
@@ -5193,17 +5208,17 @@
                                 "title": "Stamm",
                                 "type": "array",
                                 "minItems": 1,
-                                "items":{
+                                "items": {
                                     "title": "Stamm",
                                     "properties": {
                                         "stem_length": {
                                             "title": "Stammlänge",
-                                            "type": "number" 
+                                            "type": "number"
                                         },
                                         "diameter_length": {
                                             "$ref": "#/definitions/diameter_length"
                                         },
-                                        "quality_definition":{
+                                        "quality_definition": {
                                             "$ref": "#/definitions/quality_definition"
                                         }
                                     }
@@ -5242,11 +5257,11 @@
             },
             "type": "string"
         },
-        "measurement_type_single_log_industrie":{
+        "measurement_type_single_log_industrie": {
             "title": "Einzelstammvermessung",
             "type": "object",
             "properties": {
-                "measuring_technique_single_log_industrie":{
+                "measuring_technique_single_log_industrie": {
                     "title": "Messtechnik",
                     "$ref": "#/definitions/measuring_technique_single_log_industrie",
                     "type": "string"
@@ -5269,16 +5284,16 @@
                     "$ref": "#/definitions/calibration"
                 },
                 "log_industrie": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Stamm",
                     "minItems": 1,
                     "items": {
                         "title": "Stamm",
                         "type": "object",
                         "properties": {
-                            "stam_id": { 
+                            "stam_id": {
                                 "title": "Stammnummer",
-                                "type": "string" 
+                                "type": "string"
                             },
                             "species": {
                                 "$ref": "#/definitions/species",
@@ -5330,7 +5345,7 @@
                                 "title": "Stammfußdurchmesser",
                                 "description": "Durchmesser des dicken Stammendes"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             },
                             "shrinking": {
@@ -5387,12 +5402,12 @@
                     }
                 }
             },
-            "required":[
+            "required": [
                 "measurement_id",
                 "measurement_datetime"
             ]
         },
-        "measurement_type_gravimetric":{
+        "measurement_type_gravimetric": {
             "title": "Gravimetrische-Vermessung",
             "type": "object",
             "properties": {
@@ -5407,14 +5422,14 @@
                 "calibration": {
                     "title": "Geeichte Geräte",
                     "type": "array",
-                    "items":{
+                    "items": {
                         "title": "Geeichtes Gerät",
                         "type": "object",
                         "$ref": "#/definitions/calibration"
                     }
                 },
                 "sample": {
-                    "type":"array",
+                    "type": "array",
                     "title": "Messungen",
                     "minItems": 1,
                     "items": {
@@ -5436,7 +5451,7 @@
                                 "title": "Gewicht",
                                 "description": "Gemessenes Gewicht in Tonnen"
                             },
-                            "quality_definition":{
+                            "quality_definition": {
                                 "$ref": "#/definitions/quality_definition"
                             }
                         },
@@ -5458,7 +5473,7 @@
                 "sample"
             ]
         },
-        "route_definition":{
+        "route_definition": {
             "properties": {
                 "crs": {
                     "$ref": "#/definitions/crs"
@@ -5467,16 +5482,16 @@
                     "type": "array",
                     "minItems": 2,
                     "description": "Strecke auf der Karte",
-                    "items":{
-                        "$ref": "#/definitions/lon_lat" 
+                    "items": {
+                        "$ref": "#/definitions/lon_lat"
                     }
                 }
             },
-            "required":["route"]
+            "required": [ "route" ]
         },
         "lon_lat": {
             "title": "Koordinatenpaar",
-            "description":"Longitude, Latitude",
+            "description": "Longitude, Latitude",
             "type": "object",
             "properties": {
                 "longitude": {

@@ -1,22 +1,19 @@
 # eldat-schema
-.eldat is the data standard for communication between the partners in the wood supply chain. 
+[.eldat](https://eldatstandard.de/) is the data standard for communication between the partners in the wood supply chain. 
 
-.eldat files are basically [`JSON`](https://www.json.org/json-de.html) files that have been created according to a given pattern.
-This pattern is defined by following files:
+.eldat files are basically [JSON](https://www.json.org/json-de.html) files that have been created according to a given data format.
 
-## usage
-There are [implementations](https://json-schema.org/implementations.html) for common languages. These implementations make it easy to validate a .eldat document against the corresponding schema.
+This data format is defined by a [JSON Schema](https://json-schema.org), the `schema_de.json` file, that allows you to validate your .eldat documents.
 
-### validate .eldat files
-1. read .eldat file as `string`
-2. check if `string` is valid `JSON` and [parse](https://www.json.org/json-de.html)
-3. validate `JSON` against `schema_envelope.json` to ensure version-code exists and is valid
-4. read `document.meta.version.code` from `JSON`
-5. download or select corresponding .eldat-Schema Version from this repository (branch)
-6. validate `JSON` against `schema.json` or `schema_de.json`
+## Usage
+There are [implementations](https://json-schema.org/implementations.html) for common languages.
 
-## about the files
-Schema files follow the [JSON-Schema](https://json-schema.org/) syntax. For working with `.eldat` files you need at least `schema.json` or  `schema_de.json` and `schema_envelope.json`.
+These implementations make it easy to validate a .eldat 1.0.3 document against the provided schema.
 
-### schema_de.json
-The complete schema with German titles and descriptions.
+For working with `.eldat` files you only need the `schema_de.json` file which contains the complete .eldat 1.0.3 data format definition with German titles and descriptions.
+
+### How to validate .eldat 1.0.3 files
+1. Read your .eldat file as a `string`
+2. Check if this `string` is a valid `JSON` string by [parsing](https://www.json.org/json-de.html) it with your chosen JSON library
+3. Validate your `JSON` against the provided `schema_de.json` to ensure that it corresponds to a valid eldat 1.0.3 document
+
