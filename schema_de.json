@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/kwf-ev/eldat-schema/1.0.3/schema_de.json",
     "title": ".eldat schema 1.0.3",
     "description": ".eldat data standard for communication between the partners in the wood supply chain.",
@@ -1896,134 +1896,126 @@
             ],
             "options": {
                 "enum_titles": [
-                    "Keine",
-                    "Nadelholz",
-                    "Fichte",
-                    "Gemeine Fichte",
-                    "Omorikafichte",
-                    "Sitkafichte",
-                    "Schwarzfichte",
-                    "Engelmannsfichte",
-                    "Blaufichte, Stechfichte",
-                    "Weißfichte",
-                    "Sonstige Fichten",
-                    "Kiefer",
-                    "Gemeine Kiefer",
-                    "Bergkiefer",
-                    "Schwarzkiefer",
-                    "Rumelische Kiefer",
-                    "Zirbelkiefer",
-                    "Weymouthskiefer",
-                    "Murraykiefer",
-                    "Gelbkiefer",
-                    "Sonstige Kiefer",
-                    "Tanne",
-                    "Weißtanne",
-                    "Amerikanische Edeltanne",
-                    "Coloradotanne",
-                    "Küstentanne",
-                    "Nikkotanne",
-                    "Nordmannstanne",
-                    "Veitchtanne",
-                    "Sonstige Tannen",
-                    "Douglasie",
-                    "Lärche",
-                    "Europäische Lärche",
-                    "Japanische Lärche (+Hybrid)",
-                    "Sonstige Lärchen",
-                    "Sonstige Nadelbäume",
-                    "Lebensbaum",
-                    "Hemlockstanne",
-                    "Mammutbaum",
-                    "Eibe",
-                    "Lawsonszypresse",
-                    "Buche",
-                    "Stieleiche",
-                    "Traubeneiche",
-                    "Roteiche",
-                    "Zerreiche",
-                    "Sumpfeiche",
-                    "Eiche",
-                    "sonstige Eichen",
-                    "Esche",
-                    "Gemeine Esche",
-                    "Weißesche",
-                    "Sonstige Eschen",
-                    "Hainbuche (Weißbuche)",
-                    "Ahorn",
-                    "Bergahorn",
-                    "Spitzahorn",
-                    "Feldahorn",
-                    "Eschenblättriger Ahorn",
-                    "Silberahorn",
-                    "Sonstige Ahorne",
-                    "Linde",
-                    "Winterlinde",
-                    "Sommerlinde",
-                    "Sonstige Linden",
-                    "Robinie",
-                    "Akazie",
-                    "Ulme",
-                    "Bergulme",
-                    "Feldulme",
-                    "Flatterulme",
-                    "Sonstige Ulmen",
-                    "Rosskastanie",
-                    "Edelkastanie",
-                    "Kastanie",
-                    "Weißer Maulbeerbaum",
-                    "Nussbaum",
-                    "Walnuss",
-                    "Schwarznuss (+Hybriden)",
-                    "Sonstige Nussbäume",
-                    "Stechpalme",
-                    "Platane",
-                    "Ahornblättrige Platane",
-                    "Sonstige Laubbäume mit hoher Lebensdauer",
-                    "Gemeine Birke",
-                    "Moorbirke (+Karpatenbirke)",
-                    "Birke",
-                    "Erle",
-                    "Schwarzerle",
-                    "Weißerle, Grauerle",
-                    "Grünerle",
-                    "Sonstige Erlen",
-                    "Pappel",
-                    "Aspe, Zitterpappel",
-                    "Europäische Schwarzpappel",
-                    "Schwarzpappel Hypriden",
-                    "Graupappel (+Hybriden)",
-                    "Silberpappel, Weißpappel",
-                    "Balsampappel",
-                    "Balsampappel Hybriden",
-                    "Sonstige Pappeln",
-                    "Sorbusarten",
-                    "Sonstige Sorbusarten",
-                    "Vogelbeere",
-                    "Elsbeere",
-                    "Speierling",
-                    "Echte Mehlbeere",
-                    "Weide",
-                    "Salweide",
-                    "Kirsche",
-                    "Gewöhnliche Traubenkirsche",
-                    "Vogelkirsche",
-                    "Spätblühende Traubenkirsche",
-                    "Sonstige Kirschen",
-                    "Zwetschge",
-                    "Hickory",
-                    "Sonstige Laubbäume mit niedriger Lebensdauer",
-                    "Gemeiner Faulbaum, Pulverholz",
-                    "Wildobst (unbestimmt)",
-                    "Holzapfel, Wildapfel",
-                    "Holzbirne, Wildbirne",
-                    "Baumhasel",
-                    "Gemeiner Götterbaum",
-                    "Sonstiges Hartlaubholz",
-                    "Laubholz",
-                    "Sonstiges Weichlaubholz",
-                    "Strauch (unbestimmt)",
-                    "Mischsortiment Fichte/Tanne"
+					"Coniferales",
+					"Picea spec.",
+					"Picea abies",
+					"Picea omorika",
+					"Picea jezoensis",
+					"Picea mariana",
+					"Picea engelmannii",
+					"Picea pungens",
+					"Picea glauca",
+					"Picea spec.",
+					"Pinus spec.",
+					"Pinus sylvestris",
+					"Pinus mugo",
+					"Pinus nigra",
+					"Pinus peuce",
+					"Pinus cembra",
+					"Pinus strobus",
+					"Pinus contorta",
+					"Pinus ponderosa",
+					"Pinus spec.",
+					"Abies spec.",
+					"Abies alba",
+					"Abies procera",
+					"Abies concolor",
+					"Abies grandis",
+					"Abies homolepis",
+					"Abies nordmanniana",
+					"Abies veitchii",
+					"Abies spec.",
+					"Pseudotsuga menziesii",
+					"Larix spec.",
+					"Larix decidua",
+					"Larix kaempferi",
+					"Larix spec.",
+					"Coniferales",
+					"Thuja spec.",
+					"Tsuga spec.",
+					"Sequoioidae",
+					"Taxus baccata",
+					"Chamaecyparis lawsoniana",
+					"Fagus sylvatica",
+					"Quercus robur",
+					"Quercus petraea",
+					"Quercus rubra",
+					"Quercus cerris",
+					"Quercus palustris",
+					"Quercus spec.",
+					"Quercus spec.",
+					"Fraxinus spec.",
+					"Fraxinus excelsior",
+					"Fraxinus americana",
+					"Fraxinus spec.",
+					"Carpinus betulus",
+					"Acer spec.",
+					"Acer pseudoplatanus",
+					"Acer platanoides",
+					"Acer campestre",
+					"Acer negundo",
+					"Acer saccharinum",
+					"Acer spec.",
+					"Tilia spec.",
+					"Tilia cordata",
+					"Tilia platyphyllos",
+					"Tilia spec.",
+					"Robnia pseudoacacia",
+					"Acacieae",
+					"Ulmus spec.",
+					"Ulmus glabra",
+					"Ulmus minor",
+					"Ulmus laevis",
+					"Ulmus spec.",
+					"Aesculus hippocastanum",
+					"Castanea sativa",
+					"Castanea spec.",
+					"Morus alba",
+					"Juglans spec.",
+					"Juglans regia",
+					"Juglans x nigra",
+					"Juglans spec.",
+					"Ilex aquifolium",
+					"Platanus spec.",
+					"Platanus x hispanica",
+					"Betula pendula",
+					"Betula pubescens",
+					"Betula spec.",
+					"Alnus spec.",
+					"Alnus glutinosa",
+					"Alnus incana",
+					"Alnus alnobetula",
+					"Alnus spec.",
+					"Populus spec.",
+					"Populus tremula",
+					"Populus nigra",
+					"Populus x x canadensis",
+					"Populus x canescens",
+					"Populus alba",
+					"Populus balsamifera",
+					"Populus x balsamifera",
+					"Populus spec.",
+					"Sorbus spec.",
+					"Sorbus spec.",
+					"Sorbus aucuparia",
+					"Sorbus torminalis",
+					"Sorbus domestica",
+					"Sorbus aria",
+					"Salix spec.",
+					"Salix caprea",
+					"Prunus spec.",
+					"Prunus padus",
+					"Prunus avium",
+					"Prunus serotina",
+					"Prunus spec.",
+					"Prunus domestica subsp. Domestica",
+					"Carya spec.",
+					"Rhamnus frangula",
+					"Malus sylvestris",
+					"Pyrus pyraster",
+					"Corylus colurna",
+					"Ailanthus altissima",
+					"Picea / Abies"
                 ]
             },
             "type": "string"
@@ -2524,7 +2516,6 @@
             "type": "string",
             "maxLength": 255
         },
-
         "status_arr": {
             "title": "Status",
             "type": "array",
@@ -3160,11 +3151,22 @@
                         "$ref": "#/definitions/string255",
                         "title": "Bemerkungen",
                         "description": "Freie Texteingaben zum Transportmittel"
-                    }
+                    },
+					"EUDR_DDS_JSON": {
+						"$ref": "#/definitions/EUDR_DDS_JSON",
+                        "title": "EUDR-Referenz",
+                        "description": ""
+					},
+					"carbon_balance": {
+						"$ref": "#/definitions/carbon_balance",
+                        "title": "CO2-Bilanz",
+                        "description": ""
+					}
                 },
                 "required": [
                     "haul_means_no",
-                    "amount"
+                    "amount",
+					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -3281,12 +3283,18 @@
                         "$ref": "#/definitions/other_file",
                         "title": "Dateianhang",
                         "description": ""
-                    }
+                    },
+					"EUDR_DDS_JSON": {
+						"$ref": "#/definitions/EUDR_DDS_JSON",
+                        "title": "EUDR-Referenz",
+                        "description": ""
+					}
                 },
                 "required": [
                     "wood_id",
                     "product_data",
-                    "coordinate"
+                    "coordinate",
+					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -4388,11 +4396,22 @@
                         "$ref": "#/definitions/product_pile",
                         "title": "Polter",
                         "description": ""
-                    }
+                    },
+					"EUDR_DDS_JSON": {
+						"$ref": "#/definitions/EUDR_DDS_JSON",
+                        "title": "EUDR-Referenz",
+                        "description": ""
+					},
+					"carbon_footprint": {
+						"$ref": "#/definitions/carbon_footprint",
+                        "title": "CO2-Fußabdruck",
+                        "description": ""
+					}
                 },
                 "required": [
                     "wood_id",
-                    "product_data"
+                    "product_data",
+					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -5489,6 +5508,75 @@
             },
             "required": [ "route" ]
         },
+		"EUDR_DDS_JSON": {
+			"type": "array",
+            "items": {
+                "title": "EUDR-Referenzen",
+                "type": "object",
+                "properties": {
+                    "EUDR_DDS_Referenznummer": {
+                        "$ref": "#/definitions/string40",
+                        "title": "EUDR_DDS_Referenznummer",
+                        "description": "Referenznummer DDS"
+                    },
+					"EUDR_DDS_Verifizierungsnummer_1": {
+                        "$ref": "#/definitions/string40",
+                        "title": "EUDR_DDS_Verifizierungsnummer_1",
+                        "description": "verifiziert die Referenznummer DDS"
+                    },
+					"EUDR_DDS_Georeferenz": {
+                        "$ref": "https://geojson.org/schema/GeoJSON.json",
+                        "title": "EUDR_DDS_Georeferenz",
+                        "description": "Geodaten zur DDS als GeoJSON: Punkte und/oder Polygonzüge"
+                    },
+					"EUDR_DDS_URL": {
+                        "$ref": "#/definitions/string250",
+                        "title": "EUDR_DDS_URL",
+                        "description": "technisch nutzbare URL zur DDS, bspw. zur Bereitstellung von Zusatzinformationen"
+                    },
+					"EUDR_DDS_Zusatzinfo": {
+                        "$ref": "#/definitions/string250",
+                        "title": "EUDR_DDS_Zusatzinfo",
+                        "description": "zur freien Verfügung"
+                    }
+                },
+                "required": [
+                    "EUDR_DDS_Referenznummer",
+                    "EUDR_DDS_Verifizierungsnummer_1"
+                ]
+            }
+		},
+		"carbon_footprint": {
+			"title": "Carbon-Footprint",
+            "type": "object",
+            "properties": {
+                "co2_equivalents_bound_wood": {
+                    "title": "CO2_Äquivalente_gebunden_Holz",
+					"description": "Gespeicherte CO2 Äquivalente in kg/fm im bereitgestellten Holz",
+                    "type": "number",
+					"multipleOf" : 0.01
+                },
+                "co2_emmissions_wood_harvesting": {
+                    "title": "CO2_Emissionen_Holzernte",
+					"description": "Emissionen der Holzernte in CO2 Äquivalente in kg/fm",
+                    "$ref": "number",
+					"multipleOf" : 0.01
+                }
+            }
+		},
+		"carbon_balance": {
+			"title": "Carbon-Balance",
+            "type": "object",
+			"allOf": [{ "$ref": "#/definitions/carbon_footprint" }],
+            "properties": {
+				"co2_emmissions_wood_logistics": {
+                    "title": "CO2_Emissionen_Logistik",
+					"description": "Emissionen der Logistik CO2 Äquivalente in kg/fm",
+                    "type": "number",
+					"multipleOf" : 0.01
+                }
+            }
+		},
         "lon_lat": {
             "title": "Koordinatenpaar",
             "description": "Longitude, Latitude",
@@ -5531,9 +5619,17 @@
             "type": "string",
             "maxLength": 255
         },
+		"string250": {
+            "type": "string",
+            "maxLength": 250
+        },
         "string50": {
             "type": "string",
             "maxLength": 50
+        },
+		"string40": {
+            "type": "string",
+            "maxLength": 40
         },
         "string36": {
             "type": "string",
