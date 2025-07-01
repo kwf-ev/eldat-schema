@@ -3160,11 +3160,22 @@
                         "$ref": "#/definitions/string255",
                         "title": "Bemerkungen",
                         "description": "Freie Texteingaben zum Transportmittel"
-                    }
-                },
-                "required": [
-                    "haul_means_no",
-                    "amount"
+					},
+					"EUDR_DDS_JSON": {
+						"$ref": "#/definitions/EUDR_DDS_JSON",
+						"title": "EUDR-Referenz",
+						"description": ""
+					},
+					"carbon_footprint_timber_logistics": {
+						"$ref": "#/definitions/carbon_footprint_timber_logistics",
+						"title": "CO2-Bilanz",
+						"description": ""
+					}
+				},
+				"required": [
+					"haul_means_no",
+					"amount",
+					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -3281,12 +3292,18 @@
                         "$ref": "#/definitions/other_file",
                         "title": "Dateianhang",
                         "description": ""
-                    }
-                },
-                "required": [
-                    "wood_id",
-                    "product_data",
-                    "coordinate"
+					},
+					"EUDR_DDS_JSON": {
+						"$ref": "#/definitions/EUDR_DDS_JSON",
+						"title": "EUDR-Referenz",
+						"description": ""
+					}
+				},
+				"required": [
+					"wood_id",
+					"product_data",
+					"coordinate",
+					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -4388,11 +4405,22 @@
                         "$ref": "#/definitions/product_pile",
                         "title": "Polter",
                         "description": ""
-                    }
-                },
-                "required": [
-                    "wood_id",
-                    "product_data"
+					},
+					"EUDR_DDS_JSON": {
+						"$ref": "#/definitions/EUDR_DDS_JSON",
+						"title": "EUDR-Referenz",
+						"description": ""
+					},
+					"carbon_footprint_timber_harvest": {
+						"$ref": "#/definitions/carbon_footprint_timber_harvest",
+						"title": "CO2-Fußabdruck",
+						"description": ""
+					}
+				},
+				"required": [
+					"wood_id",
+					"product_data",
+					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -5484,10 +5512,84 @@
                     "description": "Strecke auf der Karte",
                     "items": {
                         "$ref": "#/definitions/lon_lat"
-                    }
+                        }
                 }
             },
             "required": [ "route" ]
+                ]
+		},
+		"EUDR_DDS_JSON": {
+			"type": "array",
+			"items": {
+				"title": "EUDR-Referenzen",
+				"type": "object",
+				"properties": {
+					"EUDR_DDS_Referenznummer": {
+						"$ref": "#/definitions/string40",
+						"title": "EUDR_DDS_Referenznummer",
+						"description": "Referenznummer DDS"
+					},
+					"EUDR_DDS_Verifizierungsnummer_1": {
+						"$ref": "#/definitions/string40",
+						"title": "EUDR_DDS_Verifizierungsnummer_1",
+						"description": "verifiziert die Referenznummer DDS"
+					},
+					"EUDR_DDS_Georeferenz": {
+						"$ref": "https://geojson.org/schema/GeoJSON.json",
+						"title": "EUDR_DDS_Georeferenz",
+						"description": "Geodaten zur DDS als GeoJSON: Punkte und/oder Polygonzüge"
+					},
+					"EUDR_DDS_URL": {
+						"$ref": "#/definitions/string250",
+						"title": "EUDR_DDS_URL",
+						"description": "technisch nutzbare URL zur DDS, bspw. zur Bereitstellung von Zusatzinformationen"
+					},
+					"EUDR_DDS_Zusatzinfo": {
+						"$ref": "#/definitions/string250",
+						"title": "EUDR_DDS_Zusatzinfo",
+						"description": "zur freien Verfügung"
+					}
+				},
+				"required": [
+					"EUDR_DDS_Referenznummer",
+					"EUDR_DDS_Verifizierungsnummer_1"
+				]
+			}
+		},
+		"carbon_footprint_timber_harvest": {
+			"title": "Carbon footprint timber harvest",
+			"type": "object",
+			"properties": {
+				"co2_equivalents_bound_wood": {
+					"title": "CO2 Äquivalente im Holz",
+					"description": "Gespeicherte CO2 Äquivalente in kg/fm im bereitgestellten Holz",
+					"type": "number",
+					"multipleOf": 0.01
+				},
+				"co2_footprint_timber_harvest": {
+					"title": "CO2 Äquivalente der Emissionen durch die Holzernte",
+					"description": "Emissionen der Holzernte in CO2 Äquivalente in kg/fm",
+					"$ref": "number",
+					"multipleOf": 0.01
+				}
+			}
+		},
+		"carbon_footprint_timber_logistics": {
+			"title": "Carbon footprint timber logistics",
+			"type": "object",
+			"allOf": [
+				{
+					"$ref": "#/definitions/carbon_footprint_timber_harvest"
+				}
+			],
+			"properties": {
+				"co2_footprint_timber_logistics": {
+					"title": "CO2 Äquivalente der Emissionen durch die Holzlogistik selbst",
+					"description": "Emissionen der Logistik CO2 Äquivalente in kg/fm",
+					"type": "number",
+					"multipleOf": 0.01
+                    }
+                }
         },
         "lon_lat": {
             "title": "Koordinatenpaar",
