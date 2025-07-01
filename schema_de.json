@@ -3272,22 +3272,11 @@
                         "$ref": "#/definitions/haul_text",
                         "title": "Bemerkungen",
                         "description": "Freie Texteingaben zum Transportmittel"
-					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
-					},
-					"carbon_footprint_timber_logistics": {
-						"$ref": "#/definitions/carbon_footprint_timber_logistics",
-						"title": "CO2-Bilanz",
-						"description": ""
-					}
 				},
 				"required": [
 					"haul_means_no",
 					"amount",
-					"EUDR_DDS_JSON"
+					
                 ]
             },
             "properties": {},
@@ -3421,18 +3410,6 @@
                         "$ref": "#/definitions/other_file",
                         "title": "Dateianhang",
                         "description": ""
-					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
-					}
-				},
-				"required": [
-					"wood_id",
-					"product_data",
-					"coordinate",
-					"EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -5333,16 +5310,7 @@
                         "$ref": "#/definitions/allocated_wood",
                         "title": "Polterdaten",
                         "description": ""
-					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
-					},
-					"carbon_footprint_timber_harvest": {
-						"$ref": "#/definitions/carbon_footprint_timber_harvest",
-						"title": "CO2-Fußabdruck",
-						"description": ""
+					
                     }
                 },
                 "required": [
@@ -5350,7 +5318,6 @@
                     "measurement_method",
                     "felling_date",
                     "allocated_wood"
-                    "EUDR_DDS_JSON"
                 ]
             },
             "properties": {},
@@ -5415,16 +5382,6 @@
                         "$ref": "#/definitions/coordinate",
                         "title": "Koordinaten",
                         "description": ""
-					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
-					},
-					"carbon_footprint_timber_harvest": {
-						"$ref": "#/definitions/carbon_footprint_timber_harvest",
-						"title": "CO2-Fußabdruck",
-						"description": ""
                     },
                     "other_file": {
                         "$ref": "#/definitions/other_file",
@@ -5437,7 +5394,7 @@
                     "product_data",
                     "conversion_factor",
                     "coordinate"
-                    "EUDR_DDS_JSON"
+             
                     
                 ]
             },
