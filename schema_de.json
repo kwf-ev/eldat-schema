@@ -5604,7 +5604,7 @@
 				"co2_footprint_timber_harvest": {
 					"title": "CO2 Äquivalente der Emissionen durch die Holzernte",
 					"description": "Emissionen der Holzernte in CO2 Äquivalente in kg/fm",
-					"$ref": "number",
+					"type": "number",
 					"multipleOf": 0.01
 				}
 			}
