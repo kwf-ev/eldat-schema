@@ -6,7 +6,7 @@
 This data format is defined by a [JSON Schema](https://json-schema.org), the `schema_de.json` file, that allows you to validate your .eldat documents.
 
 ## Usage
-There are [implementations](https://json-schema.org/implementations.html) for common languages.
+There are [implementations](https://json-schema.org/tools) for common languages.
 
 These implementations make it easy to validate a .eldat 1.0.4 document against the provided schema.
 
