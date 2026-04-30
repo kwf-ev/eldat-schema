@@ -3272,11 +3272,11 @@
                         "$ref": "#/definitions/haul_text",
                         "title": "Bemerkungen",
                         "description": "Freie Texteingaben zum Transportmittel"
+					}
 				},
 				"required": [
 					"haul_means_no",
-					"amount",
-					
+					"amount"	
                 ]
             },
             "properties": {},
@@ -3410,6 +3410,12 @@
                         "$ref": "#/definitions/other_file",
                         "title": "Dateianhang",
                         "description": ""
+					}
+				},
+				"required": [
+					"wood_id",
+					"product_data",
+					"coordinate"
                 ]
             },
             "properties": {},
@@ -5310,7 +5316,6 @@
                         "$ref": "#/definitions/allocated_wood",
                         "title": "Polterdaten",
                         "description": ""
-					
                     }
                 },
                 "required": [
@@ -5394,8 +5399,6 @@
                     "product_data",
                     "conversion_factor",
                     "coordinate"
-             
-                    
                 ]
             },
             "properties": {},
