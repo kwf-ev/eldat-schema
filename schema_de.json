@@ -55,7 +55,8 @@
                         "clearing": {
                             "$ref": "#/definitions/clearing"
                         }
-                    }
+                    },
+                    "required": ["clearing"]
                 },
                 {
                     "title": "Lieferschein",
@@ -64,7 +65,8 @@
                         "delivery_note": {
                             "$ref": "#/definitions/delivery_note"
                         }
-                    }
+                    },
+                    "required": ["delivery_note"]
                 },
                 {
                     "title": "Messprotokoll",
@@ -73,7 +75,8 @@
                         "measurement_journal": {
                             "$ref": "#/definitions/measurement_journal"
                         }
-                    }
+                    },
+                    "required": ["measurement_journal"]
                 },
                 {
                     "title": "Transportauftrag",
@@ -82,7 +85,8 @@
                         "transfer_order": {
                             "$ref": "#/definitions/transfer_order"
                         }
-                    }
+                    },
+                    "required": ["transfer_order"]
                 },
                 {
                     "title": "Holzbereitstellung",
@@ -91,11 +95,10 @@
                         "wood_allocation": {
                             "$ref": "#/definitions/wood_allocation"
                         }
-                    }
+                    },
+                    "required": ["wood_allocation"]
                 }
-            ],
-            "additionalProperties": false,
-            "properties": {}
+            ]
         },
         "clearing": {
             "type": "object",
