@@ -3381,7 +3381,7 @@
                     }
                 },
                 "required": [
-                    "quality",
+                    "wood_id",
                     "grade",
                     "use",
                     "amount",
