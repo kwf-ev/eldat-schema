@@ -3169,10 +3169,10 @@
 						"title": "Bemerkungen",
 						"description": "Freie Texteingaben zum Transportmittel"
 					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
+					"eudr_dds_json": {
+						"$ref": "#/definitions/eudr_dds_json",
+						"title": "EUDR-DDS-Referenz",
+						"description": "EUDR Due Diligence Statements (DDS)"
 					},
 					"carbon_footprint_timber_logistics": {
 						"$ref": "#/definitions/carbon_footprint_timber_logistics",
@@ -3183,7 +3183,7 @@
 				"required": [
 					"haul_means_no",
 					"amount",
-					"EUDR_DDS_JSON"
+					"eudr_dds_json"
 				]
 			},
 			"properties": {},
@@ -3301,17 +3301,17 @@
 						"title": "Dateianhang",
 						"description": ""
 					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
+					"eudr_dds_json": {
+						"$ref": "#/definitions/eudr_dds_json",
+						"title": "EUDR-DDS-Referenz",
+						"description": "EUDR Due Diligence Statements (DDS)"
 					}
 				},
 				"required": [
 					"wood_id",
 					"product_data",
 					"coordinate",
-					"EUDR_DDS_JSON"
+					"eudr_dds_json"
 				]
 			},
 			"properties": {},
@@ -4414,10 +4414,10 @@
 						"title": "Polter",
 						"description": ""
 					},
-					"EUDR_DDS_JSON": {
-						"$ref": "#/definitions/EUDR_DDS_JSON",
-						"title": "EUDR-Referenz",
-						"description": ""
+					"eudr_dds_json": {
+						"$ref": "#/definitions/eudr_dds_json",
+						"title": "EUDR-DDS-Referenz",
+						"description": "EUDR Due Diligence Statements (DDS)"
 					},
 					"carbon_footprint_timber_harvest": {
 						"$ref": "#/definitions/carbon_footprint_timber_harvest",
@@ -4428,7 +4428,7 @@
 				"required": [
 					"wood_id",
 					"product_data",
-					"EUDR_DDS_JSON"
+					"eudr_dds_json"
 				]
 			},
 			"properties": {},
@@ -5553,41 +5553,42 @@
 				"route"
 			]
 		},
-		"EUDR_DDS_JSON": {
+		"eudr_dds_json": {
 			"type": "array",
 			"items": {
-				"title": "EUDR-Referenzen",
+				"title": "EUDR-DDS-Referenzen",
+				"description": "Referenzen zu EUDR Due Diligence Statements (DDS).",
 				"type": "object",
 				"properties": {
-					"EUDR_DDS_Referenznummer": {
+					"eudr_dds_reference_number": {
 						"$ref": "#/definitions/string40",
-						"title": "EUDR_DDS_Referenznummer",
+						"title": "EUDR-DDS-Referenznummer",
 						"description": "Referenznummer DDS"
 					},
-					"EUDR_DDS_Verifizierungsnummer_1": {
+					"eudr_dds_verification_number": {
 						"$ref": "#/definitions/string40",
-						"title": "EUDR_DDS_Verifizierungsnummer_1",
+						"title": "EUDR-DDS-Verifizierungsnummer",
 						"description": "verifiziert die Referenznummer DDS"
 					},
-					"EUDR_DDS_Georeferenz": {
+					"eudr_dds_georeference": {
 						"$ref": "https://geojson.org/schema/GeoJSON.json",
-						"title": "EUDR_DDS_Georeferenz",
+						"title": "EUDR-DDS-Georeferenz",
 						"description": "Geodaten zur DDS als GeoJSON: Punkte und/oder Polygonzüge"
 					},
-					"EUDR_DDS_URL": {
+					"eudr_dds_url": {
 						"$ref": "#/definitions/string250",
-						"title": "EUDR_DDS_URL",
+						"title": "EUDR-DDS-URL",
 						"description": "technisch nutzbare URL zur DDS, bspw. zur Bereitstellung von Zusatzinformationen"
 					},
-					"EUDR_DDS_Zusatzinfo": {
+					"eudr_dds_additional_info": {
 						"$ref": "#/definitions/string250",
-						"title": "EUDR_DDS_Zusatzinfo",
+						"title": "EUDR-DDS-Zusatzinfo",
 						"description": "zur freien Verfügung"
 					}
 				},
 				"required": [
-					"EUDR_DDS_Referenznummer",
-					"EUDR_DDS_Verifizierungsnummer_1"
+					"eudr_dds_reference_number",
+					"eudr_dds_verification_number"
 				]
 			}
 		},
